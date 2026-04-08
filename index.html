@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Iconic Bollywood dialogues on your lock screen, updated automatically every morning. Works on iPhone and Android.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="KJo-fy — Bollywood on your Lock Screen">
+<meta property="og:description" content="Iconic Bollywood dialogues on your lock screen, updated automatically every morning.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kjo-fy.in">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KJo-fy — Bollywood on your Lock Screen">
+<meta name="twitter:description" content="Iconic Bollywood dialogues on your lock screen, updated every morning.">
+<!-- Security headers -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com;
+  img-src 'self' data:;
+  connect-src 'self';
+  frame-ancestors 'none';
+  object-src 'none';
+  base-uri 'self';
+">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<title>KJo-fy — Bollywood on your Lock Screen</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230C0C0C'/%3E%3Ctext x='32' y='38' font-family='Georgia%2C serif' font-size='22' font-weight='700' text-anchor='middle' fill='%23F5F5F5'%3EK%3C/text%3E%3Ccircle cx='32' cy='32' r='30' fill='none' stroke='%23E8B849' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  :root {
+    --bg: #0C0C0C;
+    --bg-card: #141414;
+    --bg-card-hover: #1A1A1A;
+    --bg-elevated: #1E1E1E;
+    --border: #222222;
+    --border-hover: #333333;
+    --text-primary: #F5F5F5;
+    --text-secondary: #999999;
+    --text-tertiary: #666666;
+    --accent: #E8B849;
+    --accent-dim: #C9A243;
+    --accent-glow: rgba(232,184,73,0.08);
+    --green: #3ECF71;
+    --red: #E63946;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(12,12,12,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+  }
+  nav.scrolled {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    background: rgba(12,12,12,0.95);
+  }
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+  }
+  .nav-logo .logo-kjo { color: var(--text-primary); }
+  .nav-logo .logo-fy { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 0.8rem; color: var(--text-secondary);
+    text-decoration: none; font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* Hamburger menu for mobile */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-secondary); margin: 4px 0; transition: all 0.3s ease; border-radius: 2px; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 120px 24px 40px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(232,184,73,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .hero-badge {
+    display: none;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; } 50% { opacity:0.4; }
+  }
+  .hero h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2.6rem, 9vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 4vw, 1.25rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.55;
+    max-width: 520px;
+    margin: 0;
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ─── WALLPAPER CARD ─── */
+  .wallpaper-section {
+    margin-bottom: 48px;
+  }
+  .section-label {
+    display: none;
+  }
+
+  .wallpaper-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    position: relative;
+    overflow: visible;
+    text-align: center;
+  }
+  .wallpaper-card::before { display: none; }
+  .wallpaper-card.selected {
+    border: none;
+    box-shadow: none;
+  }
+
+  .card-title { display: none; }
+  .card-subtitle { display: none; }
+
+  .card-phone {
+    position: relative;
+    z-index: 1;
+  }
+  .phone-mockup {
+    width: 220px;
+    aspect-ratio: 9/19.5;
+    background: transparent;
+    border-radius: 28px;
+    border: none;
+    overflow: hidden;
+    position: relative;
+    box-shadow: none;
+  }
+  .phone-mockup .notch {
+    display: none;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    position: relative;
+    transition: opacity 0.4s ease, background 0.6s ease;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .phone-screen .quote-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.975rem;
+    text-align: center;
+    line-height: 1.3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    margin-top: 10px;
+  }
+  .phone-screen .quote-movie {
+    display: none;
+  }
+  .phone-screen .brand-mark {
+    position: absolute;
+    bottom: 10px;
+    font-size: 0.32rem;
+    opacity: 0.2;
+    letter-spacing: 0.05em;
+  }
+
+  .lock-screen-info {
+    position: relative;
+    top: 0;
+    left: 0; right: 0;
+    text-align: center;
+    z-index: 2;
+    padding-top: 22px;
+  }
+  .lock-time {
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: #fff;
+  }
+  .lock-daydate {
+    font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #fff;
+    opacity: 0.85;
+    margin-top: 3px;
+  }
+
+  /* Palette previews */
+  .palette-maroon .phone-screen { background: linear-gradient(160deg, #800000, #320000); }
+  .palette-maroon .quote-text { color: #FFD700; }
+  .palette-maroon .quote-movie { color: #C9A84C; }
+  .palette-maroon .brand-mark { color: #C9A84C; }
+
+  /* ─── CONFIG PANEL ─── */
+  .config-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.4s ease;
+  }
+  .config-panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .config-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .config-header h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+  .step-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(232,184,73,0.15);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .config-body {
+    padding: 24px;
+  }
+
+  .device-picker {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    border: 1px solid var(--border);
+  }
+  .device-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-tertiary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .device-btn:hover {
+    color: var(--text-secondary);
+    background: rgba(30,30,30,0.5);
+  }
+  .device-btn.active {
+    background: var(--bg-elevated);
+    color: var(--accent);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+  .device-btn:active { transform: scale(0.97); }
+  .device-btn svg {
+    opacity: 0.7;
+  }
+  .device-btn.active svg {
+    opacity: 1;
+    stroke: var(--accent);
+  }
+
+  .config-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .field-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+  }
+  .field-group select,
+  .field-group input {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  .field-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  .field-group select:focus,
+  .field-group input:focus {
+    border-color: var(--accent-dim);
+  }
+  .field-group select option {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+  }
+
+  /* ─── SEED PILLS ─── */
+  .seed-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .seed-pill {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(232,184,73,0.15);
+    border-radius: 100px;
+    padding: 4px 12px;
+    letter-spacing: 0.01em;
+  }
+
+  /* ─── URL OUTPUT ─── */
+  .url-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.4s ease 0.1s;
+  }
+  .url-section.visible { opacity:1; transform: translateY(0); }
+
+  .url-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .url-header h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+
+  .url-body { padding: 24px; }
+
+  .url-box {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .url-text {
+    flex: 1;
+    padding: 12px 16px;
+    font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: all;
+  }
+  .url-copy-btn {
+    padding: 12px 20px;
+    background: var(--accent);
+    border: none;
+    color: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .url-copy-btn:hover { background: #f0c656; box-shadow: 0 0 20px rgba(232,184,73,0.3); }
+  .url-copy-btn:active { transform: scale(0.97); }
+  .url-copy-btn.copied {
+    background: var(--green);
+    box-shadow: 0 0 20px rgba(62,207,113,0.3);
+  }
+
+  .url-note {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+  }
+
+  /* ─── INSTALL STEPS ─── */
+  .install-section {
+    margin-bottom: 48px;
+    opacity: 0; transform: translateY(12px);
+    transition: all 0.4s ease 0.2s;
+  }
+  .install-section.visible { opacity:1; transform: translateY(0); }
+
+  .install-steps {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .install-step {
+    background: var(--bg-card);
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: start;
+    border-left: 3px solid transparent;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .install-step:hover {
+    border-left-color: var(--accent);
+    background: var(--bg-card-hover);
+  }
+  .step-num {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.25s ease;
+  }
+  .install-step:hover .step-num {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+  .step-content h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .step-content p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .step-content code {
+    display: inline;
+    padding: 2px 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+  }
+
+  /* ─── PREVIEW SECTION ─── */
+  .preview-grid-section {
+    margin-bottom: 48px;
+  }
+  .preview-scroll-wrapper {
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .preview-scroll {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+  .preview-scroll:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .preview-scroll::-webkit-scrollbar { display: none; }
+
+  .preview-mini {
+    flex-shrink: 0;
+    width: 130px;
+    aspect-ratio: 9/19.5;
+    border-radius: 16px;
+    border: 2px solid var(--border);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    cursor: default;
+  }
+  .preview-mini:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 0 20px rgba(232,184,73,0.05);
+  }
+  .preview-mini .pq {
+    font-weight: 700;
+    font-size: 0.55rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .preview-mini .pm {
+    font-size: 0.35rem;
+    opacity: 0.4;
+    margin-top: 4px;
+  }
+
+  .p1 { background: linear-gradient(160deg, #800000, #320000); }
+  .p1 .pq { color: #FFD700; } .p1 .pm { color: #C9A84C; }
+  .p2 { background: linear-gradient(160deg, #0A0F3C, #05051E); }
+  .p2 .pq { color: #FFD764; } .p2 .pm { color: #C8AA50; }
+  .p3 { background: linear-gradient(160deg, #C85014, #78200A); }
+  .p3 .pq { color: #FFFFF0; } .p3 .pm { color: #FFC864; }
+  .p4 { background: linear-gradient(160deg, #141414, #050505); }
+  .p4 .pq { color: #FFD700; } .p4 .pm { color: #B49632; }
+  .p5 { background: linear-gradient(160deg, #3C0A50, #1E0532); }
+  .p5 .pq { color: #FFB4DC; } .p5 .pm { color: #C864A0; }
+  .p6 { background: linear-gradient(160deg, #005050, #002832); }
+  .p6 .pq { color: #FFDC78; } .p6 .pm { color: #C8B450; }
+  .p7 { background: linear-gradient(160deg, #0A3C1E, #051E0F); }
+  .p7 .pq { color: #FFD764; } .p7 .pm { color: #C8B450; }
+  .p8 { background: linear-gradient(160deg, #2D2826, #141210); }
+  .p8 .pq { color: #FFBF00; } .p8 .pm { color: #C89632; }
+  .p9 { background: linear-gradient(160deg, #1A0A00, #3D1A00); }
+  .p9 .pq { color: #FF9F4A; } .p9 .pm { color: #C87832; }
+  .p10 { background: linear-gradient(160deg, #00143C, #001E5A); }
+  .p10 .pq { color: #78C8FF; } .p10 .pm { color: #4896C8; }
+  .p11 { background: linear-gradient(160deg, #1E0014, #3C0028); }
+  .p11 .pq { color: #FF78B4; } .p11 .pm { color: #C85078; }
+  .p12 { background: linear-gradient(160deg, #0A1400, #1E3200); }
+  .p12 .pq { color: #A0E050; } .p12 .pm { color: #6AAA28; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 24px 32px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .footer-logo .logo-kjo { color: var(--text-primary); }
+  .footer-logo .logo-fy { color: var(--accent); }
+  .footer-tagline {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+  .footer-copy {
+    font-size: 0.65rem;
+    color: var(--text-tertiary);
+    opacity: 0.6;
+  }
+  footer p {
+    font-size: 0.72rem;
+    color: var(--text-tertiary);
+  }
+  footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+  footer a:hover { color: var(--text-primary); }
+
+  /* ─── BACK TO TOP ─── */
+  .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .back-to-top:hover {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(232,184,73,0.3);
+  }
+
+  /* ─── PAYMENT SECTION (inline) ─── */
+  .payment-section {
+    margin-bottom: 48px;
+  }
+  .payment-section.hidden { display: none; }
+  .payment-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .payment-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #f0c656, var(--accent));
+  }
+  /* Gated content hidden until paid */
+  .gated { display: none; }
+  .gated.unlocked { display: block; }
+  .payment-card h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .payment-card h2 em { font-style: normal; color: var(--accent); }
+  .payment-card .price-tag {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 16px 0 4px;
+  }
+  .payment-card .price-sub {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-bottom: 24px;
+  }
+  .payment-card .features-list {
+    text-align: left;
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+  .payment-card .features-list div {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .payment-card .features-list div::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .pay-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+  }
+  .pay-btn:hover { background: #f0c656; box-shadow: 0 0 30px rgba(232,184,73,0.3); }
+  .pay-btn:active { transform: scale(0.98); }
+  .pay-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  /* ─── LINK LOCK BADGE ─── */
+  .link-lock-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: rgba(230,57,70,0.08);
+    border: 1px solid rgba(230,57,70,0.15);
+    border-radius: 6px;
+    font-size: 0.7rem;
+    color: var(--red);
+    font-weight: 500;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    .phone-mockup { width: 200px; }
+    .install-cta { max-width: 200px; }
+    .config-row { grid-template-columns: 1fr; }
+    .preview-mini { width: 100px; border-radius: 12px; }
+    .preview-mini .pq { font-size: 0.48rem; }
+    .hero { padding: 100px 20px 36px; }
+    .hero h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
+    .hero-sub { font-size: 1rem; }
+    .main { padding: 32px 16px 60px; }
+    .config-body { padding: 16px; }
+    .config-header { padding: 16px; }
+    .url-body { padding: 16px; }
+    .url-header { padding: 16px; }
+    .install-step { padding: 16px; grid-template-columns: 36px 1fr; gap: 12px; }
+    .step-content h4 { font-size: 0.85rem; }
+    .step-content p { font-size: 0.75rem; }
+    .seed-pills { gap: 6px; }
+    .seed-pill { font-size: 0.6rem; padding: 3px 8px; }
+    .url-text { font-size: 0.68rem; padding: 10px 12px; }
+    .url-copy-btn { padding: 10px 14px; font-size: 0.72rem; }
+    .section-label { font-size: 0.65rem; }
+    .payment-card { padding: 28px 16px; }
+    .payment-card h2 { font-size: 1.3rem; }
+    .payment-card .price-tag { font-size: 1.8rem; }
+    .payment-card .features-list div { font-size: 0.75rem; }
+    footer { padding: 32px 16px 24px; }
+    .wallpaper-card { padding: 32px 20px 0; }
+    .card-title { font-size: 1.2rem; }
+    .card-subtitle { font-size: 0.85rem; margin-bottom: 24px; }
+  }
+  @media (max-width: 540px) {
+    .hamburger { display: block; }
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(12,12,12,0.97);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 16px 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      display: none;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 0.85rem; }
+    .phone-mockup { width: 180px; }
+    .install-cta { max-width: 180px; font-size: 0.85rem; padding: 12px 24px; }
+    .hero { padding: 100px 20px 30px; }
+    .hero h1 { font-size: clamp(2rem, 8.5vw, 2.6rem); margin-bottom: 16px; }
+    .hero-sub { font-size: 0.95rem; }
+    .config-header h3 { font-size: 1rem; }
+    .url-header h3 { font-size: 1rem; }
+    .device-btn { padding: 8px 10px; font-size: 0.75rem; }
+    .field-group select { font-size: 0.8rem; padding: 9px 12px; }
+    .preview-mini { width: 85px; border-radius: 10px; }
+    .preview-mini .pq { font-size: 0.42rem; }
+    .preview-mini .pm { font-size: 0.3rem; }
+    .back-to-top { width: 36px; height: 36px; bottom: 16px; right: 16px; font-size: 0.95rem; }
+  }
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 1.9rem; }
+    .phone-mockup { width: 160px; }
+    .install-cta { max-width: 160px; font-size: 0.8rem; padding: 10px 20px; }
+    .nav { padding: 12px 16px; }
+    .nav-logo { font-size: 1.1rem; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeInUp {
+    from { opacity:0; transform: translateY(16px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+  .animate { animation: fadeInUp 0.5s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; opacity:0; }
+  .delay-2 { animation-delay: 0.2s; opacity:0; }
+  .delay-3 { animation-delay: 0.3s; opacity:0; }
+  .delay-4 { animation-delay: 0.4s; opacity:0; }
+
+  /* ─── INSTALL CTA (below phone mockup) ─── */
+  .install-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    max-width: 220px;
+    margin: 20px auto 0;
+    padding: 13px 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .install-cta:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+    box-shadow: 0 4px 24px rgba(232,184,73,0.12);
+  }
+  .install-cta:active { transform: scale(0.97); }
+  .install-arrow {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+  .install-cta:hover .install-arrow {
+    transform: translateX(3px);
+  }
+
+  /* ─── ONBOARDING POPUP OVERLAY ─── */
+  .onboarding-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .onboarding-overlay.active {
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .onboarding-popup {
+    width: 92%;
+    max-width: 440px;
+    max-height: 85vh;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .onboarding-overlay.active .onboarding-popup {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .onboarding-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.2s ease;
+  }
+  .onboarding-close:hover {
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+  }
+
+  /* Progress dots */
+  .onboarding-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0 0;
+  }
+  .onboarding-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.3s ease;
+  }
+  .onboarding-dot.active {
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(232,184,73,0.4);
+  }
+  .onboarding-dot.done {
+    background: var(--green);
+  }
+
+  /* Step pages */
+  .onboarding-steps-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .onboarding-step {
+    min-width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px;
+  }
+  .onboarding-step::-webkit-scrollbar { width: 4px; }
+  .onboarding-step::-webkit-scrollbar-track { background: transparent; }
+  .onboarding-step::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  .onboarding-step-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    padding-right: 30px;
+    letter-spacing: -0.02em;
+  }
+  .onboarding-step-title em { font-style: normal; color: var(--accent); }
+
+  /* Enhanced title for preview step */
+  .preview-title {
+    font-size: 1.5rem;
+    text-align: center;
+    padding-right: 0;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .preview-title em {
+    font-style: italic;
+    color: var(--accent);
+    text-shadow: 0 0 24px rgba(232,184,73,0.25);
+  }
+
+  /* Preview step: less padding, let marquee fill space */
+  .onboarding-step--preview {
+    padding: 16px 0 16px;
+  }
+
+  .onboarding-step-sub {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-bottom: 20px;
+  }
+
+  /* Step 1: horizontal scrolling preview */
+  .popup-preview-wrapper {
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+  }
+  .popup-preview-grid {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: popupMarquee 35s linear infinite;
+    padding: 8px 0;
+  }
+  .popup-preview-grid:hover {
+    animation-play-state: paused;
+  }
+  @keyframes popupMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes popupMarqueeReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+  .popup-preview-grid--reverse {
+    animation: popupMarqueeReverse 40s linear infinite;
+  }
+  .popup-preview-wrapper + .popup-preview-wrapper {
+    margin-top: 12px;
+  }
+  .popup-preview-card {
+    flex-shrink: 0;
+    width: 90px;
+    aspect-ratio: 9/19.5;
+    border-radius: 14px;
+    border: 1.5px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    transition: all 0.3s ease;
+  }
+  .popup-preview-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35), 0 0 16px rgba(232,184,73,0.08);
+  }
+  .popup-preview-card .ppq {
+    font-weight: 700;
+    font-size: 0.5rem;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .popup-preview-card .ppm {
+    font-size: 0.3rem;
+    opacity: 0.4;
+    margin-top: 3px;
+    text-align: center;
+  }
+
+  /* Navigation buttons */
+  .onboarding-nav {
+    display: flex;
+    gap: 10px;
+    padding: 16px 24px 20px;
+    border-top: 1px solid var(--border);
+  }
+  .onboarding-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    text-align: center;
+  }
+  .onboarding-btn.primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .onboarding-btn.primary:hover { background: #f0c656; box-shadow: 0 0 20px rgba(232,184,73,0.3); }
+  .onboarding-btn.secondary {
+    background: var(--bg-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+  .onboarding-btn.secondary:hover { color: var(--text-primary); border-color: var(--border-hover); }
+
+  /* Popup-specific device picker */
+  .popup-device-picker {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .popup-device-btn {
+    flex: 1;
+    padding: 10px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  .popup-device-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-glow);
+  }
+
+  /* Popup model select */
+  .popup-field label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+  }
+  .popup-field select {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    transition: border-color 0.2s;
+  }
+  .popup-field select:focus { border-color: var(--accent-dim); }
+  .popup-field select option { background: var(--bg-elevated); color: var(--text-primary); }
+  .popup-field { margin-bottom: 16px; }
+
+  /* Popup payment card */
+  .popup-payment {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    margin-top: 16px;
+  }
+  .popup-payment .popup-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 8px 0 4px;
+  }
+  .popup-payment .popup-price-sub {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    margin-bottom: 16px;
+  }
+  .popup-features {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  .popup-features div {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .popup-features div::before {
+    content: '\2713';
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  /* Popup URL box */
+  .popup-url-box {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .popup-url-text {
+    flex: 1;
+    padding: 10px 12px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.68rem;
+    color: var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: all;
+  }
+  .popup-url-copy {
+    padding: 10px 16px;
+    background: var(--accent);
+    border: none;
+    color: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .popup-url-copy:hover { background: #f0c656; }
+  .popup-url-copy.copied { background: var(--green); }
+
+  /* Popup install steps */
+  .popup-install-steps {
+    display: grid;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .popup-install-step {
+    background: var(--bg-card);
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .popup-install-step .pis-num {
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .popup-install-step h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .popup-install-step p {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .popup-install-step code {
+    display: inline;
+    padding: 1px 5px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-family: 'SF Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+  }
+
+  /* Responsive popup */
+  @media (max-width: 540px) {
+    .onboarding-popup { width: 96%; border-radius: 16px; }
+    .onboarding-step { padding: 20px 16px; }
+    .onboarding-nav { padding: 12px 16px 16px; }
+    .onboarding-step-title { font-size: 1.1rem; }
+    .popup-preview-grid { gap: 10px; }
+    .popup-preview-card { width: 95px; border-radius: 14px; }
+    .popup-preview-card .ppq { font-size: 0.52rem; }
+    .preview-title { font-size: 1.25rem; }
+    .popup-install-step { padding: 12px; }
+    .popup-install-step h4 { font-size: 0.75rem; }
+    .popup-install-step p { font-size: 0.68rem; }
+    .install-cta { max-width: 160px; font-size: 0.82rem; padding: 11px 20px; margin-top: 16px; border-radius: 12px; }
+  }
+  @media (max-width: 380px) {
+    .popup-preview-card { width: 80px; border-radius: 12px; }
+    .popup-preview-card .ppq { font-size: 0.46rem; }
+    .preview-title { font-size: 1.1rem; }
+    .install-cta { max-width: 140px; font-size: 0.78rem; padding: 10px 16px; }
+  }
+</style>
+
+
+</head>
+<body>
+
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo"><span class="logo-kjo">KJo</span><span class="logo-fy">-fy</span></a>
+  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge animate delay-1">
+    <span class="dot"></span>
+    Updates daily
+  </div>
+  <h1 class="animate delay-2">
+    Bollywood wallpapers for your lock screen.
+  </h1>
+  <p class="hero-sub animate delay-3">
+    Iconic dialogues on your phone. Updated automatically on your lock screen every morning.
+  </p>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- Wallpaper Card -->
+  <div class="wallpaper-section animate delay-4">
+    <div class="section-label">KJo-fy Wallpaper</div>
+    <div class="wallpaper-card selected" id="wallpaperCard">
+      <div class="card-title"><span class="logo-kjo" style="color:var(--text-primary);font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;">KJo</span><span class="logo-fy" style="color:var(--accent);font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;">-fy</span></div>
+      <div class="card-subtitle">Bollywood on your lock screen</div>
+      <div class="card-phone">
+        <div class="phone-mockup palette-maroon">
+          <div class="notch"></div>
+          <div class="phone-screen" id="phonePreview">
+            <div class="lock-screen-info">
+              <div class="lock-time" id="lockTime">3:32</div>
+              <div class="lock-daydate" id="lockDayDate">Thursday, Mar 26</div>
+            </div>
+            <div class="quote-text">Mogambo<br>Khush Hua</div>
+            <div class="quote-movie">— Mr. India (1987)</div>
+            <div class="brand-mark">kjo-fy.in</div>
+          </div>
+        </div>
+      </div>
+      <button class="install-cta" id="installCta" onclick="openOnboarding()">Install <span class="install-arrow">&rsaquo;</span></button>
+    </div>
+  </div>
+
+  <!-- Old sections removed — now inside onboarding popup -->
+  <div id="paymentSection" style="display:none;"></div>
+  <div id="payBtn" style="display:none;"></div>
+
+  <!-- Hidden stubs for JS compatibility (all content now lives in popup) -->
+  <div style="display:none;" id="gatedContent">
+    <select id="iphoneModel"><option value="iphone16promax" selected>iPhone 16 Pro Max</option><option value="iphone17promax">iPhone 17 Pro Max</option><option value="iphone17pro">iPhone 17 Pro</option><option value="iphone17air">iPhone 17 Air</option><option value="iphone17">iPhone 17</option><option value="iphone17e">iPhone 17e</option><option value="iphone16pro">iPhone 16 Pro</option><option value="iphone16plus">iPhone 16 Plus</option><option value="iphone16">iPhone 16</option><option value="iphone16e">iPhone 16e</option><option value="iphone15promax">iPhone 15 Pro Max</option><option value="iphone15pro">iPhone 15 Pro</option><option value="iphone15plus">iPhone 15 Plus</option><option value="iphone15">iPhone 15</option><option value="iphone14promax">iPhone 14 Pro Max</option><option value="iphone14pro">iPhone 14 Pro</option><option value="iphone14plus">iPhone 14 Plus</option><option value="iphone14">iPhone 14</option><option value="iphone13promax">iPhone 13 Pro Max</option><option value="iphone13pro">iPhone 13 Pro</option><option value="iphone13">iPhone 13</option><option value="iphone13mini">iPhone 13 mini</option><option value="iphone12promax">iPhone 12 Pro Max</option><option value="iphone12pro">iPhone 12 Pro</option><option value="iphone12">iPhone 12</option><option value="iphone12mini">iPhone 12 mini</option><option value="iphone11promax">iPhone 11 Pro Max</option><option value="iphone11pro">iPhone 11 Pro</option><option value="iphone11">iPhone 11</option><option value="iphonexsmax">iPhone XS Max</option><option value="iphonexs">iPhone XS</option><option value="iphonexr">iPhone XR</option><option value="iphonese3">iPhone SE (3rd gen)</option><option value="iphonese2">iPhone SE (2nd gen)</option></select>
+    <select id="androidRes"><option value="pixel10proxl" selected>Google Pixel 10 Pro XL</option><option value="samsung_s26ultra">Samsung Galaxy S26 Ultra</option><option value="samsung_s26plus">Samsung Galaxy S26+</option><option value="samsung_s26">Samsung Galaxy S26</option><option value="samsung_s25ultra">Samsung Galaxy S25 Ultra</option><option value="samsung_s25plus">Samsung Galaxy S25+</option><option value="samsung_s25">Samsung Galaxy S25</option><option value="samsung_s24ultra">Samsung Galaxy S24 Ultra</option><option value="samsung_s24plus">Samsung Galaxy S24+</option><option value="samsung_s24">Samsung Galaxy S24</option><option value="samsung_s24fe">Samsung Galaxy S24 FE</option><option value="samsung_s23ultra">Samsung Galaxy S23 Ultra</option><option value="samsung_s23plus">Samsung Galaxy S23+</option><option value="samsung_s23">Samsung Galaxy S23</option><option value="samsung_s23fe">Samsung Galaxy S23 FE</option><option value="samsung_zfold7">Samsung Galaxy Z Fold 7</option><option value="samsung_zfold6">Samsung Galaxy Z Fold 6</option><option value="samsung_zfold5">Samsung Galaxy Z Fold 5</option><option value="samsung_zflip7">Samsung Galaxy Z Flip 7</option><option value="samsung_zflip6">Samsung Galaxy Z Flip 6</option><option value="samsung_zflip5">Samsung Galaxy Z Flip 5</option><option value="samsung_a55">Samsung Galaxy A55</option><option value="samsung_a54">Samsung Galaxy A54</option><option value="samsung_a35">Samsung Galaxy A35</option><option value="pixel10pro">Google Pixel 10 Pro</option><option value="pixel10">Google Pixel 10</option><option value="pixel9proxl">Google Pixel 9 Pro XL</option><option value="pixel9pro">Google Pixel 9 Pro</option><option value="pixel9profold">Google Pixel 9 Pro Fold</option><option value="pixel9">Google Pixel 9</option><option value="pixel9a">Google Pixel 9a</option><option value="pixel8pro">Google Pixel 8 Pro</option><option value="pixel8">Google Pixel 8</option><option value="pixel8a">Google Pixel 8a</option><option value="pixel7pro">Google Pixel 7 Pro</option><option value="pixel7">Google Pixel 7</option><option value="pixel7a">Google Pixel 7a</option><option value="oneplus15">OnePlus 15</option><option value="oneplus15pro">OnePlus 15 Pro</option><option value="oneplus13">OnePlus 13</option><option value="oneplus13r">OnePlus 13R</option><option value="oneplus12">OnePlus 12</option><option value="oneplus12r">OnePlus 12R</option><option value="oneplusopen2">OnePlus Open 2</option><option value="oneplusopen">OnePlus Open</option><option value="oneplusnord4">OnePlus Nord 4</option><option value="oneplusnordce4">OnePlus Nord CE 4</option><option value="xiaomi15ultra">Xiaomi 15 Ultra</option><option value="xiaomi15pro">Xiaomi 15 Pro</option><option value="xiaomi15">Xiaomi 15</option><option value="xiaomi14ultra">Xiaomi 14 Ultra</option><option value="xiaomi14pro">Xiaomi 14 Pro</option><option value="xiaomi14">Xiaomi 14</option><option value="redminote14pro">Redmi Note 14 Pro+</option><option value="redminote14">Redmi Note 14</option><option value="pocof7pro">POCO F7 Pro</option><option value="pocof7">POCO F7</option><option value="nothing2a">Nothing Phone (2a)</option><option value="nothing2">Nothing Phone (2)</option><option value="nothing1">Nothing Phone (1)</option><option value="realmegtneo6">Realme GT Neo 6</option><option value="realme13pro">Realme 13 Pro+</option><option value="motorizr50ultra">Motorola Razr 50 Ultra</option><option value="motoedge50ultra">Motorola Edge 50 Ultra</option><option value="vivo_x200pro">Vivo X200 Pro</option><option value="vivo_x200">Vivo X200</option><option value="iqoo13">iQOO 13</option><option value="iqoo12">iQOO 12</option></select>
+    <div id="generatedUrl"></div>
+    <button id="btnIphone"></button><button id="btnAndroid"></button>
+    <div id="iphoneOptions"></div><div id="androidOptions"></div>
+    <div id="urlSection"></div><div id="urlNote"></div><button id="copyBtn"></button>
+    <div id="installIphone"></div><div id="installAndroid"></div>
+    <div id="configPanel"></div>
+  </div>
+
+</div>
+
+<!-- ONBOARDING POPUP -->
+<div class="onboarding-overlay" id="onboardingOverlay" onclick="if(event.target===this)closeOnboarding()">
+  <div class="onboarding-popup">
+    <button class="onboarding-close" onclick="closeOnboarding()">&times;</button>
+    <div class="onboarding-dots" id="onboardingDots">
+      <div class="onboarding-dot active"></div>
+      <div class="onboarding-dot"></div>
+      <div class="onboarding-dot"></div>
+      <div class="onboarding-dot"></div>
+    </div>
+    <div style="overflow:hidden;">
+      <div class="onboarding-steps-track" id="onboardingTrack">
+
+        <!-- STEP 1: Daily Rotation Preview -->
+        <div class="onboarding-step onboarding-step--preview">
+          <div class="onboarding-step-title preview-title">Daily Rotation <em>Preview</em></div>
+          <div class="popup-preview-wrapper">
+            <div class="popup-preview-grid" id="popupPreviewGrid"></div>
+          </div>
+          <div class="popup-preview-wrapper">
+            <div class="popup-preview-grid popup-preview-grid--reverse" id="popupPreviewGrid2"></div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Config + Payment -->
+        <div class="onboarding-step" id="popupStep2">
+          <div class="onboarding-step-title">Set up <span style="font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;font-style:normal;">KJo<span style="color:var(--accent);">-fy</span></span></div>
+          <div class="onboarding-step-sub">Pick your device to get your personal wallpaper link.</div>
+          <div class="popup-device-picker">
+            <button class="popup-device-btn active" id="popupBtnIphone" onclick="popupSwitchDevice('iphone')">iPhone</button>
+            <button class="popup-device-btn" id="popupBtnAndroid" onclick="popupSwitchDevice('android')">Android</button>
+          </div>
+          <div class="popup-field" id="popupIphoneField">
+            <label>iPhone Model</label>
+            <select id="popupIphoneModel"></select>
+          </div>
+          <div class="popup-field" id="popupAndroidField" style="display:none;">
+            <label>Android Model</label>
+            <select id="popupAndroidModel"></select>
+          </div>
+          <div class="popup-payment" id="popupPayment" style="background:transparent;border:none;padding:8px 0 0;">
+            <div class="popup-features">
+              <div>Bollywood dialogues</div>
+              <div>Your personal shuffle — no two users alike</div>
+              <div>Auto-updates your lock screen daily</div>
+              <div>Works on iPhone &amp; Android</div>
+            </div>
+          </div>
+          <div id="popupPaidMsg" style="display:none;text-align:center;padding:16px 0;">
+            <div style="font-size:1.2rem;margin-bottom:4px;">&#10003;</div>
+            <div style="font-size:0.85rem;font-weight:600;color:var(--green);">You're all set!</div>
+            <div style="font-size:0.72rem;color:var(--text-tertiary);margin-top:4px;">Tap Next to get your personal link.</div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Your Link -->
+        <div class="onboarding-step">
+          <div class="onboarding-step-title">Your <em>Link</em></div>
+          <div class="onboarding-step-sub">Copy this URL — you'll paste it in the next step.</div>
+          <div class="popup-url-box">
+            <div class="popup-url-text" id="popupUrlText">https://kjo-fy.in/api/wallpaper?model=…</div>
+            <button class="popup-url-copy" id="popupCopyBtn" onclick="popupCopyUrl()">Copy</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Install Steps -->
+        <div class="onboarding-step">
+          <div class="onboarding-step-title" id="popupInstallTitle">Install on <em>iPhone</em></div>
+          <div class="onboarding-step-sub" id="popupInstallSub">Set up daily auto-wallpaper in 5 minutes.</div>
+          <div id="popupInstallIphone">
+            <div class="popup-install-steps">
+              <div class="popup-install-step"><div class="pis-num">1</div><div><h4>Open Shortcuts</h4><p>Open <strong>Shortcuts</strong> → <strong>Automations</strong> → create new automation.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">2</div><div><h4>Set daily trigger</h4><p>Select <code>Time of Day</code> → <strong>6:00 AM</strong> → <strong>Daily</strong>. Toggle <strong>Run Immediately</strong>.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">3</div><div><h4>Get Contents of URL</h4><p>Add <code>Get Contents of URL</code> action and paste your KJo-fy link.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">4</div><div><h4>Set Wallpaper Photo</h4><p>Add <code>Set Wallpaper Photo</code>. Set to lock screen only. Disable preview &amp; crop.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">5</div><div><h4>Done!</h4><p>Press play to test. Every morning, a new dialogue greets you.</p></div></div>
+            </div>
+          </div>
+          <div id="popupInstallAndroid" style="display:none;">
+            <div class="popup-install-steps">
+              <div class="popup-install-step"><div class="pis-num">1</div><div><h4>Install MacroDroid</h4><p>Download <strong>MacroDroid</strong> from the Play Store (free).</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">2</div><div><h4>Create a Macro</h4><p>Tap <strong>Add Macro</strong> → name it <strong>KJo-fy Daily</strong>.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">3</div><div><h4>Set Trigger</h4><p><strong>Triggers</strong> → <code>Date/Time</code> → <strong>6:00 AM Daily</strong>.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">4</div><div><h4>Download Image</h4><p><strong>Actions</strong> → <code>HTTP Request</code> → GET your KJo-fy URL. Save to <code>/sdcard/Pictures/kjofy.jpg</code>.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">5</div><div><h4>Set Wallpaper</h4><p><strong>Actions</strong> → <code>Set Wallpaper</code> → <strong>Lock Screen</strong> → select the saved file.</p></div></div>
+              <div class="popup-install-step"><div class="pis-num">6</div><div><h4>Done!</h4><p>Save &amp; enable. Every morning, a fresh dialogue on your lock screen. No root needed.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="onboarding-nav" id="onboardingNav">
+      <button class="onboarding-btn secondary" id="onbBtnBack" onclick="onbPrev()" style="display:none;">Back</button>
+      <button class="onboarding-btn primary" id="onbBtnNext" onclick="onbNext()">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="logo-kjo">KJo</span><span class="logo-fy">-fy</span></div>
+  <p class="footer-tagline">Bollywood on your lock screen. Every single morning.</p>
+  <p class="footer-copy">&copy; 2026 KJo-fy. All rights reserved.</p>
+
+  <div style="margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto;">
+    <button
+      id="privacyToggle"
+      onclick="(function(){var d=document.getElementById('privacyBody');var b=document.getElementById('privacyToggle');var open=d.style.maxHeight&&d.style.maxHeight!=='0px';d.style.maxHeight=open?'0px':d.scrollHeight+'px';d.style.opacity=open?'0':'1';b.querySelector('.prv-arrow').style.transform=open?'rotate(0deg)':'rotate(180deg)';})()"
+      style="background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0;font-family:'DM Sans',sans-serif;font-size:0.65rem;color:var(--text-tertiary);letter-spacing:0.02em;"
+      aria-expanded="false"
+      aria-controls="privacyBody"
+    >
+      <svg class="prv-arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" style="transition:transform 0.25s ease;flex-shrink:0;">
+        <polyline points="2,3 5,7 8,3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Privacy notice
+    </button>
+    <div
+      id="privacyBody"
+      role="region"
+      aria-labelledby="privacyToggle"
+      style="max-height:0;opacity:0;overflow:hidden;transition:max-height 0.3s ease,opacity 0.25s ease;"
+    >
+      <p style="margin-top:8px;line-height:1.65;color:var(--text-tertiary);font-size:0.65rem;font-family:'DM Sans',sans-serif;text-align:center;">
+        <strong style="color:var(--text-secondary);">Privacy:</strong>
+        To generate your unique wallpaper shuffle, this site locally reads your browser's user-agent,
+        language, timezone, and screen size. These are hashed in your browser and never sent to our servers —
+        only a short opaque seed string is stored in your browser's localStorage.
+        Your personal wallpaper URL is tied to your browser. <strong>Do not share it</strong> — anyone with
+        it can access your wallpaper feed.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0});">&uarr;</button>
+
+<script>
+  // ─── Safe Storage Helper ───
+  const store = {
+    get(k) { try { return window.localStorage.getItem(k); } catch(e) { return null; } },
+    set(k,v) { try { window.localStorage.setItem(k,v); } catch(e) {} }
+  };
+
+  //
+  const RateLimiter = (function() {
+    const _state = {};
+
+    function check(key, limit, windowMs) {
+      const now = Date.now();
+      if (!_state[key] || now - _state[key].windowStart >= windowMs) {
+        _state[key] = { count: 1, windowStart: now };
+        return true;
+      }
+      _state[key].count++;
+      return _state[key].count <= limit;
+    }
+
+    function retryAfterMs(key, windowMs) {
+      if (!_state[key]) return 0;
+      return Math.max(0, (_state[key].windowStart + (windowMs || 60000)) - Date.now());
+    }
+
+    function rejectBtn(btn, msg, restoreText, delayMs) {
+      if (!btn) return;
+      const original = restoreText || btn.textContent;
+      btn.disabled = true;
+      btn.textContent = msg;
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = original;
+      }, delayMs || 3000);
+    }
+
+    return { check, retryAfterMs, rejectBtn };
+  })();
+
+  // ─── Session token ───
+  const CSRF_TOKEN = (function() {
+    try {
+      let t = sessionStorage.getItem('kjofy_csrf');
+      if (!t) {
+        t = Array.from(crypto.getRandomValues(new Uint8Array(24)))
+          .map(b => b.toString(16).padStart(2, '0')).join('');
+        sessionStorage.setItem('kjofy_csrf', t);
+      }
+      return t;
+    } catch(e) { return ''; }
+  })();
+
+  // ─── Payment gate — EARLY ACCESS: Always free ───
+  function isPaid() {
+    return true; // Free during early stage
+  }
+
+  function unlockContent() {
+    document.getElementById('paymentSection').classList.add('hidden');
+    document.getElementById('gatedContent').classList.add('unlocked');
+    const popupPay = document.getElementById('popupPayment');
+    const popupPaid = document.getElementById('popupPaidMsg');
+    if (popupPay) popupPay.style.display = '';
+    if (popupPaid) popupPaid.style.display = 'none';
+  }
+
+  // Check payment on load
+  if (isPaid()) {
+    unlockContent();
+  }
+
+  // ─── Nav scroll shadow + Back to top ───
+  function closeNav() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+  }
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('mainNav');
+    const btt = document.getElementById('backToTop');
+    if (window.scrollY > 50) { nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+    if (window.scrollY > 400) { btt.classList.add('visible'); } else { btt.classList.remove('visible'); }
+  });
+
+  // ─── Live Lock Screen Clock ───
+  function updateLockScreen() {
+    const now = new Date();
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const h = now.getHours();
+    const m = now.getMinutes().toString().padStart(2, '0');
+    const h12 = h % 12 || 12;
+    document.getElementById('lockTime').textContent = h12 + ':' + m;
+    document.getElementById('lockDayDate').textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
+  }
+  updateLockScreen();
+  setInterval(updateLockScreen, 10000);
+
+  // ─── Device Switching ───
+  let currentDevice = 'iphone';
+
+  function switchDevice(device) {
+    currentDevice = device;
+    document.getElementById('btnIphone').classList.toggle('active', device === 'iphone');
+    document.getElementById('btnAndroid').classList.toggle('active', device === 'android');
+    document.getElementById('iphoneOptions').style.display = device === 'iphone' ? '' : 'none';
+    document.getElementById('androidOptions').style.display = device === 'android' ? '' : 'none';
+    document.getElementById('installIphone').style.display = device === 'iphone' ? '' : 'none';
+    document.getElementById('installAndroid').style.display = device === 'android' ? '' : 'none';
+    // Re-trigger visibility animation on the newly visible install section
+    const activeInstall = document.getElementById(device === 'iphone' ? 'installIphone' : 'installAndroid');
+    activeInstall.classList.remove('visible');
+    void activeInstall.offsetHeight; // force reflow
+    activeInstall.classList.add('visible');
+    document.getElementById('urlNote').textContent = device === 'iphone'
+      ? 'Your personal URL — just for you. Zero repeats. Paste it into the iOS Shortcut below.'
+      : 'Your personal URL — just for you. Zero repeats. Paste it into MacroDroid below.';
+    updateUrl();
+  }
+
+
+  function generateFingerprint() {
+    const ua = navigator.userAgent || '';
+    const lang = navigator.language || '';
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    const scr = window.screen ? (window.screen.width + 'x' + window.screen.height + 'x' + window.screen.colorDepth) : '';
+    const canvas = (() => {
+      try {
+        const c = document.createElement('canvas');
+        c.width = 64; c.height = 16;
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#f0f';
+        ctx.fillRect(0,0,64,16);
+        ctx.fillStyle = '#0ff';
+        ctx.font = '12px Arial';
+        ctx.fillText('kjofy',2,12);
+        return c.toDataURL().slice(-32);
+      } catch(e) { return ''; }
+    })();
+    return ua + '|' + lang + '|' + tz + '|' + scr + '|' + canvas;
+  }
+  function getUserSeed() {
+    const SEED_TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
+    let seed = store.get('kjofy_seed');
+    const created = store.get('kjofy_seed_created');
+    const expired = created && (Date.now() - new Date(created).getTime() > SEED_TTL_MS);
+    if (!seed || expired) {
+      const rnd = Array.from(crypto.getRandomValues(new Uint8Array(12)))
+        .map(b => b.toString(36).padStart(2,'0'))
+        .join('');
+      const ts = Date.now().toString(36);
+      const fp = hashSeed(generateFingerprint()).toString(36);
+      seed = (rnd + ts + fp).slice(0, 16);
+      store.set('kjofy_seed', seed);
+      store.set('kjofy_seed_created', new Date().toISOString());
+    }
+    return seed;
+  }
+  const USER_SEED = getUserSeed();
+
+
+  // FIX 4: Token is now issued by the server using HMAC-SHA256, not a 32-bit client hash.
+  // We store it in localStorage and refresh it when it's close to expiry (90 days).
+  const TOKEN_TTL_MS = 90 * 24 * 60 * 60 * 1000;
+
+  async function issueServerToken(seed) {
+    try {
+      const resp = await fetch('/api/issue-token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': CSRF_TOKEN },
+        body: JSON.stringify({ seed }),
+      });
+      if (!resp.ok) throw new Error('Token issuance failed: ' + resp.status);
+      const { token } = await resp.json();
+      if (!token || typeof token !== 'string') throw new Error('Bad token response');
+      store.set('kjofy_link_token', token);
+      store.set('kjofy_link_token_issued', Date.now().toString());
+      return token;
+    } catch (e) {
+      console.warn('[KJo-fy] Token issue failed, will retry on next load:', e.message);
+      return null;
+    }
+  }
+
+  async function getLinkToken() {
+    const token = store.get('kjofy_link_token');
+    const issued = parseInt(store.get('kjofy_link_token_issued') || '0', 10);
+    const age = Date.now() - issued;
+    // Reuse if token exists and is less than 80 days old (refresh 10 days before expiry)
+    if (token && age < TOKEN_TTL_MS * (80 / 90)) return token;
+    // Issue a fresh server-signed token
+    return await issueServerToken(USER_SEED);
+  }
+
+  // Initialise token asynchronously — wallpaper URL updates once ready
+  let LINK_TOKEN = store.get('kjofy_link_token') || ''; // use cached immediately
+  getLinkToken().then(t => {
+    if (t) { LINK_TOKEN = t; updateUrl(); }
+  });
+
+
+  function hashSeed(str) {
+    let h = 0x9e3779b9;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h ^ (h >>> 16), 0x45d9f3b);
+      h = Math.imul(h ^ (h >>> 16), 0x45d9f3b);
+      h ^= h >>> 16;
+    }
+    return h >>> 0;
+  }
+  function mulberry32(seed) {
+    return function() {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function seededPermutation(n, seedStr) {
+    const arr = Array.from({length: n}, (_, i) => i);
+    const rand = mulberry32(hashSeed(seedStr));
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+
+  const modelSelect = document.getElementById('iphoneModel');
+  const androidRes = document.getElementById('androidRes');
+  const urlText = document.getElementById('generatedUrl');
+
+  function updateUrl() {
+    const model = currentDevice === 'iphone' ? modelSelect.value : androidRes.value;
+    // FIX 1: Display a placeholder — actual request uses POST body, not URL params.
+    // The real API call from the Shortcut/MacroDroid uses /api/wallpaper via POST.
+    urlText.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${modelSelect.value || androidRes.value}`;
+  }
+  modelSelect.addEventListener('change', updateUrl);
+  androidRes.addEventListener('change', updateUrl);
+
+  // ─── Copy (with link-lock warning) ───
+  let copyCount = 0;
+  function copyUrl() {
+    const btn = document.getElementById('copyBtn');
+
+    // CLIENT-SIDE RATE LIMIT: shares the same 'copy_url' bucket as popupCopyUrl.
+    if (!RateLimiter.check('copy_url', 10, 60 * 1000)) {
+      RateLimiter.rejectBtn(btn, 'Slow down…', 'Copy URL', 5000);
+      return;
+    }
+
+    const text = urlText.textContent;
+    copyCount++;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy URL'; btn.classList.remove('copied'); }, 2000);
+    }).catch(() => {
+      // SECURITY: execCommand('copy') is deprecated — select the URL text for manual copy instead
+      const range = document.createRange();
+      range.selectNodeContents(urlText);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      btn.textContent = 'Select & copy ↑';
+      setTimeout(() => { btn.textContent = 'Copy URL'; btn.classList.remove('copied'); }, 3000);
+    });
+  }
+
+  // ─── Scroll reveal ───
+  updateUrl();
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Old scroll-reveal observers removed — content now lives in popup
+
+  // ─── Cycle phone preview quote ───
+  let quotes = [];
+  let palettes = [];
+
+  // ─── SECURITY: Safe HTML helpers — only <br> tags are allowed ───
+  // Prevents XSS if quote data ever comes from an external source (API, database, user input).
+  // Never use .innerHTML with untrusted content; these helpers reconstruct DOM safely.
+  function safeSetQuoteHTML(el, rawText) {
+    el.textContent = '';
+    const parts = String(rawText).split('<br>');
+    parts.forEach(function(part, i) {
+      el.appendChild(document.createTextNode(part));
+      if (i < parts.length - 1) el.appendChild(document.createElement('br'));
+    });
+  }
+  function escapeHTML(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+  // Allows only <br>; escapes everything else — safe for .innerHTML string-building contexts
+  function safeQuoteCardHTML(rawText) {
+    return String(rawText).split('<br>').map(escapeHTML).join('<br>');
+  }
+
+  
+  async function loadPreviews() {
+    try {
+      const res = await fetch('/api/previews');
+      if (!res.ok) throw new Error('API down');
+      const data = await res.json();
+      quotes = data.quotes;
+      palettes = data.palettes;
+
+      if (quotes.length > 0) {
+        initPopupPreview();
+      }
+    } catch (e) {
+      console.warn('Could not load previews from backend', e);
+    }
+  }
+  loadPreviews();
+
+  // ─── Seeded preview shuffle (uses user's own seed so preview matches their actual wallpaper order) ───
+  
+  let previewPerm = [];
+  function startPreviewInterval() {
+    if (quotes.length === 0) return;
+    previewPerm = seededPermutation(quotes.length, USER_SEED);
+    setInterval(() => {
+      qi = (qi + 1) % quotes.length;
+      const shuffledIdx = previewPerm[qi];
+      const q = quotes[shuffledIdx];
+      const p = palettes[shuffledIdx % palettes.length];
+      
+      phoneScreen.style.opacity = 0;
+      setTimeout(() => {
+        phoneScreen.style.background = p.bg;
+        phoneScreen.querySelector('.quote-text').style.color = p.text;
+        safeSetQuoteHTML(phoneScreen.querySelector('.quote-text'), q.text);
+        phoneScreen.querySelector('.brand-mark').style.color = p.sub;
+        phoneScreen.querySelector('.lock-time').style.color = '#fff';
+        phoneScreen.querySelector('.lock-daydate').style.color = 'rgba(255,255,255,0.85)';
+        phoneScreen.style.opacity = 1;
+      }, 350);
+    }, 3500);
+  }
+
+  let qi = 0;
+  const phoneScreen = document.getElementById('phonePreview');
+  phoneScreen.style.transition = 'opacity 0.35s ease';
+  setInterval(() => {
+    qi = (qi + 1) % quotes.length;
+    const shuffledIdx = previewPerm[qi];
+    const q = quotes[shuffledIdx];
+    const p = palettes[shuffledIdx % palettes.length];
+
+    // Fade out first
+    phoneScreen.style.opacity = 0;
+    setTimeout(() => {
+      phoneScreen.style.background = p.bg;
+      phoneScreen.querySelector('.quote-text').style.color = p.text;
+      safeSetQuoteHTML(phoneScreen.querySelector('.quote-text'), q.text); // SECURITY: was .innerHTML
+      phoneScreen.querySelector('.brand-mark').style.color = p.sub;
+      phoneScreen.querySelector('.lock-time').style.color = '#fff';
+      phoneScreen.querySelector('.lock-daydate').style.color = 'rgba(255,255,255,0.85)';
+      phoneScreen.style.opacity = 1;
+    }, 350);
+  }, 3500);
+
+  // ─── Onboarding Popup System ───
+  let onbStep = 0;
+  const onbTotalSteps = 4;
+  let popupDevice = 'iphone';
+
+  // Populate popup model selects from the main selects
+  (function initPopupSelects() {
+    const srcIphone = document.getElementById('iphoneModel');
+    const srcAndroid = document.getElementById('androidRes');
+    const dstIphone = document.getElementById('popupIphoneModel');
+    const dstAndroid = document.getElementById('popupAndroidModel');
+    // cloneNode(true) copies the subtree without re-parsing it as HTML, so no injected
+    // markup in option values can be promoted into executable DOM nodes.
+    if (srcIphone && dstIphone) {
+      while (dstIphone.firstChild) dstIphone.removeChild(dstIphone.firstChild);
+      Array.from(srcIphone.options).forEach(opt => dstIphone.appendChild(opt.cloneNode(true)));
+    }
+    if (srcAndroid && dstAndroid) {
+      while (dstAndroid.firstChild) dstAndroid.removeChild(dstAndroid.firstChild);
+      Array.from(srcAndroid.options).forEach(opt => dstAndroid.appendChild(opt.cloneNode(true)));
+    }
+    // Sync selections
+    if (dstIphone) dstIphone.value = srcIphone.value;
+    if (dstAndroid) dstAndroid.value = srcAndroid.value;
+    // Listen for changes to update URL
+    if (dstIphone) dstIphone.addEventListener('change', popupUpdateUrl);
+    if (dstAndroid) dstAndroid.addEventListener('change', popupUpdateUrl);
+  })();
+
+  // Populate preview grids in popup (two horizontal marquee rows)
+  function initPopupPreview() {
+    const grid1 = document.getElementById('popupPreviewGrid');
+    const grid2 = document.getElementById('popupPreviewGrid2');
+    if (!grid1) return;
+
+    // 30 most iconic Bollywood dialogues, handpicked for the preview
+    const iconicDialogues = [
+      "Kitne Aadmi The?",
+      "Mogambo Khush Hua!",
+      "Mere Paas Maa Hai",
+      "Rishte Mein Toh Hum\nTumhare Baap Lagte\nHain — Shahenshah",
+      "Don Ko Pakadna\nMushkil Hi Nahi,\nNamumkin Hai",
+      "Bade Bade Deshon\nMein Aisi Choti\nChoti Baatein Hoti\nRehti Hain",
+      "Zindagi Lambi\nNahi, Badi\nHoni Chahiye",
+      "Dhai Kilo Ka Haath",
+      "Pushpa, I Hate\nTears",
+      "Hum Ek Baar\nJeete Hain, Ek Baar\nMarte Hain",
+      "Ek Baar Commitment\nKar Di Toh\nPhir Apni Bhi\nNahi Sunta",
+      "Yeh Haath\nMujhe De De\nThakur",
+      "Basanti In Kutton\nKe Saamne Mat\nNaachna",
+      "Mere Khaab Mein\nTu Aaya — DDLJ",
+      "Kuch Kuch Hota\nHai, Tum Nahi\nSamjhoge",
+      "Main Hoon Na",
+      "How's The Josh?\nHigh Sir!",
+      "Apun Ka Time\nAa Gaya",
+      "Kal Ho Na Ho.\nLive Every Moment.",
+      "Dil Chahta Hai",
+      "Keh Ke Lunga",
+      "Flower Nahi\nFire Hai Main",
+      "Seize The Day.\nPal Mein Hai\nZindagi",
+      "Mhaari Chhoriyaan\nChhoriyon Se\nKam Hain Ke?",
+      "Sirf 70 Minute\nHain Mere Paas",
+      "Bohot Hard",
+      "K-K-K-Kiran",
+      "O Stree\nRaksha Karna",
+      "Gandhigiri\nZindabad!",
+      "Aata Majhi Satakli"
+    ];
+
+    // 12 palettes — all must be used, guaranteed round-robin, no card left colourless
+    const palettes = ['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12'];
+
+    // Row 1: dialogues 0–14, Row 2: dialogues 15–29
+    // Palette assigned strictly by position mod 12 — every card gets a colour
+    function buildCards(dialogues, startPaletteOffset) {
+      const frag = document.createDocumentFragment();
+      dialogues.forEach((text, i) => {
+        const pClass = palettes[(startPaletteOffset + i) % palettes.length];
+        const card = document.createElement('div');
+        card.className = 'popup-preview-card ' + pClass;
+        const inner = document.createElement('div');
+        inner.className = 'ppq';
+        const lines = text.split('\n');
+        lines.forEach((line, li) => {
+          inner.appendChild(document.createTextNode(line));
+          if (li < lines.length - 1) inner.appendChild(document.createElement('br'));
+        });
+        card.appendChild(inner);
+        frag.appendChild(card);
+      });
+      return frag;
+    }
+
+    const row1 = iconicDialogues.slice(0, 15);
+    const row2 = iconicDialogues.slice(15, 30);
+
+    // Duplicate each row for seamless marquee loop
+    grid1.appendChild(buildCards(row1, 0));
+    grid1.appendChild(buildCards(row1, 0));
+
+    if (!grid2) return;
+    grid2.appendChild(buildCards(row2, 3)); // offset palette start so rows look visually distinct
+    grid2.appendChild(buildCards(row2, 3));
+  })();
+
+  function popupSwitchDevice(device) {
+    popupDevice = device;
+    document.getElementById('popupBtnIphone').classList.toggle('active', device === 'iphone');
+    document.getElementById('popupBtnAndroid').classList.toggle('active', device === 'android');
+    document.getElementById('popupIphoneField').style.display = device === 'iphone' ? '' : 'none';
+    document.getElementById('popupAndroidField').style.display = device === 'android' ? '' : 'none';
+    // Also update install step (step 4)
+    document.getElementById('popupInstallIphone').style.display = device === 'iphone' ? '' : 'none';
+    document.getElementById('popupInstallAndroid').style.display = device === 'android' ? '' : 'none';
+    const titleEm = document.getElementById('popupInstallTitle');
+    if (titleEm) {
+      while (titleEm.firstChild) titleEm.removeChild(titleEm.firstChild);
+      titleEm.appendChild(document.createTextNode('Install on '));
+      const em = document.createElement('em');
+      em.textContent = device === 'iphone' ? 'iPhone' : 'Android';
+      titleEm.appendChild(em);
+    }
+    popupUpdateUrl();
+    // Sync with main page selects
+    switchDevice(device);
+  }
+
+  function popupUpdateUrl() {
+    const model = popupDevice === 'iphone'
+      ? document.getElementById('popupIphoneModel').value
+      : document.getElementById('popupAndroidModel').value;
+    const urlEl = document.getElementById('popupUrlText');
+    // FIX 1: seed + token now sent via POST body, not URL params
+    if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}`;
+    // Sync main page
+    if (popupDevice === 'iphone') {
+      document.getElementById('iphoneModel').value = model;
+    } else {
+      document.getElementById('androidRes').value = model;
+    }
+    updateUrl();
+  }
+
+  function popupCopyUrl() {
+    const btn = document.getElementById('popupCopyBtn');
+
+    if (!RateLimiter.check('copy_url', 10, 60 * 1000)) {
+      RateLimiter.rejectBtn(btn, 'Slow down…', 'Copy', 5000);
+      return;
+    }
+
+    const text = document.getElementById('popupUrlText').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    }).catch(() => {
+      // SECURITY: execCommand('copy') is deprecated and removed in some browsers.
+      // Fall back to selecting the text so the user can copy it manually.
+      btn.textContent = 'Select & copy ↑';
+      const urlEl = document.getElementById('popupUrlText');
+      const range = document.createRange();
+      range.selectNodeContents(urlEl);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 3000);
+    });
+  }
+
+  function openOnboarding() {
+    if (!RateLimiter.check('open_onboarding', 10, 60 * 1000)) {
+      return;
+    }
+
+    onbStep = 0;
+    updateOnbUI();
+    // Always show the free access panel
+    document.getElementById('popupPayment').style.display = '';
+    document.getElementById('popupPaidMsg').style.display = 'none';
+    popupUpdateUrl();
+    document.getElementById('onboardingOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOnboarding() {
+    document.getElementById('onboardingOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function onbNext() {
+    if (!RateLimiter.check('onb_nav', 30, 60 * 1000)) {
+      return;
+    }
+    if (onbStep < onbTotalSteps - 1) {
+      onbStep++;
+      updateOnbUI();
+    } else {
+      // Last step — close
+      closeOnboarding();
+    }
+  }
+
+  function onbPrev() {
+    if (!RateLimiter.check('onb_nav', 30, 60 * 1000)) {
+      return;
+    }
+    if (onbStep > 0) {
+      onbStep--;
+      updateOnbUI();
+    }
+  }
+
+  function updateOnbUI() {
+    // Move track
+    const track = document.getElementById('onboardingTrack');
+    track.style.transform = 'translateX(-' + (onbStep * 100) + '%)';
+
+    // Update dots
+    const dots = document.querySelectorAll('#onboardingDots .onboarding-dot');
+    dots.forEach((dot, i) => {
+      dot.classList.remove('active', 'done');
+      if (i === onbStep) dot.classList.add('active');
+      else if (i < onbStep) dot.classList.add('done');
+    });
+
+    // Update buttons
+    const backBtn = document.getElementById('onbBtnBack');
+    const nextBtn = document.getElementById('onbBtnNext');
+    backBtn.style.display = onbStep === 0 ? 'none' : '';
+
+    if (onbStep === onbTotalSteps - 1) {
+      nextBtn.textContent = 'Done';
+    } else {
+      nextBtn.textContent = 'Next';
+    }
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeOnboarding();
+  });
+</script>
+</body>
+</html>
