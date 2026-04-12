@@ -1,0 +1,2779 @@
+{
+  "wallpapers": [
+    {
+      "id": "dialogue_3",
+      "filename": "dialogues/quote_3.jpg",
+      "title": "Mere Paas"
+    },
+    {
+      "id": "dialogue_6",
+      "filename": "dialogues/quote_6.jpg",
+      "title": "Pushpa,"
+    },
+    {
+      "id": "dialogue_1",
+      "filename": "dialogues/quote_1.jpg",
+      "title": "Mogambo"
+    },
+    {
+      "id": "dialogue_5",
+      "filename": "dialogues/quote_5.jpg",
+      "title": "Babumoshai,"
+    },
+    {
+      "id": "dialogue_10",
+      "filename": "dialogues/quote_10.jpg",
+      "title": "Palat..."
+    },
+    {
+      "id": "dialogue_9",
+      "filename": "dialogues/quote_9.jpg",
+      "title": "Ja Simran Ja,"
+    },
+    {
+      "id": "dialogue_8",
+      "filename": "dialogues/quote_8.jpg",
+      "title": "Bade Bade Deshon"
+    },
+    {
+      "id": "dialogue_7",
+      "filename": "dialogues/quote_7.jpg",
+      "title": "Don Ko Pakadna"
+    },
+    {
+      "id": "dialogue_2",
+      "filename": "dialogues/quote_2.jpg",
+      "title": "Kitne Aadmi"
+    },
+    {
+      "id": "dialogue_4",
+      "filename": "dialogues/quote_4.jpg",
+      "title": "Rishte Mein Toh"
+    },
+    {
+      "id": "dialogue_14",
+      "filename": "dialogues/quote_14.jpg",
+      "title": "Thappad Se"
+    },
+    {
+      "id": "dialogue_11",
+      "filename": "dialogues/quote_11.jpg",
+      "title": "Hum Jahan"
+    },
+    {
+      "id": "dialogue_12",
+      "filename": "dialogues/quote_12.jpg",
+      "title": "Picture Abhi"
+    },
+    {
+      "id": "dialogue_13",
+      "filename": "dialogues/quote_13.jpg",
+      "title": "Ek Baar Jo Maine"
+    },
+    {
+      "id": "dialogue_17",
+      "filename": "dialogues/quote_17.jpg",
+      "title": "Tumse Na"
+    },
+    {
+      "id": "dialogue_18",
+      "filename": "dialogues/quote_18.jpg",
+      "title": "Apna Time"
+    },
+    {
+      "id": "dialogue_15",
+      "filename": "dialogues/quote_15.jpg",
+      "title": "All Izz Well"
+    },
+    {
+      "id": "dialogue_16",
+      "filename": "dialogues/quote_16.jpg",
+      "title": "Log Kya Kahenge?"
+    },
+    {
+      "id": "dialogue_19",
+      "filename": "dialogues/quote_19.jpg",
+      "title": "How's The Josh?"
+    },
+    {
+      "id": "dialogue_20",
+      "filename": "dialogues/quote_20.jpg",
+      "title": "Tareekh Pe"
+    },
+    {
+      "id": "dialogue_23",
+      "filename": "dialogues/quote_23.jpg",
+      "title": "Haar Ke Jeetne"
+    },
+    {
+      "id": "dialogue_21",
+      "filename": "dialogues/quote_21.jpg",
+      "title": "Main Aaj Bhi"
+    },
+    {
+      "id": "dialogue_28",
+      "filename": "dialogues/quote_28.jpg",
+      "title": "Utha Le Re"
+    },
+    {
+      "id": "dialogue_25",
+      "filename": "dialogues/quote_25.jpg",
+      "title": "Jaadu Ki Jhappi"
+    },
+    {
+      "id": "dialogue_26",
+      "filename": "dialogues/quote_26.jpg",
+      "title": "Yeh Baburao"
+    },
+    {
+      "id": "dialogue_30",
+      "filename": "dialogues/quote_30.jpg",
+      "title": "Sattar Minute!"
+    },
+    {
+      "id": "dialogue_27",
+      "filename": "dialogues/quote_27.jpg",
+      "title": "25 Din Mein"
+    },
+    {
+      "id": "dialogue_29",
+      "filename": "dialogues/quote_29.jpg",
+      "title": "Main Apni"
+    },
+    {
+      "id": "dialogue_24",
+      "filename": "dialogues/quote_24.jpg",
+      "title": "Tension Lene Ka"
+    },
+    {
+      "id": "dialogue_22",
+      "filename": "dialogues/quote_22.jpg",
+      "title": "Dosti Ka Ek"
+    },
+    {
+      "id": "dialogue_32",
+      "filename": "dialogues/quote_32.jpg",
+      "title": "Ek Chutki Sindoor"
+    },
+    {
+      "id": "dialogue_33",
+      "filename": "dialogues/quote_33.jpg",
+      "title": "Life Mein Sabse"
+    },
+    {
+      "id": "dialogue_34",
+      "filename": "dialogues/quote_34.jpg",
+      "title": "Kehte Hain Agar"
+    },
+    {
+      "id": "dialogue_35",
+      "filename": "dialogues/quote_35.jpg",
+      "title": "Babu Bhaiya,"
+    },
+    {
+      "id": "dialogue_36",
+      "filename": "dialogues/quote_36.jpg",
+      "title": "Kuch Kuch Hota Hai,"
+    },
+    {
+      "id": "dialogue_31",
+      "filename": "dialogues/quote_31.jpg",
+      "title": "Itni Shiddat Se"
+    },
+    {
+      "id": "dialogue_37",
+      "filename": "dialogues/quote_37.jpg",
+      "title": "Main Udna"
+    },
+    {
+      "id": "dialogue_38",
+      "filename": "dialogues/quote_38.jpg",
+      "title": "Success Ke Peeche"
+    },
+    {
+      "id": "dialogue_40",
+      "filename": "dialogues/quote_40.jpg",
+      "title": "Paisa Hi Paisa"
+    },
+    {
+      "id": "dialogue_39",
+      "filename": "dialogues/quote_39.jpg",
+      "title": "Zor Zor Se"
+    },
+    {
+      "id": "dialogue_44",
+      "filename": "dialogues/quote_44.jpg",
+      "title": "Main Hoon Na"
+    },
+    {
+      "id": "dialogue_45",
+      "filename": "dialogues/quote_45.jpg",
+      "title": "Kal Ho Na Ho."
+    },
+    {
+      "id": "dialogue_46",
+      "filename": "dialogues/quote_46.jpg",
+      "title": "Yeh Haath"
+    },
+    {
+      "id": "dialogue_42",
+      "filename": "dialogues/quote_42.jpg",
+      "title": "Koi Tumhe Tab Tak"
+    },
+    {
+      "id": "dialogue_43",
+      "filename": "dialogues/quote_43.jpg",
+      "title": "Pyaar Dosti Hai..."
+    },
+    {
+      "id": "dialogue_47",
+      "filename": "dialogues/quote_47.jpg",
+      "title": "Basanti,"
+    },
+    {
+      "id": "dialogue_41",
+      "filename": "dialogues/quote_41.jpg",
+      "title": "Kabhi Kabhi Jeetne"
+    },
+    {
+      "id": "dialogue_48",
+      "filename": "dialogues/quote_48.jpg",
+      "title": "Poora Naam"
+    },
+    {
+      "id": "dialogue_50",
+      "filename": "dialogues/quote_50.jpg",
+      "title": "I Am Not A Terrorist."
+    },
+    {
+      "id": "dialogue_49",
+      "filename": "dialogues/quote_49.jpg",
+      "title": "Hum Ek Baar Jeete Hain,"
+    },
+    {
+      "id": "dialogue_52",
+      "filename": "dialogues/quote_52.jpg",
+      "title": "K-K-K-Kiran"
+    },
+    {
+      "id": "dialogue_51",
+      "filename": "dialogues/quote_51.jpg",
+      "title": "Main Hoon Don."
+    },
+    {
+      "id": "dialogue_54",
+      "filename": "dialogues/quote_54.jpg",
+      "title": "Ek Baar Commitment"
+    },
+    {
+      "id": "dialogue_56",
+      "filename": "dialogues/quote_56.jpg",
+      "title": "Wrong Number"
+    },
+    {
+      "id": "dialogue_59",
+      "filename": "dialogues/quote_59.jpg",
+      "title": "Parampara,"
+    },
+    {
+      "id": "dialogue_60",
+      "filename": "dialogues/quote_60.jpg",
+      "title": "Mere Ko Ek"
+    },
+    {
+      "id": "dialogue_55",
+      "filename": "dialogues/quote_55.jpg",
+      "title": "Koi Dhanda"
+    },
+    {
+      "id": "dialogue_57",
+      "filename": "dialogues/quote_57.jpg",
+      "title": "Taare Zameen Par."
+    },
+    {
+      "id": "dialogue_53",
+      "filename": "dialogues/quote_53.jpg",
+      "title": "Swagat Nahi"
+    },
+    {
+      "id": "dialogue_58",
+      "filename": "dialogues/quote_58.jpg",
+      "title": "Aati Kya Khandala?"
+    },
+    {
+      "id": "dialogue_62",
+      "filename": "dialogues/quote_62.jpg",
+      "title": "Asli Hip Hop"
+    },
+    {
+      "id": "dialogue_68",
+      "filename": "dialogues/quote_68.jpg",
+      "title": "Aata Majhi Satakli"
+    },
+    {
+      "id": "dialogue_64",
+      "filename": "dialogues/quote_64.jpg",
+      "title": "Baap Ka, Dada Ka,"
+    },
+    {
+      "id": "dialogue_61",
+      "filename": "dialogues/quote_61.jpg",
+      "title": "Bohot Hard"
+    },
+    {
+      "id": "dialogue_69",
+      "filename": "dialogues/quote_69.jpg",
+      "title": "Ghajab Bezati Hai"
+    },
+    {
+      "id": "dialogue_66",
+      "filename": "dialogues/quote_66.jpg",
+      "title": "Mhaari Chhoriyaan"
+    },
+    {
+      "id": "dialogue_67",
+      "filename": "dialogues/quote_67.jpg",
+      "title": "Gold Laaegi"
+    },
+    {
+      "id": "dialogue_65",
+      "filename": "dialogues/quote_65.jpg",
+      "title": "Keh Ke Lunga"
+    },
+    {
+      "id": "dialogue_70",
+      "filename": "dialogues/quote_70.jpg",
+      "title": "O Stree,"
+    },
+    {
+      "id": "dialogue_63",
+      "filename": "dialogues/quote_63.jpg",
+      "title": "Jab Tak Is Desh Mein"
+    },
+    {
+      "id": "dialogue_72",
+      "filename": "dialogues/quote_72.jpg",
+      "title": "Flower Nahi,"
+    },
+    {
+      "id": "dialogue_74",
+      "filename": "dialogues/quote_74.jpg",
+      "title": "History Thoda"
+    },
+    {
+      "id": "dialogue_73",
+      "filename": "dialogues/quote_73.jpg",
+      "title": "Pushparaj Ko"
+    },
+    {
+      "id": "dialogue_71",
+      "filename": "dialogues/quote_71.jpg",
+      "title": "Main Jhukega Nahi"
+    },
+    {
+      "id": "dialogue_77",
+      "filename": "dialogues/quote_77.jpg",
+      "title": "Aaj Se Teri"
+    },
+    {
+      "id": "dialogue_78",
+      "filename": "dialogues/quote_78.jpg",
+      "title": "Crime Master Gogo"
+    },
+    {
+      "id": "dialogue_75",
+      "filename": "dialogues/quote_75.jpg",
+      "title": "Papa Main"
+    },
+    {
+      "id": "dialogue_76",
+      "filename": "dialogues/quote_76.jpg",
+      "title": "Sapna Wahi Dekhna"
+    },
+    {
+      "id": "dialogue_80",
+      "filename": "dialogues/quote_80.jpg",
+      "title": "Ishq Bina Kya"
+    },
+    {
+      "id": "dialogue_79",
+      "filename": "dialogues/quote_79.jpg",
+      "title": "Ek Machhar"
+    },
+    {
+      "id": "dialogue_85",
+      "filename": "dialogues/quote_85.jpg",
+      "title": "Rishtey Mein Toh"
+    },
+    {
+      "id": "dialogue_84",
+      "filename": "dialogues/quote_84.jpg",
+      "title": "Zindagi Mein"
+    },
+    {
+      "id": "dialogue_86",
+      "filename": "dialogues/quote_86.jpg",
+      "title": "Sirf 70 Minute"
+    },
+    {
+      "id": "dialogue_87",
+      "filename": "dialogues/quote_87.jpg",
+      "title": "Koi Bhi Desh"
+    },
+    {
+      "id": "dialogue_88",
+      "filename": "dialogues/quote_88.jpg",
+      "title": "Hindustan"
+    },
+    {
+      "id": "dialogue_90",
+      "filename": "dialogues/quote_90.jpg",
+      "title": "Maut Se"
+    },
+    {
+      "id": "dialogue_81",
+      "filename": "dialogues/quote_81.jpg",
+      "title": "Humko Humise"
+    },
+    {
+      "id": "dialogue_83",
+      "filename": "dialogues/quote_83.jpg",
+      "title": "Zindagi Lambi"
+    },
+    {
+      "id": "dialogue_82",
+      "filename": "dialogues/quote_82.jpg",
+      "title": "Tujhe Dekha Toh"
+    },
+    {
+      "id": "dialogue_89",
+      "filename": "dialogues/quote_89.jpg",
+      "title": "Seize The Day."
+    },
+    {
+      "id": "dialogue_96",
+      "filename": "dialogues/quote_96.jpg",
+      "title": "Tumhara Naam"
+    },
+    {
+      "id": "dialogue_97",
+      "filename": "dialogues/quote_97.jpg",
+      "title": "Hum Angrezon Ke"
+    },
+    {
+      "id": "dialogue_91",
+      "filename": "dialogues/quote_91.jpg",
+      "title": "Dil Chahta Hai,"
+    },
+    {
+      "id": "dialogue_94",
+      "filename": "dialogues/quote_94.jpg",
+      "title": "Uska Toh Main"
+    },
+    {
+      "id": "dialogue_95",
+      "filename": "dialogues/quote_95.jpg",
+      "title": "I Can Talk"
+    },
+    {
+      "id": "dialogue_92",
+      "filename": "dialogues/quote_92.jpg",
+      "title": "Yeh Dil"
+    },
+    {
+      "id": "dialogue_93",
+      "filename": "dialogues/quote_93.jpg",
+      "title": "Aaj Mere Paas"
+    },
+    {
+      "id": "dialogue_100",
+      "filename": "dialogues/quote_100.jpg",
+      "title": "Apun Ka Time"
+    },
+    {
+      "id": "dialogue_98",
+      "filename": "dialogues/quote_98.jpg",
+      "title": "Tera Dhyan Kidhar"
+    },
+    {
+      "id": "dialogue_99",
+      "filename": "dialogues/quote_99.jpg",
+      "title": "Mumbai Ka King"
+    },
+    {
+      "id": "dialogue_107",
+      "filename": "dialogues/quote_107.jpg",
+      "title": "Raju, Ye Chal"
+    },
+    {
+      "id": "dialogue_105",
+      "filename": "dialogues/quote_105.jpg",
+      "title": "Kabhi Kabhi"
+    },
+    {
+      "id": "dialogue_102",
+      "filename": "dialogues/quote_102.jpg",
+      "title": "Jhooti Hai Yeh"
+    },
+    {
+      "id": "dialogue_108",
+      "filename": "dialogues/quote_108.jpg",
+      "title": "Main Udna Chahta Hoon,"
+    },
+    {
+      "id": "dialogue_104",
+      "filename": "dialogues/quote_104.jpg",
+      "title": "Aaj Khush Toh"
+    },
+    {
+      "id": "dialogue_101",
+      "filename": "dialogues/quote_101.jpg",
+      "title": "Mard Ko Dard"
+    },
+    {
+      "id": "dialogue_103",
+      "filename": "dialogues/quote_103.jpg",
+      "title": "Mujh Par Ek"
+    },
+    {
+      "id": "dialogue_109",
+      "filename": "dialogues/quote_109.jpg",
+      "title": "Naina,"
+    },
+    {
+      "id": "dialogue_106",
+      "filename": "dialogues/quote_106.jpg",
+      "title": "Dhuan Dhuan"
+    },
+    {
+      "id": "dialogue_110",
+      "filename": "dialogues/quote_110.jpg",
+      "title": "Koi Tumhare Liye"
+    },
+    {
+      "id": "dialogue_111",
+      "filename": "dialogues/quote_111.jpg",
+      "title": "Haar Ke Baad"
+    },
+    {
+      "id": "dialogue_113",
+      "filename": "dialogues/quote_113.jpg",
+      "title": "Goliyon Ki Raasleela"
+    },
+    {
+      "id": "dialogue_112",
+      "filename": "dialogues/quote_112.jpg",
+      "title": "Main Karke"
+    },
+    {
+      "id": "dialogue_117",
+      "filename": "dialogues/quote_117.jpg",
+      "title": "Tell Them"
+    },
+    {
+      "id": "dialogue_116",
+      "filename": "dialogues/quote_116.jpg",
+      "title": "Aankh Dikhata Hai?"
+    },
+    {
+      "id": "dialogue_114",
+      "filename": "dialogues/quote_114.jpg",
+      "title": "Stree Kal Aana"
+    },
+    {
+      "id": "dialogue_118",
+      "filename": "dialogues/quote_118.jpg",
+      "title": "Police Ka Kaam"
+    },
+    {
+      "id": "dialogue_115",
+      "filename": "dialogues/quote_115.jpg",
+      "title": "Violence,"
+    },
+    {
+      "id": "dialogue_119",
+      "filename": "dialogues/quote_119.jpg",
+      "title": "Insaan Ko Busy"
+    },
+    {
+      "id": "dialogue_120",
+      "filename": "dialogues/quote_120.jpg",
+      "title": "Mogambo Ka Adda,"
+    },
+    {
+      "id": "dialogue_125",
+      "filename": "dialogues/quote_125.jpg",
+      "title": "Gandhigiri"
+    },
+    {
+      "id": "dialogue_121",
+      "filename": "dialogues/quote_121.jpg",
+      "title": "Duniya Ka Sabse"
+    },
+    {
+      "id": "dialogue_129",
+      "filename": "dialogues/quote_129.jpg",
+      "title": "Yeh Toh"
+    },
+    {
+      "id": "dialogue_128",
+      "filename": "dialogues/quote_128.jpg",
+      "title": "Salim,"
+    },
+    {
+      "id": "dialogue_126",
+      "filename": "dialogues/quote_126.jpg",
+      "title": "Ek Thi Daayan,"
+    },
+    {
+      "id": "dialogue_124",
+      "filename": "dialogues/quote_124.jpg",
+      "title": "Circuit, Yeh Sab"
+    },
+    {
+      "id": "dialogue_130",
+      "filename": "dialogues/quote_130.jpg",
+      "title": "Kal Aaj Aur Kal,"
+    },
+    {
+      "id": "dialogue_122",
+      "filename": "dialogues/quote_122.jpg",
+      "title": "Tum Paas Aaye"
+    },
+    {
+      "id": "dialogue_123",
+      "filename": "dialogues/quote_123.jpg",
+      "title": "Bura Mat Suno,"
+    },
+    {
+      "id": "dialogue_127",
+      "filename": "dialogues/quote_127.jpg",
+      "title": "Jab Pyaar Kiya"
+    },
+    {
+      "id": "dialogue_136",
+      "filename": "dialogues/quote_136.jpg",
+      "title": "Aankhon Ki"
+    },
+    {
+      "id": "dialogue_135",
+      "filename": "dialogues/quote_135.jpg",
+      "title": "Woh Lamhe,"
+    },
+    {
+      "id": "dialogue_131",
+      "filename": "dialogues/quote_131.jpg",
+      "title": "Desh Ki Mitti"
+    },
+    {
+      "id": "dialogue_133",
+      "filename": "dialogues/quote_133.jpg",
+      "title": "Dabangg Dabangg"
+    },
+    {
+      "id": "dialogue_137",
+      "filename": "dialogues/quote_137.jpg",
+      "title": "Chandramukhi"
+    },
+    {
+      "id": "dialogue_139",
+      "filename": "dialogues/quote_139.jpg",
+      "title": "Khiladi Hai"
+    },
+    {
+      "id": "dialogue_134",
+      "filename": "dialogues/quote_134.jpg",
+      "title": "Chulbul Pandey"
+    },
+    {
+      "id": "dialogue_132",
+      "filename": "dialogues/quote_132.jpg",
+      "title": "Mere Desh Ki"
+    },
+    {
+      "id": "dialogue_140",
+      "filename": "dialogues/quote_140.jpg",
+      "title": "Ek Villain"
+    },
+    {
+      "id": "dialogue_138",
+      "filename": "dialogues/quote_138.jpg",
+      "title": "Devdas Nahi"
+    },
+    {
+      "id": "dialogue_145",
+      "filename": "dialogues/quote_145.jpg",
+      "title": "Pathaan"
+    },
+    {
+      "id": "dialogue_148",
+      "filename": "dialogues/quote_148.jpg",
+      "title": "Bajrangi"
+    },
+    {
+      "id": "dialogue_143",
+      "filename": "dialogues/quote_143.jpg",
+      "title": "Uri: The"
+    },
+    {
+      "id": "dialogue_147",
+      "filename": "dialogues/quote_147.jpg",
+      "title": "Tiger Abhi"
+    },
+    {
+      "id": "dialogue_144",
+      "filename": "dialogues/quote_144.jpg",
+      "title": "War Ho Gayi"
+    },
+    {
+      "id": "dialogue_146",
+      "filename": "dialogues/quote_146.jpg",
+      "title": "Jawan Hai"
+    },
+    {
+      "id": "dialogue_142",
+      "filename": "dialogues/quote_142.jpg",
+      "title": "Desh Pehle,"
+    },
+    {
+      "id": "dialogue_141",
+      "filename": "dialogues/quote_141.jpg",
+      "title": "Raazi Hoon"
+    },
+    {
+      "id": "dialogue_150",
+      "filename": "dialogues/quote_150.jpg",
+      "title": "Oh God,"
+    },
+    {
+      "id": "dialogue_149",
+      "filename": "dialogues/quote_149.jpg",
+      "title": "Am I Looking"
+    },
+    {
+      "id": "dialogue_152",
+      "filename": "dialogues/quote_152.jpg",
+      "title": "Gorgeous!"
+    },
+    {
+      "id": "dialogue_151",
+      "filename": "dialogues/quote_151.jpg",
+      "title": "Greek God"
+    },
+    {
+      "id": "dialogue_154",
+      "filename": "dialogues/quote_154.jpg",
+      "title": "Main Hoon Na"
+    },
+    {
+      "id": "dialogue_153",
+      "filename": "dialogues/quote_153.jpg",
+      "title": "Yeh Lo"
+    },
+    {
+      "id": "dialogue_157",
+      "filename": "dialogues/quote_157.jpg",
+      "title": "Main Tumse"
+    },
+    {
+      "id": "dialogue_155",
+      "filename": "dialogues/quote_155.jpg",
+      "title": "Keh Dena Anjali"
+    },
+    {
+      "id": "dialogue_159",
+      "filename": "dialogues/quote_159.jpg",
+      "title": "Har Pal Yahan"
+    },
+    {
+      "id": "dialogue_156",
+      "filename": "dialogues/quote_156.jpg",
+      "title": "Tum Kab Se"
+    },
+    {
+      "id": "dialogue_158",
+      "filename": "dialogues/quote_158.jpg",
+      "title": "I Love You,"
+    },
+    {
+      "id": "dialogue_160",
+      "filename": "dialogues/quote_160.jpg",
+      "title": "Naina,"
+    },
+    {
+      "id": "dialogue_161",
+      "filename": "dialogues/quote_161.jpg",
+      "title": "Kabhi Alvida"
+    },
+    {
+      "id": "dialogue_163",
+      "filename": "dialogues/quote_163.jpg",
+      "title": "Koi Mil Gaya"
+    },
+    {
+      "id": "dialogue_165",
+      "filename": "dialogues/quote_165.jpg",
+      "title": "Aisha Nahi"
+    },
+    {
+      "id": "dialogue_169",
+      "filename": "dialogues/quote_169.jpg",
+      "title": "Yeh Jo Public"
+    },
+    {
+      "id": "dialogue_164",
+      "filename": "dialogues/quote_164.jpg",
+      "title": "Main Krrish"
+    },
+    {
+      "id": "dialogue_170",
+      "filename": "dialogues/quote_170.jpg",
+      "title": "Pehli Fursat"
+    },
+    {
+      "id": "dialogue_166",
+      "filename": "dialogues/quote_166.jpg",
+      "title": "Main Apni"
+    },
+    {
+      "id": "dialogue_162",
+      "filename": "dialogues/quote_162.jpg",
+      "title": "Dev,"
+    },
+    {
+      "id": "dialogue_168",
+      "filename": "dialogues/quote_168.jpg",
+      "title": "Tumhara Kya"
+    },
+    {
+      "id": "dialogue_167",
+      "filename": "dialogues/quote_167.jpg",
+      "title": "Ek Baar Jab"
+    },
+    {
+      "id": "dialogue_171",
+      "filename": "dialogues/quote_171.jpg",
+      "title": "Ek Toh Koi"
+    },
+    {
+      "id": "dialogue_172",
+      "filename": "dialogues/quote_172.jpg",
+      "title": "Hum Woh Nahi"
+    },
+    {
+      "id": "dialogue_174",
+      "filename": "dialogues/quote_174.jpg",
+      "title": "Ab India"
+    },
+    {
+      "id": "dialogue_179",
+      "filename": "dialogues/quote_179.jpg",
+      "title": "Rani Ko Koi"
+    },
+    {
+      "id": "dialogue_175",
+      "filename": "dialogues/quote_175.jpg",
+      "title": "Zindagi Na"
+    },
+    {
+      "id": "dialogue_177",
+      "filename": "dialogues/quote_177.jpg",
+      "title": "Raj,"
+    },
+    {
+      "id": "dialogue_173",
+      "filename": "dialogues/quote_173.jpg",
+      "title": "Don Ko"
+    },
+    {
+      "id": "dialogue_178",
+      "filename": "dialogues/quote_178.jpg",
+      "title": "Main Akeli"
+    },
+    {
+      "id": "dialogue_180",
+      "filename": "dialogues/quote_180.jpg",
+      "title": "Tanu,"
+    },
+    {
+      "id": "dialogue_176",
+      "filename": "dialogues/quote_176.jpg",
+      "title": "Simran,"
+    },
+    {
+      "id": "dialogue_185",
+      "filename": "dialogues/quote_185.jpg",
+      "title": "Oye Oye!"
+    },
+    {
+      "id": "dialogue_183",
+      "filename": "dialogues/quote_183.jpg",
+      "title": "Teja Main"
+    },
+    {
+      "id": "dialogue_187",
+      "filename": "dialogues/quote_187.jpg",
+      "title": "Ishq Hota"
+    },
+    {
+      "id": "dialogue_188",
+      "filename": "dialogues/quote_188.jpg",
+      "title": "Aankhein"
+    },
+    {
+      "id": "dialogue_189",
+      "filename": "dialogues/quote_189.jpg",
+      "title": "Aaj Mausi"
+    },
+    {
+      "id": "dialogue_190",
+      "filename": "dialogues/quote_190.jpg",
+      "title": "Happy New Year,"
+    },
+    {
+      "id": "dialogue_182",
+      "filename": "dialogues/quote_182.jpg",
+      "title": "Pehle Aap,"
+    },
+    {
+      "id": "dialogue_184",
+      "filename": "dialogues/quote_184.jpg",
+      "title": "Amar Aur"
+    },
+    {
+      "id": "dialogue_186",
+      "filename": "dialogues/quote_186.jpg",
+      "title": "Mohabbatein"
+    },
+    {
+      "id": "dialogue_181",
+      "filename": "dialogues/quote_181.jpg",
+      "title": "Antakshari"
+    },
+    {
+      "id": "dialogue_191",
+      "filename": "dialogues/quote_191.jpg",
+      "title": "Yeh Dosti"
+    },
+    {
+      "id": "dialogue_198",
+      "filename": "dialogues/quote_198.jpg",
+      "title": "Bas Ek"
+    },
+    {
+      "id": "dialogue_195",
+      "filename": "dialogues/quote_195.jpg",
+      "title": "Zindagi Ek"
+    },
+    {
+      "id": "dialogue_192",
+      "filename": "dialogues/quote_192.jpg",
+      "title": "Satya,"
+    },
+    {
+      "id": "dialogue_193",
+      "filename": "dialogues/quote_193.jpg",
+      "title": "Company Chhod"
+    },
+    {
+      "id": "dialogue_197",
+      "filename": "dialogues/quote_197.jpg",
+      "title": "Page Three"
+    },
+    {
+      "id": "dialogue_194",
+      "filename": "dialogues/quote_194.jpg",
+      "title": "Black Mein"
+    },
+    {
+      "id": "dialogue_200",
+      "filename": "dialogues/quote_200.jpg",
+      "title": "Main Yahan"
+    },
+    {
+      "id": "dialogue_196",
+      "filename": "dialogues/quote_196.jpg",
+      "title": "Bheja Fry"
+    },
+    {
+      "id": "dialogue_199",
+      "filename": "dialogues/quote_199.jpg",
+      "title": "Woh Lamhe"
+    },
+    {
+      "id": "dialogue_203",
+      "filename": "dialogues/quote_203.jpg",
+      "title": "Yeh Jo Des"
+    },
+    {
+      "id": "dialogue_207",
+      "filename": "dialogues/quote_207.jpg",
+      "title": "Bhaag DK"
+    },
+    {
+      "id": "dialogue_210",
+      "filename": "dialogues/quote_210.jpg",
+      "title": "Pakhi,"
+    },
+    {
+      "id": "dialogue_201",
+      "filename": "dialogues/quote_201.jpg",
+      "title": "Tere Liye"
+    },
+    {
+      "id": "dialogue_204",
+      "filename": "dialogues/quote_204.jpg",
+      "title": "Mohan Bhargava"
+    },
+    {
+      "id": "dialogue_202",
+      "filename": "dialogues/quote_202.jpg",
+      "title": "Do Pal"
+    },
+    {
+      "id": "dialogue_208",
+      "filename": "dialogues/quote_208.jpg",
+      "title": "Zindagi Na"
+    },
+    {
+      "id": "dialogue_206",
+      "filename": "dialogues/quote_206.jpg",
+      "title": "Har Cheez"
+    },
+    {
+      "id": "dialogue_205",
+      "filename": "dialogues/quote_205.jpg",
+      "title": "Salaam"
+    },
+    {
+      "id": "dialogue_209",
+      "filename": "dialogues/quote_209.jpg",
+      "title": "Ishaan,"
+    },
+    {
+      "id": "dialogue_220",
+      "filename": "dialogues/quote_220.jpg",
+      "title": "Vikram Batra,"
+    },
+    {
+      "id": "dialogue_219",
+      "filename": "dialogues/quote_219.jpg",
+      "title": "Yeh Dil"
+    },
+    {
+      "id": "dialogue_217",
+      "filename": "dialogues/quote_217.jpg",
+      "title": "Loser Woh"
+    },
+    {
+      "id": "dialogue_216",
+      "filename": "dialogues/quote_216.jpg",
+      "title": "Anand Kumar"
+    },
+    {
+      "id": "dialogue_218",
+      "filename": "dialogues/quote_218.jpg",
+      "title": "Kizie Aur"
+    },
+    {
+      "id": "dialogue_211",
+      "filename": "dialogues/quote_211.jpg",
+      "title": "Hona Tha"
+    },
+    {
+      "id": "dialogue_215",
+      "filename": "dialogues/quote_215.jpg",
+      "title": "Mulk Ke"
+    },
+    {
+      "id": "dialogue_212",
+      "filename": "dialogues/quote_212.jpg",
+      "title": "Veera,"
+    },
+    {
+      "id": "dialogue_214",
+      "filename": "dialogues/quote_214.jpg",
+      "title": "Article 15"
+    },
+    {
+      "id": "dialogue_213",
+      "filename": "dialogues/quote_213.jpg",
+      "title": "Akash Ko"
+    },
+    {
+      "id": "dialogue_224",
+      "filename": "dialogues/quote_224.jpg",
+      "title": "Tu Hai Toh"
+    },
+    {
+      "id": "dialogue_221",
+      "filename": "dialogues/quote_221.jpg",
+      "title": "Jai Mata Di,"
+    },
+    {
+      "id": "dialogue_227",
+      "filename": "dialogues/quote_227.jpg",
+      "title": "My Name"
+    },
+    {
+      "id": "dialogue_223",
+      "filename": "dialogues/quote_223.jpg",
+      "title": "Shiva,"
+    },
+    {
+      "id": "dialogue_226",
+      "filename": "dialogues/quote_226.jpg",
+      "title": "Rocky Bhai"
+    },
+    {
+      "id": "dialogue_225",
+      "filename": "dialogues/quote_225.jpg",
+      "title": "Vijay Salgaonkar"
+    },
+    {
+      "id": "dialogue_228",
+      "filename": "dialogues/quote_228.jpg",
+      "title": "Tu Jhoothi"
+    },
+    {
+      "id": "dialogue_229",
+      "filename": "dialogues/quote_229.jpg",
+      "title": "12th Fail."
+    },
+    {
+      "id": "dialogue_222",
+      "filename": "dialogues/quote_222.jpg",
+      "title": "Hum Jeetenge,"
+    },
+    {
+      "id": "dialogue_230",
+      "filename": "dialogues/quote_230.jpg",
+      "title": "IPS Manoj"
+    },
+    {
+      "id": "dialogue_236",
+      "filename": "dialogues/quote_236.jpg",
+      "title": "Sab Moh"
+    },
+    {
+      "id": "dialogue_237",
+      "filename": "dialogues/quote_237.jpg",
+      "title": "God Is"
+    },
+    {
+      "id": "dialogue_235",
+      "filename": "dialogues/quote_235.jpg",
+      "title": "Apna Time"
+    },
+    {
+      "id": "dialogue_234",
+      "filename": "dialogues/quote_234.jpg",
+      "title": "Munna Tripathi"
+    },
+    {
+      "id": "dialogue_231",
+      "filename": "dialogues/quote_231.jpg",
+      "title": "Kaleen Bhaiya"
+    },
+    {
+      "id": "dialogue_240",
+      "filename": "dialogues/quote_240.jpg",
+      "title": "JK, Sab"
+    },
+    {
+      "id": "dialogue_233",
+      "filename": "dialogues/quote_233.jpg",
+      "title": "Yeh Purvanchal"
+    },
+    {
+      "id": "dialogue_232",
+      "filename": "dialogues/quote_232.jpg",
+      "title": "Guddu Pandit"
+    },
+    {
+      "id": "dialogue_238",
+      "filename": "dialogues/quote_238.jpg",
+      "title": "Trivedi,"
+    },
+    {
+      "id": "dialogue_239",
+      "filename": "dialogues/quote_239.jpg",
+      "title": "Srikant Tiwari"
+    },
+    {
+      "id": "dialogue_248",
+      "filename": "dialogues/quote_248.jpg",
+      "title": "Gangubai"
+    },
+    {
+      "id": "dialogue_246",
+      "filename": "dialogues/quote_246.jpg",
+      "title": "Abhi Toh"
+    },
+    {
+      "id": "dialogue_242",
+      "filename": "dialogues/quote_242.jpg",
+      "title": "Jeetu Bhaiya"
+    },
+    {
+      "id": "dialogue_241",
+      "filename": "dialogues/quote_241.jpg",
+      "title": "Kota Mein"
+    },
+    {
+      "id": "dialogue_250",
+      "filename": "dialogues/quote_250.jpg",
+      "title": "Sardar Udham"
+    },
+    {
+      "id": "dialogue_247",
+      "filename": "dialogues/quote_247.jpg",
+      "title": "Startup"
+    },
+    {
+      "id": "dialogue_244",
+      "filename": "dialogues/quote_244.jpg",
+      "title": "Har Cheez"
+    },
+    {
+      "id": "dialogue_243",
+      "filename": "dialogues/quote_243.jpg",
+      "title": "Sapne Bade"
+    },
+    {
+      "id": "dialogue_249",
+      "filename": "dialogues/quote_249.jpg",
+      "title": "Main Kamathipura"
+    },
+    {
+      "id": "dialogue_245",
+      "filename": "dialogues/quote_245.jpg",
+      "title": "UPSC Nahi"
+    },
+    {
+      "id": "dialogue_256",
+      "filename": "dialogues/quote_256.jpg",
+      "title": "Rinku,"
+    },
+    {
+      "id": "dialogue_251",
+      "filename": "dialogues/quote_251.jpg",
+      "title": "Jallianwala"
+    },
+    {
+      "id": "dialogue_253",
+      "filename": "dialogues/quote_253.jpg",
+      "title": "Isse Chhota"
+    },
+    {
+      "id": "dialogue_257",
+      "filename": "dialogues/quote_257.jpg",
+      "title": "Dear Zindagi,"
+    },
+    {
+      "id": "dialogue_260",
+      "filename": "dialogues/quote_260.jpg",
+      "title": "Rahul Kapoor,"
+    },
+    {
+      "id": "dialogue_255",
+      "filename": "dialogues/quote_255.jpg",
+      "title": "Mimi,"
+    },
+    {
+      "id": "dialogue_254",
+      "filename": "dialogues/quote_254.jpg",
+      "title": "Sandhya Ko"
+    },
+    {
+      "id": "dialogue_252",
+      "filename": "dialogues/quote_252.jpg",
+      "title": "Thappad."
+    },
+    {
+      "id": "dialogue_259",
+      "filename": "dialogues/quote_259.jpg",
+      "title": "Kapoor &"
+    },
+    {
+      "id": "dialogue_258",
+      "filename": "dialogues/quote_258.jpg",
+      "title": "Kaira,"
+    },
+    {
+      "id": "dialogue_270",
+      "filename": "dialogues/quote_270.jpg",
+      "title": "Kahaani"
+    },
+    {
+      "id": "dialogue_265",
+      "filename": "dialogues/quote_265.jpg",
+      "title": "Pradhan Ji,"
+    },
+    {
+      "id": "dialogue_261",
+      "filename": "dialogues/quote_261.jpg",
+      "title": "Made In"
+    },
+    {
+      "id": "dialogue_262",
+      "filename": "dialogues/quote_262.jpg",
+      "title": "Tara Khanna"
+    },
+    {
+      "id": "dialogue_263",
+      "filename": "dialogues/quote_263.jpg",
+      "title": "Panchayat"
+    },
+    {
+      "id": "dialogue_264",
+      "filename": "dialogues/quote_264.jpg",
+      "title": "Sachiv Ji"
+    },
+    {
+      "id": "dialogue_266",
+      "filename": "dialogues/quote_266.jpg",
+      "title": "Harshad Mehta"
+    },
+    {
+      "id": "dialogue_268",
+      "filename": "dialogues/quote_268.jpg",
+      "title": "Badhiya Hai!"
+    },
+    {
+      "id": "dialogue_269",
+      "filename": "dialogues/quote_269.jpg",
+      "title": "Talaash"
+    },
+    {
+      "id": "dialogue_267",
+      "filename": "dialogues/quote_267.jpg",
+      "title": "Risk Hai"
+    },
+    {
+      "id": "dialogue_272",
+      "filename": "dialogues/quote_272.jpg",
+      "title": "Barfi Ne"
+    },
+    {
+      "id": "dialogue_280",
+      "filename": "dialogues/quote_280.jpg",
+      "title": "Criminal"
+    },
+    {
+      "id": "dialogue_275",
+      "filename": "dialogues/quote_275.jpg",
+      "title": "Patal Lok"
+    },
+    {
+      "id": "dialogue_274",
+      "filename": "dialogues/quote_274.jpg",
+      "title": "Yeh Kaali"
+    },
+    {
+      "id": "dialogue_279",
+      "filename": "dialogues/quote_279.jpg",
+      "title": "Breathe,"
+    },
+    {
+      "id": "dialogue_273",
+      "filename": "dialogues/quote_273.jpg",
+      "title": "Ek Villain"
+    },
+    {
+      "id": "dialogue_271",
+      "filename": "dialogues/quote_271.jpg",
+      "title": "Bidya Bagchi"
+    },
+    {
+      "id": "dialogue_276",
+      "filename": "dialogues/quote_276.jpg",
+      "title": "Hathiram"
+    },
+    {
+      "id": "dialogue_277",
+      "filename": "dialogues/quote_277.jpg",
+      "title": "Jamtara"
+    },
+    {
+      "id": "dialogue_278",
+      "filename": "dialogues/quote_278.jpg",
+      "title": "OTP Batao"
+    },
+    {
+      "id": "dialogue_286",
+      "filename": "dialogues/quote_286.jpg",
+      "title": "Aspirant Hoon"
+    },
+    {
+      "id": "dialogue_282",
+      "filename": "dialogues/quote_282.jpg",
+      "title": "Aarya Hai"
+    },
+    {
+      "id": "dialogue_281",
+      "filename": "dialogues/quote_281.jpg",
+      "title": "Arjun Mathur"
+    },
+    {
+      "id": "dialogue_285",
+      "filename": "dialogues/quote_285.jpg",
+      "title": "Homi Bhabha"
+    },
+    {
+      "id": "dialogue_283",
+      "filename": "dialogues/quote_283.jpg",
+      "title": "Main Apne"
+    },
+    {
+      "id": "dialogue_287",
+      "filename": "dialogues/quote_287.jpg",
+      "title": "Gullak Bhar"
+    },
+    {
+      "id": "dialogue_288",
+      "filename": "dialogues/quote_288.jpg",
+      "title": "Mishra Ji"
+    },
+    {
+      "id": "dialogue_289",
+      "filename": "dialogues/quote_289.jpg",
+      "title": "Yeh Meri"
+    },
+    {
+      "id": "dialogue_284",
+      "filename": "dialogues/quote_284.jpg",
+      "title": "Rocket Boys"
+    },
+    {
+      "id": "dialogue_290",
+      "filename": "dialogues/quote_290.jpg",
+      "title": "College Mein"
+    },
+    {
+      "id": "dialogue_291",
+      "filename": "dialogues/quote_291.jpg",
+      "title": "Bandish"
+    },
+    {
+      "id": "dialogue_296",
+      "filename": "dialogues/quote_296.jpg",
+      "title": "Roohi,"
+    },
+    {
+      "id": "dialogue_294",
+      "filename": "dialogues/quote_294.jpg",
+      "title": "Shikara,"
+    },
+    {
+      "id": "dialogue_300",
+      "filename": "dialogues/quote_300.jpg",
+      "title": "Dhamaka"
+    },
+    {
+      "id": "dialogue_298",
+      "filename": "dialogues/quote_298.jpg",
+      "title": "Freddy,"
+    },
+    {
+      "id": "dialogue_292",
+      "filename": "dialogues/quote_292.jpg",
+      "title": "Sunflower"
+    },
+    {
+      "id": "dialogue_297",
+      "filename": "dialogues/quote_297.jpg",
+      "title": "Bhoot Police"
+    },
+    {
+      "id": "dialogue_295",
+      "filename": "dialogues/quote_295.jpg",
+      "title": "Mirza Aur"
+    },
+    {
+      "id": "dialogue_293",
+      "filename": "dialogues/quote_293.jpg",
+      "title": "Rani,"
+    },
+    {
+      "id": "dialogue_299",
+      "filename": "dialogues/quote_299.jpg",
+      "title": "Monica,"
+    },
+    {
+      "id": "dialogue_303",
+      "filename": "dialogues/quote_303.jpg",
+      "title": "Badru,"
+    },
+    {
+      "id": "dialogue_308",
+      "filename": "dialogues/quote_308.jpg",
+      "title": "Jugaadu"
+    },
+    {
+      "id": "dialogue_302",
+      "filename": "dialogues/quote_302.jpg",
+      "title": "Darlings,"
+    },
+    {
+      "id": "dialogue_301",
+      "filename": "dialogues/quote_301.jpg",
+      "title": "Arjun Pathak,"
+    },
+    {
+      "id": "dialogue_306",
+      "filename": "dialogues/quote_306.jpg",
+      "title": "Goodbye,"
+    },
+    {
+      "id": "dialogue_305",
+      "filename": "dialogues/quote_305.jpg",
+      "title": "Chup,"
+    },
+    {
+      "id": "dialogue_304",
+      "filename": "dialogues/quote_304.jpg",
+      "title": "Jogi,"
+    },
+    {
+      "id": "dialogue_309",
+      "filename": "dialogues/quote_309.jpg",
+      "title": "Choocha,"
+    },
+    {
+      "id": "dialogue_310",
+      "filename": "dialogues/quote_310.jpg",
+      "title": "Zombie Aa"
+    },
+    {
+      "id": "dialogue_307",
+      "filename": "dialogues/quote_307.jpg",
+      "title": "Fukrey"
+    },
+    {
+      "id": "dialogue_314",
+      "filename": "dialogues/quote_314.jpg",
+      "title": "Begum Para,"
+    },
+    {
+      "id": "dialogue_319",
+      "filename": "dialogues/quote_319.jpg",
+      "title": "Rehman Dakait"
+    },
+    {
+      "id": "dialogue_317",
+      "filename": "dialogues/quote_317.jpg",
+      "title": "Yeh Naya"
+    },
+    {
+      "id": "dialogue_316",
+      "filename": "dialogues/quote_316.jpg",
+      "title": "Main Dhurandhar"
+    },
+    {
+      "id": "dialogue_313",
+      "filename": "dialogues/quote_313.jpg",
+      "title": "Kusum Sangra"
+    },
+    {
+      "id": "dialogue_311",
+      "filename": "dialogues/quote_311.jpg",
+      "title": "Vote Karo"
+    },
+    {
+      "id": "dialogue_315",
+      "filename": "dialogues/quote_315.jpg",
+      "title": "Ghayal Hoon"
+    },
+    {
+      "id": "dialogue_312",
+      "filename": "dialogues/quote_312.jpg",
+      "title": "Tanu Weds"
+    },
+    {
+      "id": "dialogue_320",
+      "filename": "dialogues/quote_320.jpg",
+      "title": "Kismat Ki"
+    },
+    {
+      "id": "dialogue_318",
+      "filename": "dialogues/quote_318.jpg",
+      "title": "Agar Tumlogon"
+    },
+    {
+      "id": "dialogue_322",
+      "filename": "dialogues/quote_322.jpg",
+      "title": "Bharat Ke"
+    },
+    {
+      "id": "dialogue_328",
+      "filename": "dialogues/quote_328.jpg",
+      "title": "Dhurandhar:"
+    },
+    {
+      "id": "dialogue_321",
+      "filename": "dialogues/quote_321.jpg",
+      "title": "Munh Todne"
+    },
+    {
+      "id": "dialogue_327",
+      "filename": "dialogues/quote_327.jpg",
+      "title": "Usko Vaada"
+    },
+    {
+      "id": "dialogue_323",
+      "filename": "dialogues/quote_323.jpg",
+      "title": "Bigaadne Ka"
+    },
+    {
+      "id": "dialogue_329",
+      "filename": "dialogues/quote_329.jpg",
+      "title": "War 2"
+    },
+    {
+      "id": "dialogue_330",
+      "filename": "dialogues/quote_330.jpg",
+      "title": "Kabir,"
+    },
+    {
+      "id": "dialogue_326",
+      "filename": "dialogues/quote_326.jpg",
+      "title": "Bleed India"
+    },
+    {
+      "id": "dialogue_325",
+      "filename": "dialogues/quote_325.jpg",
+      "title": "India's Biggest"
+    },
+    {
+      "id": "dialogue_324",
+      "filename": "dialogues/quote_324.jpg",
+      "title": "Zinda Rakhke"
+    },
+    {
+      "id": "dialogue_334",
+      "filename": "dialogues/quote_334.jpg",
+      "title": "Nayanthara"
+    },
+    {
+      "id": "dialogue_331",
+      "filename": "dialogues/quote_331.jpg",
+      "title": "Khalid,"
+    },
+    {
+      "id": "dialogue_337",
+      "filename": "dialogues/quote_337.jpg",
+      "title": "Animal Hai"
+    },
+    {
+      "id": "dialogue_332",
+      "filename": "dialogues/quote_332.jpg",
+      "title": "Pathaan"
+    },
+    {
+      "id": "dialogue_338",
+      "filename": "dialogues/quote_338.jpg",
+      "title": "Ranbir,"
+    },
+    {
+      "id": "dialogue_339",
+      "filename": "dialogues/quote_339.jpg",
+      "title": "Sanju Baba"
+    },
+    {
+      "id": "dialogue_336",
+      "filename": "dialogues/quote_336.jpg",
+      "title": "Hardy,"
+    },
+    {
+      "id": "dialogue_340",
+      "filename": "dialogues/quote_340.jpg",
+      "title": "Mera Yaar"
+    },
+    {
+      "id": "dialogue_335",
+      "filename": "dialogues/quote_335.jpg",
+      "title": "Dunki Drop"
+    },
+    {
+      "id": "dialogue_333",
+      "filename": "dialogues/quote_333.jpg",
+      "title": "Jawan Hai,"
+    },
+    {
+      "id": "dialogue_350",
+      "filename": "dialogues/quote_350.jpg",
+      "title": "Divorce Lena"
+    },
+    {
+      "id": "dialogue_349",
+      "filename": "dialogues/quote_349.jpg",
+      "title": "Zara Hatke"
+    },
+    {
+      "id": "dialogue_345",
+      "filename": "dialogues/quote_345.jpg",
+      "title": "Field Marshal"
+    },
+    {
+      "id": "dialogue_348",
+      "filename": "dialogues/quote_348.jpg",
+      "title": "Jaane Jaan,"
+    },
+    {
+      "id": "dialogue_341",
+      "filename": "dialogues/quote_341.jpg",
+      "title": "Kya Karu"
+    },
+    {
+      "id": "dialogue_342",
+      "filename": "dialogues/quote_342.jpg",
+      "title": "Kesari!"
+    },
+    {
+      "id": "dialogue_344",
+      "filename": "dialogues/quote_344.jpg",
+      "title": "Sam Bahadur!"
+    },
+    {
+      "id": "dialogue_347",
+      "filename": "dialogues/quote_347.jpg",
+      "title": "Mission Raniganj"
+    },
+    {
+      "id": "dialogue_346",
+      "filename": "dialogues/quote_346.jpg",
+      "title": "Pippa!"
+    },
+    {
+      "id": "dialogue_343",
+      "filename": "dialogues/quote_343.jpg",
+      "title": "Hamare Sau"
+    },
+    {
+      "id": "dialogue_353",
+      "filename": "dialogues/quote_353.jpg",
+      "title": "Jigra"
+    },
+    {
+      "id": "dialogue_356",
+      "filename": "dialogues/quote_356.jpg",
+      "title": "Stree 2,"
+    },
+    {
+      "id": "dialogue_358",
+      "filename": "dialogues/quote_358.jpg",
+      "title": "Sarkaar Aur"
+    },
+    {
+      "id": "dialogue_352",
+      "filename": "dialogues/quote_352.jpg",
+      "title": "Phool,"
+    },
+    {
+      "id": "dialogue_357",
+      "filename": "dialogues/quote_357.jpg",
+      "title": "Shraddha,"
+    },
+    {
+      "id": "dialogue_359",
+      "filename": "dialogues/quote_359.jpg",
+      "title": "Hijack Ho"
+    },
+    {
+      "id": "dialogue_354",
+      "filename": "dialogues/quote_354.jpg",
+      "title": "Alia,"
+    },
+    {
+      "id": "dialogue_360",
+      "filename": "dialogues/quote_360.jpg",
+      "title": "Panchayat"
+    },
+    {
+      "id": "dialogue_355",
+      "filename": "dialogues/quote_355.jpg",
+      "title": "Do Aur"
+    },
+    {
+      "id": "dialogue_351",
+      "filename": "dialogues/quote_351.jpg",
+      "title": "Laapataa"
+    },
+    {
+      "id": "dialogue_362",
+      "filename": "dialogues/quote_362.jpg",
+      "title": "Farzi Hai"
+    },
+    {
+      "id": "dialogue_370",
+      "filename": "dialogues/quote_370.jpg",
+      "title": "Bas Kar,"
+    },
+    {
+      "id": "dialogue_361",
+      "filename": "dialogues/quote_361.jpg",
+      "title": "Mirzapur 3"
+    },
+    {
+      "id": "dialogue_363",
+      "filename": "dialogues/quote_363.jpg",
+      "title": "Sunny,"
+    },
+    {
+      "id": "dialogue_367",
+      "filename": "dialogues/quote_367.jpg",
+      "title": "Article 370"
+    },
+    {
+      "id": "dialogue_365",
+      "filename": "dialogues/quote_365.jpg",
+      "title": "Patty Dogra,"
+    },
+    {
+      "id": "dialogue_368",
+      "filename": "dialogues/quote_368.jpg",
+      "title": "Zooni Haksar,"
+    },
+    {
+      "id": "dialogue_366",
+      "filename": "dialogues/quote_366.jpg",
+      "title": "Shamsher Pathania,"
+    },
+    {
+      "id": "dialogue_364",
+      "filename": "dialogues/quote_364.jpg",
+      "title": "Fighter"
+    },
+    {
+      "id": "dialogue_369",
+      "filename": "dialogues/quote_369.jpg",
+      "title": "Kashmir Ka"
+    },
+    {
+      "id": "dialogue_377",
+      "filename": "dialogues/quote_377.jpg",
+      "title": "2898 Mein"
+    },
+    {
+      "id": "dialogue_371",
+      "filename": "dialogues/quote_371.jpg",
+      "title": "Teeno Milke"
+    },
+    {
+      "id": "dialogue_373",
+      "filename": "dialogues/quote_373.jpg",
+      "title": "Chamkila,"
+    },
+    {
+      "id": "dialogue_375",
+      "filename": "dialogues/quote_375.jpg",
+      "title": "Kalki"
+    },
+    {
+      "id": "dialogue_374",
+      "filename": "dialogues/quote_374.jpg",
+      "title": "Gaane Mein"
+    },
+    {
+      "id": "dialogue_372",
+      "filename": "dialogues/quote_372.jpg",
+      "title": "Aaj Kuch"
+    },
+    {
+      "id": "dialogue_376",
+      "filename": "dialogues/quote_376.jpg",
+      "title": "Yeh Ant"
+    },
+    {
+      "id": "dialogue_379",
+      "filename": "dialogues/quote_379.jpg",
+      "title": "Aurat Ki"
+    },
+    {
+      "id": "dialogue_380",
+      "filename": "dialogues/quote_380.jpg",
+      "title": "Bhool Mat"
+    },
+    {
+      "id": "dialogue_378",
+      "filename": "dialogues/quote_378.jpg",
+      "title": "Singham"
+    },
+    {
+      "id": "dialogue_381",
+      "filename": "dialogues/quote_381.jpg",
+      "title": "Rooh Baba,"
+    },
+    {
+      "id": "dialogue_387",
+      "filename": "dialogues/quote_387.jpg",
+      "title": "Bachpan Ka"
+    },
+    {
+      "id": "dialogue_385",
+      "filename": "dialogues/quote_385.jpg",
+      "title": "Teen Yaar,"
+    },
+    {
+      "id": "dialogue_388",
+      "filename": "dialogues/quote_388.jpg",
+      "title": "Champion"
+    },
+    {
+      "id": "dialogue_384",
+      "filename": "dialogues/quote_384.jpg",
+      "title": "Chaliye Phir"
+    },
+    {
+      "id": "dialogue_383",
+      "filename": "dialogues/quote_383.jpg",
+      "title": "Goa Toh"
+    },
+    {
+      "id": "dialogue_382",
+      "filename": "dialogues/quote_382.jpg",
+      "title": "Manjulika"
+    },
+    {
+      "id": "dialogue_390",
+      "filename": "dialogues/quote_390.jpg",
+      "title": "Main Andha"
+    },
+    {
+      "id": "dialogue_389",
+      "filename": "dialogues/quote_389.jpg",
+      "title": "Murlikant"
+    },
+    {
+      "id": "dialogue_386",
+      "filename": "dialogues/quote_386.jpg",
+      "title": "Munjya"
+    },
+    {
+      "id": "dialogue_391",
+      "filename": "dialogues/quote_391.jpg",
+      "title": "IIT MIT"
+    },
+    {
+      "id": "dialogue_395",
+      "filename": "dialogues/quote_395.jpg",
+      "title": "Uski Zindagi"
+    },
+    {
+      "id": "dialogue_392",
+      "filename": "dialogues/quote_392.jpg",
+      "title": "Kill Karna"
+    },
+    {
+      "id": "dialogue_400",
+      "filename": "dialogues/quote_400.jpg",
+      "title": "Fareedan,"
+    },
+    {
+      "id": "dialogue_396",
+      "filename": "dialogues/quote_396.jpg",
+      "title": "Merry Christmas"
+    },
+    {
+      "id": "dialogue_399",
+      "filename": "dialogues/quote_399.jpg",
+      "title": "Heeramandi"
+    },
+    {
+      "id": "dialogue_393",
+      "filename": "dialogues/quote_393.jpg",
+      "title": "Train Mein"
+    },
+    {
+      "id": "dialogue_398",
+      "filename": "dialogues/quote_398.jpg",
+      "title": "Sharafat"
+    },
+    {
+      "id": "dialogue_397",
+      "filename": "dialogues/quote_397.jpg",
+      "title": "Maria,"
+    },
+    {
+      "id": "dialogue_394",
+      "filename": "dialogues/quote_394.jpg",
+      "title": "Vedaa,"
+    },
+    {
+      "id": "dialogue_401",
+      "filename": "dialogues/quote_401.jpg",
+      "title": "Sabarmati"
+    },
+    {
+      "id": "dialogue_404",
+      "filename": "dialogues/quote_404.jpg",
+      "title": "CTRL"
+    },
+    {
+      "id": "dialogue_407",
+      "filename": "dialogues/quote_407.jpg",
+      "title": "Auron Mein"
+    },
+    {
+      "id": "dialogue_405",
+      "filename": "dialogues/quote_405.jpg",
+      "title": "Yodha"
+    },
+    {
+      "id": "dialogue_406",
+      "filename": "dialogues/quote_406.jpg",
+      "title": "Bade Miyan"
+    },
+    {
+      "id": "dialogue_402",
+      "filename": "dialogues/quote_402.jpg",
+      "title": "Patrakarita"
+    },
+    {
+      "id": "dialogue_410",
+      "filename": "dialogues/quote_410.jpg",
+      "title": "Thaggede Le!"
+    },
+    {
+      "id": "dialogue_403",
+      "filename": "dialogues/quote_403.jpg",
+      "title": "Vaama Upadhyay,"
+    },
+    {
+      "id": "dialogue_408",
+      "filename": "dialogues/quote_408.jpg",
+      "title": "Pushpa Sirf"
+    },
+    {
+      "id": "dialogue_409",
+      "filename": "dialogues/quote_409.jpg",
+      "title": "Pushpa Ka"
+    },
+    {
+      "id": "dialogue_412",
+      "filename": "dialogues/quote_412.jpg",
+      "title": "Sky Force"
+    },
+    {
+      "id": "dialogue_418",
+      "filename": "dialogues/quote_418.jpg",
+      "title": "Main Chhaava"
+    },
+    {
+      "id": "dialogue_413",
+      "filename": "dialogues/quote_413.jpg",
+      "title": "T.K. Vishwanath"
+    },
+    {
+      "id": "dialogue_416",
+      "filename": "dialogues/quote_416.jpg",
+      "title": "Indira Gandhi"
+    },
+    {
+      "id": "dialogue_417",
+      "filename": "dialogues/quote_417.jpg",
+      "title": "Aapatkaal"
+    },
+    {
+      "id": "dialogue_411",
+      "filename": "dialogues/quote_411.jpg",
+      "title": "Kaun The"
+    },
+    {
+      "id": "dialogue_415",
+      "filename": "dialogues/quote_415.jpg",
+      "title": "Emergency,"
+    },
+    {
+      "id": "dialogue_420",
+      "filename": "dialogues/quote_420.jpg",
+      "title": "Aurangzeb,"
+    },
+    {
+      "id": "dialogue_419",
+      "filename": "dialogues/quote_419.jpg",
+      "title": "Sambhaji"
+    },
+    {
+      "id": "dialogue_414",
+      "filename": "dialogues/quote_414.jpg",
+      "title": "1965 Ki"
+    },
+    {
+      "id": "dialogue_426",
+      "filename": "dialogues/quote_426.jpg",
+      "title": "Sikandar"
+    },
+    {
+      "id": "dialogue_422",
+      "filename": "dialogues/quote_422.jpg",
+      "title": "Dharma Ke"
+    },
+    {
+      "id": "dialogue_424",
+      "filename": "dialogues/quote_424.jpg",
+      "title": "Amay Patnaik"
+    },
+    {
+      "id": "dialogue_421",
+      "filename": "dialogues/quote_421.jpg",
+      "title": "Yesubai,"
+    },
+    {
+      "id": "dialogue_430",
+      "filename": "dialogues/quote_430.jpg",
+      "title": "Jaat Hoon"
+    },
+    {
+      "id": "dialogue_427",
+      "filename": "dialogues/quote_427.jpg",
+      "title": "Kamzor Ko"
+    },
+    {
+      "id": "dialogue_425",
+      "filename": "dialogues/quote_425.jpg",
+      "title": "Tax Chori"
+    },
+    {
+      "id": "dialogue_428",
+      "filename": "dialogues/quote_428.jpg",
+      "title": "Deva,"
+    },
+    {
+      "id": "dialogue_429",
+      "filename": "dialogues/quote_429.jpg",
+      "title": "Shahid,"
+    },
+    {
+      "id": "dialogue_423",
+      "filename": "dialogues/quote_423.jpg",
+      "title": "Raid 2"
+    },
+    {
+      "id": "dialogue_436",
+      "filename": "dialogues/quote_436.jpg",
+      "title": "Har Bachcha"
+    },
+    {
+      "id": "dialogue_439",
+      "filename": "dialogues/quote_439.jpg",
+      "title": "Nyay Milega,"
+    },
+    {
+      "id": "dialogue_435",
+      "filename": "dialogues/quote_435.jpg",
+      "title": "Sikh Veer"
+    },
+    {
+      "id": "dialogue_438",
+      "filename": "dialogues/quote_438.jpg",
+      "title": "Jolly LLB"
+    },
+    {
+      "id": "dialogue_432",
+      "filename": "dialogues/quote_432.jpg",
+      "title": "Housefull"
+    },
+    {
+      "id": "dialogue_434",
+      "filename": "dialogues/quote_434.jpg",
+      "title": "Kesari"
+    },
+    {
+      "id": "dialogue_431",
+      "filename": "dialogues/quote_431.jpg",
+      "title": "Sunny Deol"
+    },
+    {
+      "id": "dialogue_437",
+      "filename": "dialogues/quote_437.jpg",
+      "title": "Amir Sir,"
+    },
+    {
+      "id": "dialogue_440",
+      "filename": "dialogues/quote_440.jpg",
+      "title": "Saiyaara"
+    },
+    {
+      "id": "dialogue_433",
+      "filename": "dialogues/quote_433.jpg",
+      "title": "Is Baar"
+    },
+    {
+      "id": "dialogue_444",
+      "filename": "dialogues/quote_444.jpg",
+      "title": "Ground Zero"
+    },
+    {
+      "id": "dialogue_448",
+      "filename": "dialogues/quote_448.jpg",
+      "title": "Pyaar Ka"
+    },
+    {
+      "id": "dialogue_445",
+      "filename": "dialogues/quote_445.jpg",
+      "title": "Sarhad Pe"
+    },
+    {
+      "id": "dialogue_447",
+      "filename": "dialogues/quote_447.jpg",
+      "title": "Dhadak"
+    },
+    {
+      "id": "dialogue_442",
+      "filename": "dialogues/quote_442.jpg",
+      "title": "Metro Mein"
+    },
+    {
+      "id": "dialogue_441",
+      "filename": "dialogues/quote_441.jpg",
+      "title": "Teri Aankhon"
+    },
+    {
+      "id": "dialogue_446",
+      "filename": "dialogues/quote_446.jpg",
+      "title": "Tu Meri"
+    },
+    {
+      "id": "dialogue_450",
+      "filename": "dialogues/quote_450.jpg",
+      "title": "Laash"
+    },
+    {
+      "id": "dialogue_449",
+      "filename": "dialogues/quote_449.jpg",
+      "title": "Yeh Sab"
+    },
+    {
+      "id": "dialogue_443",
+      "filename": "dialogues/quote_443.jpg",
+      "title": "Sheher Mein"
+    },
+    {
+      "id": "dialogue_457",
+      "filename": "dialogues/quote_457.jpg",
+      "title": "Langda,"
+    },
+    {
+      "id": "dialogue_452",
+      "filename": "dialogues/quote_452.jpg",
+      "title": "Ek Aam"
+    },
+    {
+      "id": "dialogue_454",
+      "filename": "dialogues/quote_454.jpg",
+      "title": "Main Dev"
+    },
+    {
+      "id": "dialogue_460",
+      "filename": "dialogues/quote_460.jpg",
+      "title": "Andhere"
+    },
+    {
+      "id": "dialogue_458",
+      "filename": "dialogues/quote_458.jpg",
+      "title": "Iss Omkaare"
+    },
+    {
+      "id": "dialogue_456",
+      "filename": "dialogues/quote_456.jpg",
+      "title": "Taqdeer Woh"
+    },
+    {
+      "id": "dialogue_459",
+      "filename": "dialogues/quote_459.jpg",
+      "title": "Rajputana"
+    },
+    {
+      "id": "dialogue_455",
+      "filename": "dialogues/quote_455.jpg",
+      "title": "Is Khel"
+    },
+    {
+      "id": "dialogue_451",
+      "filename": "dialogues/quote_451.jpg",
+      "title": "Yeh System"
+    },
+    {
+      "id": "dialogue_453",
+      "filename": "dialogues/quote_453.jpg",
+      "title": "Mere Jaise"
+    },
+    {
+      "id": "dialogue_464",
+      "filename": "dialogues/quote_464.jpg",
+      "title": "Yeh Property"
+    },
+    {
+      "id": "dialogue_461",
+      "filename": "dialogues/quote_461.jpg",
+      "title": "Yaar,"
+    },
+    {
+      "id": "dialogue_465",
+      "filename": "dialogues/quote_465.jpg",
+      "title": "Kaushik Ji,"
+    },
+    {
+      "id": "dialogue_467",
+      "filename": "dialogues/quote_467.jpg",
+      "title": "Satya Hai"
+    },
+    {
+      "id": "dialogue_470",
+      "filename": "dialogues/quote_470.jpg",
+      "title": "Zindagi Mein"
+    },
+    {
+      "id": "dialogue_463",
+      "filename": "dialogues/quote_463.jpg",
+      "title": "No Ghuma"
+    },
+    {
+      "id": "dialogue_469",
+      "filename": "dialogues/quote_469.jpg",
+      "title": "Mumbai Ka"
+    },
+    {
+      "id": "dialogue_462",
+      "filename": "dialogues/quote_462.jpg",
+      "title": "Band Toot"
+    },
+    {
+      "id": "dialogue_468",
+      "filename": "dialogues/quote_468.jpg",
+      "title": "Bhiku Mhatre"
+    },
+    {
+      "id": "dialogue_466",
+      "filename": "dialogues/quote_466.jpg",
+      "title": "Ranjeet Ka"
+    },
+    {
+      "id": "dialogue_474",
+      "filename": "dialogues/quote_474.jpg",
+      "title": "Baap Bura"
+    },
+    {
+      "id": "dialogue_475",
+      "filename": "dialogues/quote_475.jpg",
+      "title": "Raghu Ko"
+    },
+    {
+      "id": "dialogue_478",
+      "filename": "dialogues/quote_478.jpg",
+      "title": "Jab Tak"
+    },
+    {
+      "id": "dialogue_479",
+      "filename": "dialogues/quote_479.jpg",
+      "title": "Is Haveli"
+    },
+    {
+      "id": "dialogue_477",
+      "filename": "dialogues/quote_477.jpg",
+      "title": "Newton"
+    },
+    {
+      "id": "dialogue_476",
+      "filename": "dialogues/quote_476.jpg",
+      "title": "Dard Ek"
+    },
+    {
+      "id": "dialogue_473",
+      "filename": "dialogues/quote_473.jpg",
+      "title": "Ramadhir"
+    },
+    {
+      "id": "dialogue_471",
+      "filename": "dialogues/quote_471.jpg",
+      "title": "Anna,"
+    },
+    {
+      "id": "dialogue_472",
+      "filename": "dialogues/quote_472.jpg",
+      "title": "Wasseypur"
+    },
+    {
+      "id": "dialogue_480",
+      "filename": "dialogues/quote_480.jpg",
+      "title": "Hastar Ko"
+    },
+    {
+      "id": "dialogue_487",
+      "filename": "dialogues/quote_487.jpg",
+      "title": "Ek Sach"
+    },
+    {
+      "id": "dialogue_489",
+      "filename": "dialogues/quote_489.jpg",
+      "title": "Baahar Nikalne"
+    },
+    {
+      "id": "dialogue_484",
+      "filename": "dialogues/quote_484.jpg",
+      "title": "Superhero"
+    },
+    {
+      "id": "dialogue_490",
+      "filename": "dialogues/quote_490.jpg",
+      "title": "Akela Insaan"
+    },
+    {
+      "id": "dialogue_482",
+      "filename": "dialogues/quote_482.jpg",
+      "title": "Vinayak,"
+    },
+    {
+      "id": "dialogue_483",
+      "filename": "dialogues/quote_483.jpg",
+      "title": "Main Mard"
+    },
+    {
+      "id": "dialogue_486",
+      "filename": "dialogues/quote_486.jpg",
+      "title": "Milna Tha"
+    },
+    {
+      "id": "dialogue_485",
+      "filename": "dialogues/quote_485.jpg",
+      "title": "Photograph"
+    },
+    {
+      "id": "dialogue_481",
+      "filename": "dialogues/quote_481.jpg",
+      "title": "Lalach Aur"
+    },
+    {
+      "id": "dialogue_488",
+      "filename": "dialogues/quote_488.jpg",
+      "title": "Insaaf Ke"
+    },
+    {
+      "id": "dialogue_500",
+      "filename": "dialogues/quote_500.jpg",
+      "title": "Company Chhod"
+    },
+    {
+      "id": "dialogue_495",
+      "filename": "dialogues/quote_495.jpg",
+      "title": "Johnny Gaddar"
+    },
+    {
+      "id": "dialogue_494",
+      "filename": "dialogues/quote_494.jpg",
+      "title": "Devi,"
+    },
+    {
+      "id": "dialogue_499",
+      "filename": "dialogues/quote_499.jpg",
+      "title": "Yeh Ek"
+    },
+    {
+      "id": "dialogue_493",
+      "filename": "dialogues/quote_493.jpg",
+      "title": "Masaan Mein"
+    },
+    {
+      "id": "dialogue_492",
+      "filename": "dialogues/quote_492.jpg",
+      "title": "Meera,"
+    },
+    {
+      "id": "dialogue_497",
+      "filename": "dialogues/quote_497.jpg",
+      "title": "10 Kaam"
+    },
+    {
+      "id": "dialogue_498",
+      "filename": "dialogues/quote_498.jpg",
+      "title": "Samay Se"
+    },
+    {
+      "id": "dialogue_491",
+      "filename": "dialogues/quote_491.jpg",
+      "title": "NH10 Pe"
+    },
+    {
+      "id": "dialogue_496",
+      "filename": "dialogues/quote_496.jpg",
+      "title": "Dhoka Dene"
+    },
+    {
+      "id": "dialogue_503",
+      "filename": "dialogues/quote_503.jpg",
+      "title": "Woh Pooch"
+    },
+    {
+      "id": "dialogue_504",
+      "filename": "dialogues/quote_504.jpg",
+      "title": "Page 3 Pe"
+    },
+    {
+      "id": "dialogue_501",
+      "filename": "dialogues/quote_501.jpg",
+      "title": "Is Sheher"
+    },
+    {
+      "id": "dialogue_506",
+      "filename": "dialogues/quote_506.jpg",
+      "title": "Mogambo"
+    },
+    {
+      "id": "dialogue_507",
+      "filename": "dialogues/quote_507.jpg",
+      "title": "Kitne"
+    },
+    {
+      "id": "dialogue_502",
+      "filename": "dialogues/quote_502.jpg",
+      "title": "Black Mein"
+    },
+    {
+      "id": "dialogue_510",
+      "filename": "dialogues/quote_510.jpg",
+      "title": "50 Rupay"
+    },
+    {
+      "id": "dialogue_505",
+      "filename": "dialogues/quote_505.jpg",
+      "title": "Ek Baar"
+    },
+    {
+      "id": "dialogue_508",
+      "filename": "dialogues/quote_508.jpg",
+      "title": "Yeh Baburao"
+    },
+    {
+      "id": "dialogue_509",
+      "filename": "dialogues/quote_509.jpg",
+      "title": "Abhi Maza"
+    },
+    {
+      "id": "dialogue_519",
+      "filename": "dialogues/quote_519.jpg",
+      "title": "Ek Chutki"
+    },
+    {
+      "id": "dialogue_518",
+      "filename": "dialogues/quote_518.jpg",
+      "title": "Bade Bade"
+    },
+    {
+      "id": "dialogue_511",
+      "filename": "dialogues/quote_511.jpg",
+      "title": "Jor Jor Se"
+    },
+    {
+      "id": "dialogue_512",
+      "filename": "dialogues/quote_512.jpg",
+      "title": "Tension Lene"
+    },
+    {
+      "id": "dialogue_514",
+      "filename": "dialogues/quote_514.jpg",
+      "title": "Ek Baar Jo"
+    },
+    {
+      "id": "dialogue_515",
+      "filename": "dialogues/quote_515.jpg",
+      "title": "Mujhe Ghar"
+    },
+    {
+      "id": "dialogue_513",
+      "filename": "dialogues/quote_513.jpg",
+      "title": "Tumse Na"
+    },
+    {
+      "id": "dialogue_520",
+      "filename": "dialogues/quote_520.jpg",
+      "title": "Picture Abhi"
+    },
+    {
+      "id": "dialogue_517",
+      "filename": "dialogues/quote_517.jpg",
+      "title": "Main Apni"
+    },
+    {
+      "id": "dialogue_516",
+      "filename": "dialogues/quote_516.jpg",
+      "title": "Bhaisahab,"
+    },
+    {
+      "id": "dialogue_530",
+      "filename": "dialogues/quote_530.jpg",
+      "title": "Rahul,"
+    },
+    {
+      "id": "dialogue_521",
+      "filename": "dialogues/quote_521.jpg",
+      "title": "Don Ko"
+    },
+    {
+      "id": "dialogue_522",
+      "filename": "dialogues/quote_522.jpg",
+      "title": "Dosti Mein"
+    },
+    {
+      "id": "dialogue_526",
+      "filename": "dialogues/quote_526.jpg",
+      "title": "Ae Bhai,"
+    },
+    {
+      "id": "dialogue_529",
+      "filename": "dialogues/quote_529.jpg",
+      "title": "Keh Diya"
+    },
+    {
+      "id": "dialogue_528",
+      "filename": "dialogues/quote_528.jpg",
+      "title": "O Stree"
+    },
+    {
+      "id": "dialogue_525",
+      "filename": "dialogues/quote_525.jpg",
+      "title": "Tera Kya"
+    },
+    {
+      "id": "dialogue_523",
+      "filename": "dialogues/quote_523.jpg",
+      "title": "Mere Paas"
+    },
+    {
+      "id": "dialogue_527",
+      "filename": "dialogues/quote_527.jpg",
+      "title": "Pushpa,"
+    },
+    {
+      "id": "dialogue_524",
+      "filename": "dialogues/quote_524.jpg",
+      "title": "Haar Ke"
+    },
+    {
+      "id": "dialogue_534",
+      "filename": "dialogues/quote_534.jpg",
+      "title": "Main Madhuri"
+    },
+    {
+      "id": "dialogue_533",
+      "filename": "dialogues/quote_533.jpg",
+      "title": "Woh Teen"
+    },
+    {
+      "id": "dialogue_537",
+      "filename": "dialogues/quote_537.jpg",
+      "title": "Jaadu Ki"
+    },
+    {
+      "id": "dialogue_536",
+      "filename": "dialogues/quote_536.jpg",
+      "title": "Yahan Ka"
+    },
+    {
+      "id": "dialogue_539",
+      "filename": "dialogues/quote_539.jpg",
+      "title": "Ye Toh"
+    },
+    {
+      "id": "dialogue_531",
+      "filename": "dialogues/quote_531.jpg",
+      "title": "Vijay"
+    },
+    {
+      "id": "dialogue_538",
+      "filename": "dialogues/quote_538.jpg",
+      "title": "Circuit,"
+    },
+    {
+      "id": "dialogue_535",
+      "filename": "dialogues/quote_535.jpg",
+      "title": "Aapke"
+    },
+    {
+      "id": "dialogue_540",
+      "filename": "dialogues/quote_540.jpg",
+      "title": "Crime"
+    },
+    {
+      "id": "dialogue_532",
+      "filename": "dialogues/quote_532.jpg",
+      "title": "Rishte Mein"
+    },
+    {
+      "id": "dialogue_545",
+      "filename": "dialogues/quote_545.jpg",
+      "title": "Sala Main"
+    },
+    {
+      "id": "dialogue_542",
+      "filename": "dialogues/quote_542.jpg",
+      "title": "Oye Budbak!"
+    },
+    {
+      "id": "dialogue_541",
+      "filename": "dialogues/quote_541.jpg",
+      "title": "Dushman Na"
+    },
+    {
+      "id": "dialogue_549",
+      "filename": "dialogues/quote_549.jpg",
+      "title": "I Can"
+    },
+    {
+      "id": "dialogue_544",
+      "filename": "dialogues/quote_544.jpg",
+      "title": "Aladdin Ka"
+    },
+    {
+      "id": "dialogue_546",
+      "filename": "dialogues/quote_546.jpg",
+      "title": "Yahan Sabka"
+    },
+    {
+      "id": "dialogue_548",
+      "filename": "dialogues/quote_548.jpg",
+      "title": "How's The"
+    },
+    {
+      "id": "dialogue_543",
+      "filename": "dialogues/quote_543.jpg",
+      "title": "English"
+    },
+    {
+      "id": "dialogue_550",
+      "filename": "dialogues/quote_550.jpg",
+      "title": "Jab Tak"
+    },
+    {
+      "id": "dialogue_547",
+      "filename": "dialogues/quote_547.jpg",
+      "title": "Raam Singh"
+    },
+    {
+      "id": "dialogue_551",
+      "filename": "dialogues/quote_551.jpg",
+      "title": "Dhurandhar"
+    },
+    {
+      "id": "dialogue_553",
+      "filename": "dialogues/quote_553.jpg",
+      "title": "The Revenge"
+    },
+    {
+      "id": "dialogue_554",
+      "filename": "dialogues/quote_554.jpg",
+      "title": "Iqbal,"
+    },
+    {
+      "id": "dialogue_555",
+      "filename": "dialogues/quote_555.jpg",
+      "title": "Badla Poora"
+    },
+    {
+      "id": "dialogue_552",
+      "filename": "dialogues/quote_552.jpg",
+      "title": "Pehle Wala"
+    }
+  ]
+}

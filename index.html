@@ -27,7 +27,7 @@
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <title>KJo-fy — Bollywood on your Lock Screen</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230C0C0C'/%3E%3Ctext x='32' y='38' font-family='Georgia%2C serif' font-size='22' font-weight='700' text-anchor='middle' fill='%23F5F5F5'%3EK%3C/text%3E%3Ccircle cx='32' cy='32' r='30' fill='none' stroke='%23E8B849' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,7 +179,28 @@
     margin-bottom: 48px;
   }
   .section-label {
-    display: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0.8;
+  }
+
+  .wallpaper-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 600px) {
+    .wallpaper-container {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
   }
 
   .wallpaper-card {
@@ -1416,28 +1437,47 @@
 <!-- MAIN -->
 <div class="main">
 
-  <!-- Wallpaper Card -->
-  <div class="wallpaper-section animate delay-4">
-    <div class="section-label">KJo-fy Wallpaper</div>
-    <div class="wallpaper-card selected" id="wallpaperCard">
-      <div class="card-title"><span class="logo-kjo" style="color:var(--text-primary);font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;">KJo</span><span class="logo-fy" style="color:var(--accent);font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;">-fy</span></div>
-      <div class="card-subtitle">Bollywood on your lock screen</div>
-      <div class="card-phone">
-        <div class="phone-mockup palette-maroon">
-          <div class="notch"></div>
-          <div class="phone-screen" id="phonePreview">
-            <div class="lock-screen-info">
-              <div class="lock-time" id="lockTime">3:32</div>
-              <div class="lock-daydate" id="lockDayDate">Thursday, Mar 26</div>
+  <div class="wallpaper-container">
+    <!-- Dialogue Section -->
+    <div class="wallpaper-section animate delay-4">
+      <div class="section-label">Classic Dialogues</div>
+      <div class="wallpaper-card" id="wallpaperCardQuote">
+        <div class="card-phone">
+          <div class="phone-mockup palette-maroon">
+            <div class="phone-screen" id="phonePreviewQuote">
+              <div class="lock-screen-info">
+                <div class="lock-time">3:32</div>
+                <div class="lock-daydate">Thursday, Mar 26</div>
+              </div>
+              <div class="quote-text">Mogambo<br>Khush Hua</div>
+              <div class="brand-mark">kjo-fy.in</div>
             </div>
-            <div class="quote-text">Mogambo<br>Khush Hua</div>
-            <div class="quote-movie">— Mr. India (1987)</div>
-            <div class="brand-mark">kjo-fy.in</div>
           </div>
         </div>
+        <button class="install-cta" onclick="openOnboarding('quote')">Install <span class="install-arrow">&rsaquo;</span></button>
       </div>
-      <button class="install-cta" id="installCta" onclick="openOnboarding()">Install <span class="install-arrow">&rsaquo;</span></button>
     </div>
+
+    <!-- Iconic Scenes Section -->
+    <div class="wallpaper-section animate delay-5">
+      <div class="section-label">Iconic Scenes</div>
+      <div class="wallpaper-card" id="wallpaperCardImage">
+        <div class="card-phone">
+          <div class="phone-mockup">
+            <div class="phone-screen" id="phonePreviewImage" style="background: #000;">
+              <div class="wallpaper-img" id="wallpaperImgPreview" style="width:100%; height:100%; background-size:cover; background-position:center; position:absolute; top:0; left:0; z-index:0;"></div>
+              <div class="lock-screen-info" style="position:relative; z-index:2;">
+                <div class="lock-time">3:32</div>
+                <div class="lock-daydate">Thursday, Mar 26</div>
+              </div>
+              <div class="brand-mark" style="color: rgba(255,255,255,0.7); z-index:2;">kjo-fy.in</div>
+            </div>
+          </div>
+        </div>
+        <button class="install-cta" onclick="openOnboarding('image')">Install <span class="install-arrow">&rsaquo;</span></button>
+      </div>
+    </div>
+
   </div>
 
   <!-- Old sections removed — now inside onboarding popup -->
@@ -1446,8 +1486,62 @@
 
   <!-- Hidden stubs for JS compatibility (all content now lives in popup) -->
   <div style="display:none;" id="gatedContent">
-    <select id="iphoneModel"><option value="iphone16promax" selected>iPhone 16 Pro Max</option><option value="iphone17promax">iPhone 17 Pro Max</option><option value="iphone17pro">iPhone 17 Pro</option><option value="iphone17air">iPhone 17 Air</option><option value="iphone17">iPhone 17</option><option value="iphone17e">iPhone 17e</option><option value="iphone16pro">iPhone 16 Pro</option><option value="iphone16plus">iPhone 16 Plus</option><option value="iphone16">iPhone 16</option><option value="iphone16e">iPhone 16e</option><option value="iphone15promax">iPhone 15 Pro Max</option><option value="iphone15pro">iPhone 15 Pro</option><option value="iphone15plus">iPhone 15 Plus</option><option value="iphone15">iPhone 15</option><option value="iphone14promax">iPhone 14 Pro Max</option><option value="iphone14pro">iPhone 14 Pro</option><option value="iphone14plus">iPhone 14 Plus</option><option value="iphone14">iPhone 14</option><option value="iphone13promax">iPhone 13 Pro Max</option><option value="iphone13pro">iPhone 13 Pro</option><option value="iphone13">iPhone 13</option><option value="iphone13mini">iPhone 13 mini</option><option value="iphone12promax">iPhone 12 Pro Max</option><option value="iphone12pro">iPhone 12 Pro</option><option value="iphone12">iPhone 12</option><option value="iphone12mini">iPhone 12 mini</option><option value="iphone11promax">iPhone 11 Pro Max</option><option value="iphone11pro">iPhone 11 Pro</option><option value="iphone11">iPhone 11</option><option value="iphonexsmax">iPhone XS Max</option><option value="iphonexs">iPhone XS</option><option value="iphonexr">iPhone XR</option><option value="iphonese3">iPhone SE (3rd gen)</option><option value="iphonese2">iPhone SE (2nd gen)</option></select>
-    <select id="androidRes"><option value="pixel10proxl" selected>Google Pixel 10 Pro XL</option><option value="samsung_s26ultra">Samsung Galaxy S26 Ultra</option><option value="samsung_s26plus">Samsung Galaxy S26+</option><option value="samsung_s26">Samsung Galaxy S26</option><option value="samsung_s25ultra">Samsung Galaxy S25 Ultra</option><option value="samsung_s25plus">Samsung Galaxy S25+</option><option value="samsung_s25">Samsung Galaxy S25</option><option value="samsung_s24ultra">Samsung Galaxy S24 Ultra</option><option value="samsung_s24plus">Samsung Galaxy S24+</option><option value="samsung_s24">Samsung Galaxy S24</option><option value="samsung_s24fe">Samsung Galaxy S24 FE</option><option value="samsung_s23ultra">Samsung Galaxy S23 Ultra</option><option value="samsung_s23plus">Samsung Galaxy S23+</option><option value="samsung_s23">Samsung Galaxy S23</option><option value="samsung_s23fe">Samsung Galaxy S23 FE</option><option value="samsung_zfold7">Samsung Galaxy Z Fold 7</option><option value="samsung_zfold6">Samsung Galaxy Z Fold 6</option><option value="samsung_zfold5">Samsung Galaxy Z Fold 5</option><option value="samsung_zflip7">Samsung Galaxy Z Flip 7</option><option value="samsung_zflip6">Samsung Galaxy Z Flip 6</option><option value="samsung_zflip5">Samsung Galaxy Z Flip 5</option><option value="samsung_a55">Samsung Galaxy A55</option><option value="samsung_a54">Samsung Galaxy A54</option><option value="samsung_a35">Samsung Galaxy A35</option><option value="pixel10pro">Google Pixel 10 Pro</option><option value="pixel10">Google Pixel 10</option><option value="pixel9proxl">Google Pixel 9 Pro XL</option><option value="pixel9pro">Google Pixel 9 Pro</option><option value="pixel9profold">Google Pixel 9 Pro Fold</option><option value="pixel9">Google Pixel 9</option><option value="pixel9a">Google Pixel 9a</option><option value="pixel8pro">Google Pixel 8 Pro</option><option value="pixel8">Google Pixel 8</option><option value="pixel8a">Google Pixel 8a</option><option value="pixel7pro">Google Pixel 7 Pro</option><option value="pixel7">Google Pixel 7</option><option value="pixel7a">Google Pixel 7a</option><option value="oneplus15">OnePlus 15</option><option value="oneplus15pro">OnePlus 15 Pro</option><option value="oneplus13">OnePlus 13</option><option value="oneplus13r">OnePlus 13R</option><option value="oneplus12">OnePlus 12</option><option value="oneplus12r">OnePlus 12R</option><option value="oneplusopen2">OnePlus Open 2</option><option value="oneplusopen">OnePlus Open</option><option value="oneplusnord4">OnePlus Nord 4</option><option value="oneplusnordce4">OnePlus Nord CE 4</option><option value="xiaomi15ultra">Xiaomi 15 Ultra</option><option value="xiaomi15pro">Xiaomi 15 Pro</option><option value="xiaomi15">Xiaomi 15</option><option value="xiaomi14ultra">Xiaomi 14 Ultra</option><option value="xiaomi14pro">Xiaomi 14 Pro</option><option value="xiaomi14">Xiaomi 14</option><option value="redminote14pro">Redmi Note 14 Pro+</option><option value="redminote14">Redmi Note 14</option><option value="pocof7pro">POCO F7 Pro</option><option value="pocof7">POCO F7</option><option value="nothing2a">Nothing Phone (2a)</option><option value="nothing2">Nothing Phone (2)</option><option value="nothing1">Nothing Phone (1)</option><option value="realmegtneo6">Realme GT Neo 6</option><option value="realme13pro">Realme 13 Pro+</option><option value="motorizr50ultra">Motorola Razr 50 Ultra</option><option value="motoedge50ultra">Motorola Edge 50 Ultra</option><option value="vivo_x200pro">Vivo X200 Pro</option><option value="vivo_x200">Vivo X200</option><option value="iqoo13">iQOO 13</option><option value="iqoo12">iQOO 12</option></select>
+    <select id="iphoneModel">
+      <optgroup label="iPhone 16 Series">
+        <option value="iphone16promax">iPhone 16 Pro Max</option>
+        <option value="iphone16pro">iPhone 16 Pro</option>
+        <option value="iphone16plus">iPhone 16 Plus</option>
+        <option value="iphone16">iPhone 16</option>
+      </optgroup>
+      <optgroup label="iPhone 15 Series">
+        <option value="iphone15promax">iPhone 15 Pro Max</option>
+        <option value="iphone15pro">iPhone 15 Pro</option>
+        <option value="iphone15plus">iPhone 15 Plus</option>
+        <option value="iphone15">iPhone 15</option>
+      </optgroup>
+      <optgroup label="iPhone 14 Series">
+        <option value="iphone14promax">iPhone 14 Pro Max</option>
+        <option value="iphone14pro">iPhone 14 Pro</option>
+        <option value="iphone14plus">iPhone 14 Plus</option>
+        <option value="iphone14">iPhone 14</option>
+      </optgroup>
+      <optgroup label="iPhone 13 & 12 Series">
+        <option value="iphone13promax">iPhone 13 Pro Max</option>
+        <option value="iphone13pro">iPhone 13 Pro</option>
+        <option value="iphone13">iPhone 13</option>
+        <option value="iphone13mini">iPhone 13 mini</option>
+        <option value="iphone12promax">iPhone 12 Pro Max</option>
+        <option value="iphone12pro">iPhone 12 Pro</option>
+        <option value="iphone12">iPhone 12</option>
+        <option value="iphone12mini">iPhone 12 mini</option>
+      </optgroup>
+      <optgroup label="Older iPhones">
+        <option value="iphone11promax">iPhone 11 Pro Max / XS Max</option>
+        <option value="iphone11pro">iPhone 11 Pro / XS / X</option>
+        <option value="iphone11">iPhone 11 / XR</option>
+        <option value="iphonese3">iPhone SE (3rd/2nd gen)</option>
+      </optgroup>
+    </select>
+    <select id="androidRes">
+      <optgroup label="Samsung">
+        <option value="s24ultra">Galaxy S24 Ultra / S23 Ultra</option>
+        <option value="s24plus">Galaxy S24+ / S23+</option>
+        <option value="s24base">Galaxy S24 / S23 (Base)</option>
+      </optgroup>
+      <optgroup label="Google Pixel">
+        <option value="pixel9proxl">Pixel 9 Pro XL / 8 Pro</option>
+        <option value="pixel9base">Pixel 9 / 8 (Base)</option>
+      </optgroup>
+      <optgroup label="OnePlus & Xiaomi">
+        <option value="oneplus12">OnePlus 12 / 13</option>
+        <option value="xiaomi14">Xiaomi 14 / 15</option>
+      </optgroup>
+      <optgroup label="General Ratios">
+        <option value="android_20_9" selected>Other 20:9 Phone</option>
+        <option value="android_19_5_9">Other 19.5:9 Phone</option>
+        <option value="android_16_9">Older 16:9 Phone</option>
+      </optgroup>
+    </select>
     <div id="generatedUrl"></div>
     <button id="btnIphone"></button><button id="btnAndroid"></button>
     <div id="iphoneOptions"></div><div id="androidOptions"></div>
@@ -1652,7 +1746,8 @@
 
   // ─── Payment gate — EARLY ACCESS: Always free ───
   function isPaid() {
-    return true; // Free during early stage
+    // Determine if the user has paid. Defaults to false until integrated.
+    return store.get('kjofy_paid') === 'true';
   }
 
   function unlockContent() {
@@ -1689,8 +1784,8 @@
     const h = now.getHours();
     const m = now.getMinutes().toString().padStart(2, '0');
     const h12 = h % 12 || 12;
-    document.getElementById('lockTime').textContent = h12 + ':' + m;
-    document.getElementById('lockDayDate').textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
+    document.querySelectorAll('.lock-time').forEach(el => el.textContent = h12 + ':' + m);
+    document.querySelectorAll('.lock-daydate').forEach(el => el.textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate());
   }
   updateLockScreen();
   setInterval(updateLockScreen, 10000);
@@ -1830,12 +1925,30 @@
   const modelSelect = document.getElementById('iphoneModel');
   const androidRes = document.getElementById('androidRes');
   const urlText = document.getElementById('generatedUrl');
+  let currentType = 'quote';
+  let deviceType = 'iphone';
 
   function updateUrl() {
     const model = currentDevice === 'iphone' ? modelSelect.value : androidRes.value;
-    // FIX 1: Display a placeholder — actual request uses POST body, not URL params.
-    // The real API call from the Shortcut/MacroDroid uses /api/wallpaper via POST.
-    urlText.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${modelSelect.value || androidRes.value}`;
+    const typeParam = currentType === 'image' ? '&type=image' : '';
+    urlText.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}`;
+  }
+
+  function openOnboarding(type) {
+    if (!RateLimiter.check('open_onboarding', 10, 60 * 1000)) {
+      return;
+    }
+    currentType = type || 'quote';
+
+    initPopupPreview(currentType);
+    onbStep = 0;
+    updateOnbUI();
+    // Always show the free access panel
+    document.getElementById('popupPayment').style.display = '';
+    document.getElementById('popupPaidMsg').style.display = 'none';
+    popupUpdateUrl();
+    document.getElementById('onboardingOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
   }
   modelSelect.addEventListener('change', updateUrl);
   androidRes.addEventListener('change', updateUrl);
@@ -1884,6 +1997,8 @@
   // ─── Cycle phone preview quote ───
   let quotes = [];
   let palettes = [];
+  let imageWallpapers = [];
+  let dialogueWallpapers = [];
 
   // ─── SECURITY: Safe HTML helpers — only <br> tags are allowed ───
   // Prevents XSS if quote data ever comes from an external source (API, database, user input).
@@ -1917,62 +2032,72 @@
       const data = await res.json();
       quotes = data.quotes;
       palettes = data.palettes;
+      imageWallpapers = data.images || [];
 
       if (quotes.length > 0) {
-        initPopupPreview();
+        // initPopupPreview(currentType); // Removed - called by openOnboarding
+        startPreviewInterval();
       }
     } catch (e) {
       console.warn('Could not load previews from backend', e);
     }
   }
+
   loadPreviews();
 
   // ─── Seeded preview shuffle (uses user's own seed so preview matches their actual wallpaper order) ───
   
   let previewPerm = [];
+  let qi = 0;
   function startPreviewInterval() {
     if (quotes.length === 0) return;
     previewPerm = seededPermutation(quotes.length, USER_SEED);
+    
+    // Initial content
+    updateAllPreviews();
+    
     setInterval(() => {
       qi = (qi + 1) % quotes.length;
-      const shuffledIdx = previewPerm[qi];
-      const q = quotes[shuffledIdx];
-      const p = palettes[shuffledIdx % palettes.length];
-      
-      phoneScreen.style.opacity = 0;
-      setTimeout(() => {
-        phoneScreen.style.background = p.bg;
-        phoneScreen.querySelector('.quote-text').style.color = p.text;
-        safeSetQuoteHTML(phoneScreen.querySelector('.quote-text'), q.text);
-        phoneScreen.querySelector('.brand-mark').style.color = p.sub;
-        phoneScreen.querySelector('.lock-time').style.color = '#fff';
-        phoneScreen.querySelector('.lock-daydate').style.color = 'rgba(255,255,255,0.85)';
-        phoneScreen.style.opacity = 1;
-      }, 350);
-    }, 3500);
+      updateAllPreviews();
+    }, 4000); 
   }
 
-  let qi = 0;
-  const phoneScreen = document.getElementById('phonePreview');
-  phoneScreen.style.transition = 'opacity 0.35s ease';
-  setInterval(() => {
-    qi = (qi + 1) % quotes.length;
+  function updateAllPreviews() {
+    if (quotes.length === 0) return;
     const shuffledIdx = previewPerm[qi];
     const q = quotes[shuffledIdx];
     const p = palettes[shuffledIdx % palettes.length];
+    
+    // 1. Update Quote Preview
+    const screenQ = document.getElementById('phonePreviewQuote');
+    if (screenQ) {
+      screenQ.style.opacity = 0;
+      setTimeout(() => {
+        screenQ.style.background = p.bg;
+        const textEl = screenQ.querySelector('.quote-text');
+        textEl.style.color = p.text;
+        safeSetQuoteHTML(textEl, q.text);
+        screenQ.querySelector('.brand-mark').style.color = p.sub;
+        screenQ.style.opacity = 1;
+      }, 350);
+    }
 
-    // Fade out first
-    phoneScreen.style.opacity = 0;
-    setTimeout(() => {
-      phoneScreen.style.background = p.bg;
-      phoneScreen.querySelector('.quote-text').style.color = p.text;
-      safeSetQuoteHTML(phoneScreen.querySelector('.quote-text'), q.text); // SECURITY: was .innerHTML
-      phoneScreen.querySelector('.brand-mark').style.color = p.sub;
-      phoneScreen.querySelector('.lock-time').style.color = '#fff';
-      phoneScreen.querySelector('.lock-daydate').style.color = 'rgba(255,255,255,0.85)';
-      phoneScreen.style.opacity = 1;
-    }, 350);
-  }, 3500);
+    // 2. Update Image Preview
+    const screenI = document.getElementById('phonePreviewImage');
+    const imgPreview = document.getElementById('wallpaperImgPreview');
+    // const titleI = document.getElementById('imagePreviewTitle'); // Removed
+    if (screenI && imgPreview && imageWallpapers.length > 0) {
+      screenI.style.opacity = 0;
+      setTimeout(() => {
+        const img = imageWallpapers[qi % imageWallpapers.length];
+        imgPreview.style.backgroundImage = `url('/data/images/${img.filename}')`;
+        // if (titleI) titleI.textContent = img.title || ''; // Removed
+        screenI.style.opacity = 1;
+      }, 350);
+    }
+  }
+
+  // Mockups are updated via updateAllPreviews
 
   // ─── Onboarding Popup System ───
   let onbStep = 0;
@@ -2004,80 +2129,74 @@
   })();
 
   // Populate preview grids in popup (two horizontal marquee rows)
-  function initPopupPreview() {
+  function initPopupPreview(type) {
     const grid1 = document.getElementById('popupPreviewGrid');
     const grid2 = document.getElementById('popupPreviewGrid2');
     if (!grid1) return;
 
-    // 30 most iconic Bollywood dialogues, handpicked for the preview
-    const iconicDialogues = [
-      "Kitne Aadmi The?",
-      "Mogambo Khush Hua!",
-      "Mere Paas Maa Hai",
-      "Rishte Mein Toh Hum\nTumhare Baap Lagte\nHain — Shahenshah",
-      "Don Ko Pakadna\nMushkil Hi Nahi,\nNamumkin Hai",
-      "Bade Bade Deshon\nMein Aisi Choti\nChoti Baatein Hoti\nRehti Hain",
-      "Zindagi Lambi\nNahi, Badi\nHoni Chahiye",
-      "Dhai Kilo Ka Haath",
-      "Pushpa, I Hate\nTears",
-      "Hum Ek Baar\nJeete Hain, Ek Baar\nMarte Hain",
-      "Ek Baar Commitment\nKar Di Toh\nPhir Apni Bhi\nNahi Sunta",
-      "Yeh Haath\nMujhe De De\nThakur",
-      "Basanti In Kutton\nKe Saamne Mat\nNaachna",
-      "Mere Khaab Mein\nTu Aaya — DDLJ",
-      "Kuch Kuch Hota\nHai, Tum Nahi\nSamjhoge",
-      "Main Hoon Na",
-      "How's The Josh?\nHigh Sir!",
-      "Apun Ka Time\nAa Gaya",
-      "Kal Ho Na Ho.\nLive Every Moment.",
-      "Dil Chahta Hai",
-      "Keh Ke Lunga",
-      "Flower Nahi\nFire Hai Main",
-      "Seize The Day.\nPal Mein Hai\nZindagi",
-      "Mhaari Chhoriyaan\nChhoriyon Se\nKam Hain Ke?",
-      "Sirf 70 Minute\nHain Mere Paas",
-      "Bohot Hard",
-      "K-K-K-Kiran",
-      "O Stree\nRaksha Karna",
-      "Gandhigiri\nZindabad!",
-      "Aata Majhi Satakli"
-    ];
+    // Clear existing
+    grid1.innerHTML = '';
+    if (grid2) grid2.innerHTML = '';
 
     // 12 palettes — all must be used, guaranteed round-robin, no card left colourless
     const palettes = ['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12'];
 
-    // Row 1: dialogues 0–14, Row 2: dialogues 15–29
-    // Palette assigned strictly by position mod 12 — every card gets a colour
-    function buildCards(dialogues, startPaletteOffset) {
+    // Function to build cards for horizontal marquee rows
+    function buildCards(items, startPaletteOffset, isImage) {
       const frag = document.createDocumentFragment();
-      dialogues.forEach((text, i) => {
+      items.forEach((item, i) => {
         const pClass = palettes[(startPaletteOffset + i) % palettes.length];
         const card = document.createElement('div');
-        card.className = 'popup-preview-card ' + pClass;
-        const inner = document.createElement('div');
-        inner.className = 'ppq';
-        const lines = text.split('\n');
-        lines.forEach((line, li) => {
-          inner.appendChild(document.createTextNode(line));
-          if (li < lines.length - 1) inner.appendChild(document.createElement('br'));
-        });
-        card.appendChild(inner);
+        card.className = 'popup-preview-card ' + (isImage ? '' : pClass);
+        
+        if (isImage) {
+          card.style.backgroundImage = `url('/data/images/${item.filename}')`;
+          card.style.backgroundSize = 'cover';
+          card.style.backgroundPosition = 'center';
+          card.style.padding = '0';
+          card.style.border = 'none';
+          
+          // Title overlay removed per user request
+        } else {
+          const inner = document.createElement('div');
+          inner.className = 'ppq';
+          const text = item.text;
+          const lines = text.includes('<br>') ? text.split('<br>') : text.split('\n');
+          lines.forEach((line, li) => {
+            inner.appendChild(document.createTextNode(line));
+            if (li < lines.length - 1) inner.appendChild(document.createElement('br'));
+          });
+          card.appendChild(inner);
+        }
         frag.appendChild(card);
       });
       return frag;
     }
 
-    const row1 = iconicDialogues.slice(0, 15);
-    const row2 = iconicDialogues.slice(15, 30);
+    if (type === 'image' && imageWallpapers.length > 0) {
+      const row1 = imageWallpapers.slice(0, 10);
+      const row2 = imageWallpapers.slice(10, 20);
+      
+      grid1.appendChild(buildCards(row1, 0, true));
+      grid1.appendChild(buildCards(row1, 0, true));
+      if (grid2 && row2.length > 0) {
+        grid2.appendChild(buildCards(row2, 3, true));
+        grid2.appendChild(buildCards(row2, 3, true));
+      }
+    } else {
+      // Row 1: dialogues 0–14, Row 2: dialogues 15–29 from the fetched quotes
+      const row1 = quotes.slice(0, 15);
+      const row2 = quotes.slice(15, 30);
 
-    // Duplicate each row for seamless marquee loop
-    grid1.appendChild(buildCards(row1, 0));
-    grid1.appendChild(buildCards(row1, 0));
+      grid1.appendChild(buildCards(row1, 0, false));
+      grid1.appendChild(buildCards(row1, 0, false));
 
-    if (!grid2) return;
-    grid2.appendChild(buildCards(row2, 3)); // offset palette start so rows look visually distinct
-    grid2.appendChild(buildCards(row2, 3));
-  })();
+      if (grid2 && row2.length > 0) {
+        grid2.appendChild(buildCards(row2, 3, false));
+        grid2.appendChild(buildCards(row2, 3, false));
+      }
+    }
+  }
 
   function popupSwitchDevice(device) {
     popupDevice = device;
@@ -2106,8 +2225,9 @@
       ? document.getElementById('popupIphoneModel').value
       : document.getElementById('popupAndroidModel').value;
     const urlEl = document.getElementById('popupUrlText');
+    const typeParam = currentType === 'image' ? '&type=image' : '';
     // FIX 1: seed + token now sent via POST body, not URL params
-    if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}`;
+    if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}`;
     // Sync main page
     if (popupDevice === 'iphone') {
       document.getElementById('iphoneModel').value = model;
@@ -2143,20 +2263,7 @@
     });
   }
 
-  function openOnboarding() {
-    if (!RateLimiter.check('open_onboarding', 10, 60 * 1000)) {
-      return;
-    }
-
-    onbStep = 0;
-    updateOnbUI();
-    // Always show the free access panel
-    document.getElementById('popupPayment').style.display = '';
-    document.getElementById('popupPaidMsg').style.display = 'none';
-    popupUpdateUrl();
-    document.getElementById('onboardingOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+  // openOnboarding moved to top scope
 
   function closeOnboarding() {
     document.getElementById('onboardingOverlay').classList.remove('active');

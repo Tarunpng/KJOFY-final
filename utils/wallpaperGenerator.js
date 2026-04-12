@@ -1,14 +1,57 @@
-const { createCanvas, registerFont } = require('canvas');
+const { Canvas } = require('skia-canvas');
 
 const resolutions = {
+  // iPhone 16 Series
   'iphone16promax': { width: 1320, height: 2868 },
   'iphone16pro': { width: 1206, height: 2622 },
   'iphone16plus': { width: 1290, height: 2796 },
   'iphone16': { width: 1179, height: 2556 },
+
+  // iPhone 15 & 14 Pro Series (Dynamic Island models)
   'iphone15promax': { width: 1290, height: 2796 },
   'iphone15pro': { width: 1179, height: 2556 },
+  'iphone15plus': { width: 1290, height: 2796 },
   'iphone15': { width: 1179, height: 2556 },
+  'iphone14promax': { width: 1290, height: 2796 },
+  'iphone14pro': { width: 1179, height: 2556 },
+
+  // iPhone 14, 13, 12 Series (Standard Notch)
+  'iphone14plus': { width: 1284, height: 2778 },
+  'iphone14': { width: 1170, height: 2532 },
+  'iphone13promax': { width: 1284, height: 2778 },
+  'iphone13pro': { width: 1170, height: 2532 },
+  'iphone13': { width: 1170, height: 2532 },
+  'iphone13mini': { width: 1080, height: 2340 },
+  'iphone12promax': { width: 1284, height: 2778 },
+  'iphone12pro': { width: 1170, height: 2532 },
+  'iphone12': { width: 1170, height: 2532 },
+  'iphone12mini': { width: 1080, height: 2340 },
+
+  // Older iPhones
+  'iphone11promax': { width: 1242, height: 2688 },
+  'iphone11pro': { width: 1125, height: 2436 },
+  'iphone11': { width: 828, height: 1792 },
+  'iphonexsmax': { width: 1242, height: 2688 },
   'iphonexs': { width: 1125, height: 2436 },
+  'iphonexr': { width: 828, height: 1792 },
+  'iphonex': { width: 1125, height: 2436 },
+  'iphonese3': { width: 750, height: 1334 },
+  'iphonese2': { width: 750, height: 1334 },
+
+  // Android Flagships
+  's24ultra': { width: 1440, height: 3120 },
+  's24plus': { width: 1440, height: 3120 },
+  's24base': { width: 1080, height: 2340 },
+  'pixel9proxl': { width: 1344, height: 2992 },
+  'pixel9base': { width: 1080, height: 2424 },
+  'oneplus12': { width: 1440, height: 3168 },
+  'xiaomi14': { width: 1200, height: 2670 },
+
+  // Android Common Ratios
+  'android_20_9': { width: 1080, height: 2400 },
+  'android_19_5_9': { width: 1080, height: 2340 },
+  'android_16_9': { width: 1080, height: 1920 },
+  
   'default': { width: 1080, height: 2400 }
 };
 
@@ -16,7 +59,7 @@ const resolutions = {
  * Draws a multi-line centered text on a canvas
  */
 function drawCenteredText(ctx, text, x, y, maxWidth, lineHeight, font) {
-  const parts = text.split('<br>');
+  const parts = text.includes('<br>') ? text.split('<br>') : text.split('\n');
   ctx.font = font;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
@@ -41,7 +84,7 @@ function parseGradient(bgStr) {
 
 async function generateWallpaper(quote, palette, modelKey) {
   const res = resolutions[modelKey] || resolutions['default'];
-  const canvas = createCanvas(res.width, res.height);
+  const canvas = new Canvas(res.width, res.height);
   const ctx = canvas.getContext('2d');
 
   // 1. Draw Background Gradient
@@ -63,8 +106,6 @@ async function generateWallpaper(quote, palette, modelKey) {
   
   drawCenteredText(ctx, quote.text, centerX, centerY, res.width * 0.85, fontSize * 1.3, fontStyle);
 
-  // 3. Draw Movie Subtitle (Removed per user request to avoid overlap)
-
   // 4. Branding
   const brandSize = Math.floor(res.width * 0.03);
   ctx.font = `${brandSize}px sans-serif`;
@@ -73,7 +114,7 @@ async function generateWallpaper(quote, palette, modelKey) {
   ctx.textAlign = 'center';
   ctx.fillText('kjo-fy.in', centerX, res.height - brandSize * 4);
 
-  return canvas.toBuffer('image/jpeg', { quality: 0.9 });
+  return await canvas.toBuffer('jpg', { quality: 0.9 });
 }
 
 module.exports = { generateWallpaper };

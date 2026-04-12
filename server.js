@@ -8,14 +8,58 @@ const { generateWallpaper } = require('./utils/wallpaperGenerator');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SECRET_KEY = process.env.JWT_SECRET || 'kjo-fy-secret-stable-key';
+const SECRET_KEY = process.env.JWT_SECRET || 'dev-secret-key';
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '.')));
+app.disable('x-powered-by');
 
-// Load quotes and palettes
+// Simple in-memory rate limiter for /api endpoints
+const rateLimitMap = new Map();
+app.use('/api', (req, res, next) => {
+  const ip = req.ip || req.headers['x-forwarded-for'] || 'unknown';
+  const now = Date.now();
+  const windowMs = 60 * 1000; // 1 minute
+  const limit = 30; // 30 requests per minute
+
+  if (!rateLimitMap.has(ip)) {
+    rateLimitMap.set(ip, { count: 1, start: now });
+  } else {
+    const entry = rateLimitMap.get(ip);
+    if (now - entry.start > windowMs) {
+      entry.count = 1;
+      entry.start = now;
+    } else {
+      entry.count++;
+      if (entry.count > limit) {
+        return res.status(429).json({ error: 'Too many requests from this IP, please try again after a minute.' });
+      }
+    }
+  }
+  next();
+});
+
+// Global No-Cache for development
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+  next();
+});
+
+// 1. Static file serving (RESTRICTED)
+// Only serve index.html explicitly to prevent exposing sensitive root files (.env, server.js)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Only serve these specific directories as static
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+app.get('/favicon.svg', (req, res) => res.sendFile(path.join(__dirname, 'favicon.svg')));
+app.use('/data/images', express.static(path.join(__dirname, 'data/images')));
+app.use('/data', express.static(path.join(__dirname, 'data'))); // Required for JSON previews
+
+// Load data
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/quotes.json'), 'utf8'));
+const imageData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/imageWallpapers.json'), 'utf8'));
 
 /**
  * Seeded shuffle selection
@@ -61,8 +105,36 @@ app.all('/api/wallpaper', async (req, res) => {
         return res.status(401).json({ error: 'Invalid token' });
       }
     }
-
     if (!seed) return res.status(400).json({ error: 'Seed required' });
+
+    const { type, index } = { ...req.query, ...req.body };
+
+    // New: Request a specific quote by index (for previews/static-like usage)
+    if (index !== undefined) {
+      const idx = parseInt(index, 10);
+      if (isNaN(idx) || idx < 0 || idx >= data.quotes.length) {
+        return res.status(400).json({ error: 'Invalid quote index' });
+      }
+      const quote = data.quotes[idx];
+      const palette = data.palettes[idx % data.palettes.length];
+      const imageBuffer = await generateWallpaper(quote, palette, model || 'default');
+      res.set('Content-Type', 'image/jpeg');
+      res.set('Cache-Control', 'public, max-age=86400'); // Cache for 24 hours as these are static definitions
+      return res.send(imageBuffer);
+    }
+
+    if (type === 'image') {
+      const wallpaper = getDailyItem(imageData.wallpapers, seed);
+      const imagePath = path.join(__dirname, 'data/images', wallpaper.filename);
+      
+      if (fs.existsSync(imagePath)) {
+        res.set('Content-Type', 'image/jpeg');
+        res.set('Cache-Control', 'public, max-age=3600');
+        return res.sendFile(imagePath);
+      } else {
+        return res.status(404).json({ error: 'Wallpaper image not found' });
+      }
+    }
 
     // Select daily quote and palette
     const quote = getDailyItem(data.quotes, seed);
@@ -81,13 +153,21 @@ app.all('/api/wallpaper', async (req, res) => {
 
 // 3. Previews Endpoint
 app.get('/api/previews', (req, res) => {
-  // Return first 30 quotes for the preview marquee
-  res.json({
-    quotes: data.quotes.slice(0, 30),
-    palettes: data.palettes
-  });
+  try {
+    const quotesData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/quotes.json'), 'utf8'));
+    const imagesData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/imageWallpapers.json'), 'utf8'));
+    res.json({
+      quotes: quotesData.quotes.slice(0, 30),
+      palettes: quotesData.palettes,
+      images: imagesData.wallpapers.slice(0, 60)
+    });
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to load data' });
+  }
 });
 
 app.listen(PORT, () => {
   console.log(`KJo-fy server running at http://localhost:${PORT}`);
 });
+
+module.exports = app;
