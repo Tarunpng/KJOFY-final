@@ -2,7 +2,7 @@ node_modules
 .DS_Store
 .env
 test_wallpaper.jpg
-data/images/
 
 .vercel
 .env*.local
+data/images/*.mp4

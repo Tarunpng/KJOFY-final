@@ -125,8 +125,15 @@ app.all('/api/wallpaper', async (req, res) => {
 
     if (type === 'image') {
       const wallpaper = getDailyItem(imageData.wallpapers, seed);
+
+      // If Blob URL is available, redirect to it
+      if (wallpaper.url) {
+        res.set('Cache-Control', 'public, max-age=3600');
+        return res.redirect(302, wallpaper.url);
+      }
+
+      // Fallback: serve from local filesystem
       const imagePath = path.join(__dirname, 'data/images', wallpaper.filename);
-      
       if (fs.existsSync(imagePath)) {
         res.set('Content-Type', 'image/jpeg');
         res.set('Cache-Control', 'public, max-age=3600');
