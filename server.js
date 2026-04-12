@@ -4,20 +4,25 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const path = require('path');
-const { generateWallpaper } = require('./utils/wallpaperGenerator');
+const { generateWallpaper, resolutions } = require('./utils/wallpaperGenerator');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SECRET_KEY = process.env.JWT_SECRET || 'dev-secret-key';
+const SECRET_KEY = process.env.JWT_SECRET;
+if (!SECRET_KEY) throw new Error('JWT_SECRET environment variable is required');
 
-app.use(cors());
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://kjofy-fin.vercel.app';
+const VALID_MODELS = new Set(Object.keys(resolutions));
+
+app.set('trust proxy', 1);
+app.use(cors({ origin: ALLOWED_ORIGIN }));
 app.use(express.json());
 app.disable('x-powered-by');
 
 // Simple in-memory rate limiter for /api endpoints
 const rateLimitMap = new Map();
 app.use('/api', (req, res, next) => {
-  const ip = req.ip || req.headers['x-forwarded-for'] || 'unknown';
+  const ip = req.ip || 'unknown';
   const now = Date.now();
   const windowMs = 60 * 1000; // 1 minute
   const limit = 30; // 30 requests per minute
@@ -55,7 +60,6 @@ app.get('/', (req, res) => {
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/favicon.svg', (req, res) => res.sendFile(path.join(__dirname, 'favicon.svg')));
 app.use('/data/images', express.static(path.join(__dirname, 'data/images')));
-app.use('/data', express.static(path.join(__dirname, 'data'))); // Required for JSON previews
 
 // Load data
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/quotes.json'), 'utf8'));
@@ -84,7 +88,9 @@ function getDailyItem(items, seed, dateOffset = 0) {
 // 1. Issue Token
 app.post('/api/issue-token', (req, res) => {
   const { seed } = req.body;
-  if (!seed) return res.status(400).json({ error: 'Seed required' });
+  if (!seed || typeof seed !== 'string' || seed.length > 64) {
+    return res.status(400).json({ error: 'Invalid seed' });
+  }
 
   const token = jwt.sign({ seed }, SECRET_KEY, { expiresIn: '90d' });
   res.json({ token });
@@ -105,8 +111,11 @@ app.all('/api/wallpaper', async (req, res) => {
         return res.status(401).json({ error: 'Invalid token' });
       }
     }
-    if (!seed) return res.status(400).json({ error: 'Seed required' });
+    if (!seed || typeof seed !== 'string' || seed.length > 64) {
+      return res.status(400).json({ error: 'Invalid seed' });
+    }
 
+    const safeModel = VALID_MODELS.has(model) ? model : 'default';
     const { type, index } = { ...req.query, ...req.body };
 
     // New: Request a specific quote by index (for previews/static-like usage)
@@ -117,7 +126,7 @@ app.all('/api/wallpaper', async (req, res) => {
       }
       const quote = data.quotes[idx];
       const palette = data.palettes[idx % data.palettes.length];
-      const imageBuffer = await generateWallpaper(quote, palette, model || 'default');
+      const imageBuffer = await generateWallpaper(quote, palette, safeModel);
       res.set('Content-Type', 'image/jpeg');
       res.set('Cache-Control', 'public, max-age=86400'); // Cache for 24 hours as these are static definitions
       return res.send(imageBuffer);
@@ -147,7 +156,7 @@ app.all('/api/wallpaper', async (req, res) => {
     const quote = getDailyItem(data.quotes, seed);
     const palette = getDailyItem(data.palettes, seed);
 
-    const imageBuffer = await generateWallpaper(quote, palette, model || 'default');
+    const imageBuffer = await generateWallpaper(quote, palette, safeModel);
     
     res.set('Content-Type', 'image/jpeg');
     res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour

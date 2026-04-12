@@ -117,4 +117,4 @@ async function generateWallpaper(quote, palette, modelKey) {
   return await canvas.toBuffer('jpg', { quality: 0.9 });
 }
 
-module.exports = { generateWallpaper };
+module.exports = { generateWallpaper, resolutions };
