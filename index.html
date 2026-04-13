@@ -1632,19 +1632,74 @@
       </optgroup>
     </select>
     <select id="androidRes">
-      <optgroup label="Samsung">
-        <option value="s24ultra">Galaxy S25 Ultra / S24 Ultra</option>
-        <option value="s24plus">Galaxy S25+ / S24+</option>
-        <option value="s24base">Galaxy S25 / S24 (Base)</option>
-      </optgroup>
-      <optgroup label="Google Pixel">
-        <option value="pixel9proxl">Pixel 9 Pro XL / 9 Pro Fold</option>
-        <option value="pixel9base">Pixel 9 / 9 Pro / 9a</option>
-      </optgroup>
-      <optgroup label="OnePlus & Xiaomi">
-        <option value="oneplus12">OnePlus 13 / 12</option>
-        <option value="xiaomi14">Xiaomi 15 / 14</option>
-      </optgroup>
+      <option value="pixel10proxl" selected>Google Pixel 10 Pro XL</option>
+      <option value="samsung_s26ultra">Samsung Galaxy S26 Ultra</option>
+      <option value="samsung_s26plus">Samsung Galaxy S26+</option>
+      <option value="samsung_s26">Samsung Galaxy S26</option>
+      <option value="samsung_s25ultra">Samsung Galaxy S25 Ultra</option>
+      <option value="samsung_s25plus">Samsung Galaxy S25+</option>
+      <option value="samsung_s25">Samsung Galaxy S25</option>
+      <option value="samsung_s24ultra">Samsung Galaxy S24 Ultra</option>
+      <option value="samsung_s24plus">Samsung Galaxy S24+</option>
+      <option value="samsung_s24">Samsung Galaxy S24</option>
+      <option value="samsung_s24fe">Samsung Galaxy S24 FE</option>
+      <option value="samsung_s23ultra">Samsung Galaxy S23 Ultra</option>
+      <option value="samsung_s23plus">Samsung Galaxy S23+</option>
+      <option value="samsung_s23">Samsung Galaxy S23</option>
+      <option value="samsung_s23fe">Samsung Galaxy S23 FE</option>
+      <option value="samsung_zfold7">Samsung Galaxy Z Fold 7</option>
+      <option value="samsung_zfold6">Samsung Galaxy Z Fold 6</option>
+      <option value="samsung_zfold5">Samsung Galaxy Z Fold 5</option>
+      <option value="samsung_zflip7">Samsung Galaxy Z Flip 7</option>
+      <option value="samsung_zflip6">Samsung Galaxy Z Flip 6</option>
+      <option value="samsung_zflip5">Samsung Galaxy Z Flip 5</option>
+      <option value="samsung_a55">Samsung Galaxy A55</option>
+      <option value="samsung_a54">Samsung Galaxy A54</option>
+      <option value="samsung_a35">Samsung Galaxy A35</option>
+      <option value="pixel10pro">Google Pixel 10 Pro</option>
+      <option value="pixel10">Google Pixel 10</option>
+      <option value="pixel9proxl">Google Pixel 9 Pro XL</option>
+      <option value="pixel9pro">Google Pixel 9 Pro</option>
+      <option value="pixel9profold">Google Pixel 9 Pro Fold</option>
+      <option value="pixel9">Google Pixel 9</option>
+      <option value="pixel9a">Google Pixel 9a</option>
+      <option value="pixel8pro">Google Pixel 8 Pro</option>
+      <option value="pixel8">Google Pixel 8</option>
+      <option value="pixel8a">Google Pixel 8a</option>
+      <option value="pixel7pro">Google Pixel 7 Pro</option>
+      <option value="pixel7">Google Pixel 7</option>
+      <option value="pixel7a">Google Pixel 7a</option>
+      <option value="oneplus15">OnePlus 15</option>
+      <option value="oneplus15pro">OnePlus 15 Pro</option>
+      <option value="oneplus13">OnePlus 13</option>
+      <option value="oneplus13r">OnePlus 13R</option>
+      <option value="oneplus12">OnePlus 12</option>
+      <option value="oneplus12r">OnePlus 12R</option>
+      <option value="oneplusopen2">OnePlus Open 2</option>
+      <option value="oneplusopen">OnePlus Open</option>
+      <option value="oneplusnord4">OnePlus Nord 4</option>
+      <option value="oneplusnordce4">OnePlus Nord CE 4</option>
+      <option value="xiaomi15ultra">Xiaomi 15 Ultra</option>
+      <option value="xiaomi15pro">Xiaomi 15 Pro</option>
+      <option value="xiaomi15">Xiaomi 15</option>
+      <option value="xiaomi14ultra">Xiaomi 14 Ultra</option>
+      <option value="xiaomi14pro">Xiaomi 14 Pro</option>
+      <option value="xiaomi14">Xiaomi 14</option>
+      <option value="redminote14pro">Redmi Note 14 Pro+</option>
+      <option value="redminote14">Redmi Note 14</option>
+      <option value="pocof7pro">POCO F7 Pro</option>
+      <option value="pocof7">POCO F7</option>
+      <option value="nothing2a">Nothing Phone (2a)</option>
+      <option value="nothing2">Nothing Phone (2)</option>
+      <option value="nothing1">Nothing Phone (1)</option>
+      <option value="realmegtneo6">Realme GT Neo 6</option>
+      <option value="realme13pro">Realme 13 Pro+</option>
+      <option value="motorizr50ultra">Motorola Razr 50 Ultra</option>
+      <option value="motoedge50ultra">Motorola Edge 50 Ultra</option>
+      <option value="vivo_x200pro">Vivo X200 Pro</option>
+      <option value="vivo_x200">Vivo X200</option>
+      <option value="iqoo13">iQOO 13</option>
+      <option value="iqoo12">iQOO 12</option>
     </select>
     <div id="generatedUrl"></div>
     <button id="btnIphone"></button><button id="btnAndroid"></button>
@@ -1699,7 +1754,7 @@
             </ul>
             <button class="sub-pay-btn" id="subPayBtn" onclick="startPayment()">Pay ₹19 &amp; Unlock →</button>
             <div class="sub-note">Powered by Razorpay · UPI, Cards, Net Banking</div>
-            <div class="sub-note" style="margin-top:6px; color: var(--text-sub);">⚠ Complete setup in this browser — switching browsers will lose your access.</div>
+            <div class="sub-note" style="margin-top:6px; color: var(--text-sub); display:none;">⚠ Complete setup in this browser — switching browsers will lose your access.</div>
             <button class="sub-restore-toggle" onclick="toggleRestoreForm()">Already paid? Restore access →</button>
           </div>
 
@@ -2063,7 +2118,6 @@
   const androidRes = document.getElementById('androidRes');
   const urlText = document.getElementById('generatedUrl');
   let currentType = 'quote';
-  let deviceType = 'iphone';
 
   function updateUrl() {
     const model = currentDevice === 'iphone' ? modelSelect.value : androidRes.value;

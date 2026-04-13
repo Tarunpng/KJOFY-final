@@ -38,20 +38,121 @@ const resolutions = {
   'iphonese3': { width: 750, height: 1334 },
   'iphonese2': { width: 750, height: 1334 },
 
-  // Android Flagships
+  // Samsung Galaxy S26
+  'samsung_s26ultra': { width: 1440, height: 3120 },
+  'samsung_s26plus':  { width: 1440, height: 3120 },
+  'samsung_s26':      { width: 1080, height: 2340 },
+
+  // Samsung Galaxy S25
+  'samsung_s25ultra': { width: 1440, height: 3120 },
+  'samsung_s25plus':  { width: 1440, height: 3120 },
+  'samsung_s25':      { width: 1080, height: 2340 },
+
+  // Samsung Galaxy S24
+  'samsung_s24ultra': { width: 1440, height: 3120 },
+  'samsung_s24plus':  { width: 1440, height: 3120 },
+  'samsung_s24':      { width: 1080, height: 2340 },
+  'samsung_s24fe':    { width: 1080, height: 2340 },
+
+  // Samsung Galaxy S23
+  'samsung_s23ultra': { width: 1440, height: 3088 },
+  'samsung_s23plus':  { width: 1080, height: 2340 },
+  'samsung_s23':      { width: 1080, height: 2340 },
+  'samsung_s23fe':    { width: 1080, height: 2340 },
+
+  // Samsung Galaxy Z Fold
+  'samsung_zfold7': { width: 1176, height: 2424 },
+  'samsung_zfold6': { width: 968,  height: 2076 },
+  'samsung_zfold5': { width: 904,  height: 2096 },
+
+  // Samsung Galaxy Z Flip
+  'samsung_zflip7': { width: 1080, height: 2640 },
+  'samsung_zflip6': { width: 1080, height: 2640 },
+  'samsung_zflip5': { width: 1080, height: 2640 },
+
+  // Samsung Galaxy A
+  'samsung_a55': { width: 1080, height: 2340 },
+  'samsung_a54': { width: 1080, height: 2340 },
+  'samsung_a35': { width: 1080, height: 2340 },
+
+  // Legacy Samsung aliases
   's24ultra': { width: 1440, height: 3120 },
-  's24plus': { width: 1440, height: 3120 },
-  's24base': { width: 1080, height: 2340 },
-  'pixel9proxl': { width: 1344, height: 2992 },
-  'pixel9base': { width: 1080, height: 2424 },
-  'oneplus12': { width: 1440, height: 3168 },
-  'xiaomi14': { width: 1200, height: 2670 },
+  's24plus':  { width: 1440, height: 3120 },
+  's24base':  { width: 1080, height: 2340 },
+
+  // Google Pixel 10
+  'pixel10proxl': { width: 1344, height: 2992 },
+  'pixel10pro':   { width: 1344, height: 2992 },
+  'pixel10':      { width: 1080, height: 2424 },
+
+  // Google Pixel 9
+  'pixel9proxl':  { width: 1344, height: 2992 },
+  'pixel9pro':    { width: 1080, height: 2424 },
+  'pixel9profold':{ width: 1080, height: 2424 },
+  'pixel9':       { width: 1080, height: 2424 },
+  'pixel9a':      { width: 1080, height: 2424 },
+  'pixel9base':   { width: 1080, height: 2424 },
+
+  // Google Pixel 8
+  'pixel8pro': { width: 1344, height: 2992 },
+  'pixel8':    { width: 1080, height: 2400 },
+  'pixel8a':   { width: 1080, height: 2400 },
+
+  // Google Pixel 7
+  'pixel7pro': { width: 1440, height: 3120 },
+  'pixel7':    { width: 1080, height: 2400 },
+  'pixel7a':   { width: 1080, height: 2400 },
+
+  // OnePlus
+  'oneplus15':      { width: 1264, height: 2780 },
+  'oneplus15pro':   { width: 1264, height: 2780 },
+  'oneplus13':      { width: 1264, height: 2780 },
+  'oneplus13r':     { width: 1080, height: 2392 },
+  'oneplus12':      { width: 1440, height: 3168 },
+  'oneplus12r':     { width: 1080, height: 2392 },
+  'oneplusopen2':   { width: 1080, height: 2484 },
+  'oneplusopen':    { width: 1116, height: 2484 },
+  'oneplusnord4':   { width: 1080, height: 2400 },
+  'oneplusnordce4': { width: 1080, height: 2400 },
+
+  // Xiaomi
+  'xiaomi15ultra':   { width: 1440, height: 3200 },
+  'xiaomi15pro':     { width: 1200, height: 2670 },
+  'xiaomi15':        { width: 1200, height: 2670 },
+  'xiaomi14ultra':   { width: 1320, height: 2880 },
+  'xiaomi14pro':     { width: 1200, height: 2670 },
+  'xiaomi14':        { width: 1200, height: 2670 },
+  'redminote14pro':  { width: 1220, height: 2712 },
+  'redminote14':     { width: 1080, height: 2400 },
+  'pocof7pro':       { width: 1440, height: 3200 },
+  'pocof7':          { width: 1080, height: 2400 },
+
+  // Nothing Phone
+  'nothing2a': { width: 1080, height: 2412 },
+  'nothing2':  { width: 1080, height: 2412 },
+  'nothing1':  { width: 1080, height: 2400 },
+
+  // Realme
+  'realmegtneo6': { width: 1264, height: 2780 },
+  'realme13pro':  { width: 1080, height: 2392 },
+
+  // Motorola
+  'motorizr50ultra': { width: 1080, height: 2640 },
+  'motoedge50ultra': { width: 1220, height: 2712 },
+
+  // Vivo
+  'vivo_x200pro': { width: 1260, height: 2800 },
+  'vivo_x200':    { width: 1260, height: 2800 },
+
+  // iQOO
+  'iqoo13': { width: 1440, height: 3168 },
+  'iqoo12': { width: 1440, height: 3168 },
 
   // Android Common Ratios
-  'android_20_9': { width: 1080, height: 2400 },
-  'android_19_5_9': { width: 1080, height: 2340 },
-  'android_16_9': { width: 1080, height: 1920 },
-  
+  'android_20_9':    { width: 1080, height: 2400 },
+  'android_19_5_9':  { width: 1080, height: 2340 },
+  'android_16_9':    { width: 1080, height: 1920 },
+
   'default': { width: 1080, height: 2400 }
 };
 

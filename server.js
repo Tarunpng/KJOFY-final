@@ -2,8 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const Razorpay = require('razorpay');
 const { generateWallpaper, resolutions } = require('./utils/wallpaperGenerator');
 
 const app = express();
@@ -13,6 +15,19 @@ if (!SECRET_KEY) throw new Error('JWT_SECRET environment variable is required');
 
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://kjofy-fin.vercel.app';
 const VALID_MODELS = new Set(Object.keys(resolutions));
+
+const RZP_KEY_ID = process.env.RAZORPAY_KEY_ID || '';
+const RZP_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || '';
+const PRICE_PAISE = 1900; // ₹19
+
+let rzp = null;
+if (RZP_KEY_ID && RZP_KEY_SECRET) {
+  try {
+    rzp = new Razorpay({ key_id: RZP_KEY_ID, key_secret: RZP_KEY_SECRET });
+  } catch(e) {
+    console.error('Razorpay init error:', e.message);
+  }
+}
 
 app.set('trust proxy', 1);
 app.use(cors({
@@ -188,6 +203,71 @@ app.get('/api/previews', (req, res) => {
     });
   } catch (e) {
     res.status(500).json({ error: 'Failed to load data' });
+  }
+});
+
+// 4. Subscription: Config
+app.get('/api/subscription/config', (req, res) => {
+  if (!RZP_KEY_ID) return res.status(503).json({ error: 'Payment not configured' });
+  res.json({ keyId: RZP_KEY_ID });
+});
+
+// 5. Subscription: Create Order
+app.post('/api/subscription/create-order', async (req, res) => {
+  if (!rzp) return res.status(503).json({ error: 'Payment not configured' });
+  const { seed } = req.body;
+  if (!seed || typeof seed !== 'string' || seed.length > 64) {
+    return res.status(400).json({ error: 'Invalid seed' });
+  }
+  try {
+    const order = await rzp.orders.create({
+      amount: PRICE_PAISE,
+      currency: 'INR',
+      receipt: `kjofy_${Date.now()}`,
+      notes: { seed },
+    });
+    res.json({ orderId: order.id, amount: order.amount, currency: order.currency });
+  } catch (e) {
+    console.error('Razorpay order error:', e);
+    res.status(500).json({ error: 'Could not create order' });
+  }
+});
+
+// 6. Subscription: Verify Payment
+app.post('/api/subscription/verify', (req, res) => {
+  if (!rzp) return res.status(503).json({ error: 'Payment not configured' });
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature, seed } = req.body;
+  if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !seed) {
+    return res.status(400).json({ error: 'Missing fields' });
+  }
+  const expected = crypto
+    .createHmac('sha256', RZP_KEY_SECRET)
+    .update(`${razorpay_order_id}|${razorpay_payment_id}`)
+    .digest('hex');
+  if (expected !== razorpay_signature) {
+    return res.status(400).json({ error: 'Invalid signature' });
+  }
+  const subToken = jwt.sign({ seed, subscribed: true, payment_id: razorpay_payment_id }, SECRET_KEY, { expiresIn: '10y' });
+  res.json({ subToken });
+});
+
+// 7. Subscription: Restore Access
+app.post('/api/subscription/restore', async (req, res) => {
+  if (!rzp) return res.status(503).json({ error: 'Payment not configured' });
+  const { payment_id, seed } = req.body;
+  if (!payment_id || !/^pay_[A-Za-z0-9]+$/.test(payment_id) || !seed || typeof seed !== 'string' || seed.length > 64) {
+    return res.status(400).json({ error: 'Invalid request' });
+  }
+  try {
+    const payment = await rzp.payments.fetch(payment_id);
+    if (payment.status !== 'captured' || payment.amount !== PRICE_PAISE || payment.currency !== 'INR') {
+      return res.status(400).json({ error: 'Payment not valid for this plan' });
+    }
+    const subToken = jwt.sign({ seed, subscribed: true, payment_id }, SECRET_KEY, { expiresIn: '10y' });
+    res.json({ subToken });
+  } catch (e) {
+    console.error('Razorpay restore error:', e);
+    res.status(400).json({ error: 'Payment not found or invalid' });
   }
 });
 
