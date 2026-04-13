@@ -2236,7 +2236,10 @@
       screenI.style.opacity = 0;
       const img = imageWallpapers[qi % imageWallpapers.length];
       const url = `/data/images/${img.filename}`;
-      preloadAndSwapImage(imgPreview, screenI, url);
+      setTimeout(() => {
+        imgPreview.style.backgroundImage = `url('${url}')`;
+        screenI.style.opacity = 1;
+      }, 350);
       for (let ahead = 1; ahead <= 3; ahead++) {
         const next = imageWallpapers[(qi + ahead) % imageWallpapers.length];
         preloadImage(`/data/images/${next.filename}`);
