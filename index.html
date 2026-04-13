@@ -2176,19 +2176,6 @@
       // Preload first 10 images immediately
       imageWallpapers.slice(0, 10).forEach(w => preloadImage(`/data/images/${w.filename}`));
 
-      // Show first image in mockup right away — same fade as Classic Dialogues
-      if (imageWallpapers.length > 0) {
-        const firstImg = imageWallpapers[0];
-        const screenI = document.getElementById('phonePreviewImage');
-        if (screenI) {
-          screenI.style.opacity = 0;
-          setTimeout(() => {
-            screenI.style.backgroundImage = `url('/data/images/${firstImg.filename}')`;
-            screenI.style.opacity = 1;
-          }, 350);
-        }
-      }
-
       if (quotes.length > 0) {
         startPreviewInterval();
       }
@@ -2200,10 +2187,14 @@
   loadPreviews();
 
   let previewPerm = [];
+  let imagePerm = [];
   let qi = 0;
   function startPreviewInterval() {
     if (quotes.length === 0) return;
     previewPerm = seededPermutation(quotes.length, USER_SEED);
+    if (imageWallpapers.length > 0) {
+      imagePerm = seededPermutation(imageWallpapers.length, USER_SEED + 'img');
+    }
     
     updateAllPreviews();
     
@@ -2235,14 +2226,16 @@
     const screenI = document.getElementById('phonePreviewImage');
     if (screenI && imageWallpapers.length > 0) {
       screenI.style.opacity = 0;
-      const img = imageWallpapers[qi % imageWallpapers.length];
+      const imgIdx = imagePerm.length > 0 ? imagePerm[qi % imagePerm.length] : qi % imageWallpapers.length;
+      const img = imageWallpapers[imgIdx];
       const url = `/data/images/${img.filename}`;
       setTimeout(() => {
         screenI.style.backgroundImage = `url('${url}')`;
         screenI.style.opacity = 1;
       }, 350);
       for (let ahead = 1; ahead <= 3; ahead++) {
-        const next = imageWallpapers[(qi + ahead) % imageWallpapers.length];
+        const nextIdx = imagePerm.length > 0 ? imagePerm[(qi + ahead) % imagePerm.length] : (qi + ahead) % imageWallpapers.length;
+        const next = imageWallpapers[nextIdx];
         preloadImage(`/data/images/${next.filename}`);
       }
     }
