@@ -112,7 +112,7 @@ async function generateWallpaper(quote, palette, modelKey) {
   ctx.fillStyle = palette.text;
   ctx.globalAlpha = 0.2;
   ctx.textAlign = 'center';
-  ctx.fillText('kjofy.com', centerX, res.height - brandSize * 4);
+  ctx.fillText('kjo-fy.in', centerX, res.height - brandSize * 4);
 
   return await canvas.toBuffer('jpg', { quality: 0.9 });
 }
