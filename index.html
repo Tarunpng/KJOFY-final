@@ -2080,8 +2080,9 @@
 
   // Initialise token asynchronously — wallpaper URL updates once ready
   let LINK_TOKEN = store.get('kjofy_link_token') || ''; // use cached immediately
-  getLinkToken().then(t => {
-    if (t) { LINK_TOKEN = t; updateUrl(); }
+  let LINK_TOKEN_READY = !!LINK_TOKEN;
+  const linkTokenPromise = getLinkToken().then(t => {
+    if (t) { LINK_TOKEN = t; LINK_TOKEN_READY = true; updateUrl(); popupUpdateUrl(); }
   });
 
 
@@ -2713,6 +2714,17 @@
       ? document.getElementById('popupIphoneModel').value
       : document.getElementById('popupAndroidModel').value;
     const urlEl = document.getElementById('popupUrlText');
+    const copyBtn = document.getElementById('popupCopyBtn');
+
+    if (!LINK_TOKEN_READY) {
+      if (urlEl) urlEl.textContent = 'Generating your link…';
+      if (copyBtn) copyBtn.disabled = true;
+      // Retry once token arrives
+      linkTokenPromise.then(() => popupUpdateUrl());
+      return;
+    }
+
+    if (copyBtn) copyBtn.disabled = false;
     const typeParam = currentType === 'image' ? '&type=image' : '';
     const subParam = (currentType === 'quote' && SUB_TOKEN) ? '&subToken=' + encodeURIComponent(SUB_TOKEN) : '';
     if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}${subParam}`;
