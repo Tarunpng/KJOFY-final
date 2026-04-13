@@ -15,7 +15,16 @@ const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://kjofy-fin.vercel.a
 const VALID_MODELS = new Set(Object.keys(resolutions));
 
 app.set('trust proxy', 1);
-app.use(cors({ origin: ALLOWED_ORIGIN }));
+app.use(cors({
+  origin: (requestOrigin, callback) => {
+    // Allow requests with no origin (iOS Shortcuts, Android apps, curl)
+    if (!requestOrigin || requestOrigin === ALLOWED_ORIGIN) {
+      callback(null, true);
+    } else {
+      callback(null, false);
+    }
+  }
+}));
 app.use(express.json());
 app.disable('x-powered-by');
 
