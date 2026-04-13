@@ -45,6 +45,14 @@ app.disable('x-powered-by');
 
 // Simple in-memory rate limiter for /api endpoints
 const rateLimitMap = new Map();
+// Purge stale entries every 5 minutes to prevent memory leak
+setInterval(() => {
+  const cutoff = Date.now() - 2 * 60 * 1000;
+  for (const [ip, entry] of rateLimitMap) {
+    if (entry.start < cutoff) rateLimitMap.delete(ip);
+  }
+}, 5 * 60 * 1000);
+
 app.use('/api', (req, res, next) => {
   const ip = req.ip || 'unknown';
   const now = Date.now();
@@ -103,9 +111,10 @@ const imageData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/imageWal
  * Seeded shuffle selection
  */
 function getDailyItem(items, seed, dateOffset = 0) {
-  const d = new Date();
-  d.setDate(d.getDate() + dateOffset);
-  const dateStr = d.toISOString().split('T')[0]; // YYYY-MM-DD
+  // Use IST (UTC+5:30) so wallpaper changes at midnight India time, not 5:30 AM
+  const d = new Date(Date.now() + 5.5 * 60 * 60 * 1000);
+  d.setUTCDate(d.getUTCDate() + dateOffset);
+  const dateStr = d.toISOString().split('T')[0]; // YYYY-MM-DD in IST
   
   // Create a combined seed from user seed and date
   const combined = seed + dateStr;
@@ -126,7 +135,8 @@ app.post('/api/issue-token', (req, res) => {
     return res.status(400).json({ error: 'Invalid seed' });
   }
 
-  const token = jwt.sign({ seed }, SECRET_KEY, { expiresIn: '90d' });
+  // 10y expiry — token is permanent, seed is permanent identity
+  const token = jwt.sign({ seed }, SECRET_KEY, { expiresIn: '10y' });
   res.json({ token });
 });
 
@@ -142,7 +152,17 @@ app.all('/api/wallpaper', async (req, res) => {
         const decoded = jwt.verify(token, SECRET_KEY);
         seed = decoded.seed;
       } catch (e) {
-        return res.status(401).json({ error: 'Invalid token' });
+        // If token is merely expired (not tampered), allow with seed from payload
+        if (e.name === 'TokenExpiredError') {
+          const decoded = jwt.decode(token);
+          if (decoded && decoded.seed) {
+            seed = decoded.seed;
+          } else {
+            return res.status(401).json({ error: 'Invalid token' });
+          }
+        } else {
+          return res.status(401).json({ error: 'Invalid token' });
+        }
       }
     }
     if (!seed || typeof seed !== 'string' || seed.length > 64) {
@@ -190,8 +210,11 @@ app.all('/api/wallpaper', async (req, res) => {
     const quote = getDailyItem(data.quotes, seed);
     const palette = getDailyItem(data.palettes, seed);
 
-    const imageBuffer = await generateWallpaper(quote, palette, safeModel);
-    
+    const imageBuffer = await Promise.race([
+      generateWallpaper(quote, palette, safeModel),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('Wallpaper generation timeout')), 15000))
+    ]);
+
     res.set('Content-Type', 'image/jpeg');
     res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
     res.send(imageBuffer);

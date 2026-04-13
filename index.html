@@ -2026,11 +2026,9 @@
     return ua + '|' + lang + '|' + tz + '|' + scr + '|' + canvas;
   }
   function getUserSeed() {
-    const SEED_TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 days
     let seed = store.get('kjofy_seed');
-    const created = store.get('kjofy_seed_created');
-    const expired = created && (Date.now() - new Date(created).getTime() > SEED_TTL_MS);
-    if (!seed || expired) {
+    // Seed never expires — it is the user's permanent identity
+    if (!seed) {
       const rnd = Array.from(crypto.getRandomValues(new Uint8Array(12)))
         .map(b => b.toString(36).padStart(2,'0'))
         .join('');
@@ -2038,16 +2036,14 @@
       const fp = hashSeed(generateFingerprint()).toString(36);
       seed = (rnd + ts + fp).slice(0, 16);
       store.set('kjofy_seed', seed);
-      store.set('kjofy_seed_created', new Date().toISOString());
     }
     return seed;
   }
   const USER_SEED = getUserSeed();
 
 
-  // FIX 4: Token is now issued by the server using HMAC-SHA256, not a 32-bit client hash.
-  // We store it in localStorage and refresh it when it's close to expiry (90 days).
-  const TOKEN_TTL_MS = 90 * 24 * 60 * 60 * 1000;
+  // Token is issued by the server, stored in localStorage, refreshed every ~1 year
+  const TOKEN_TTL_MS = 365 * 24 * 60 * 60 * 1000;
 
   async function issueServerToken(seed) {
     try {
