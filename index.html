@@ -243,6 +243,15 @@
     overflow: hidden;
     box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.3);
   }
+  @keyframes shimmer {
+    0% { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+  }
+  .wallpaper-img:empty, .wallpaper-img[style*="background-image: url('')"], .wallpaper-img:not([style*="background-image"]) {
+    background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s ease-in-out infinite;
+  }
   .phone-screen .quote-text {
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
@@ -2164,7 +2173,19 @@
       quotes = data.quotes;
       palettes = data.palettes;
       imageWallpapers = data.images || [];
-      imageWallpapers.slice(0, 5).forEach(w => preloadImage(`/data/images/${w.filename}`));
+
+      // Preload first 10 images immediately
+      imageWallpapers.slice(0, 10).forEach(w => preloadImage(`/data/images/${w.filename}`));
+
+      // Show first image in mockup right away — don't wait for the 4s interval
+      if (imageWallpapers.length > 0) {
+        const firstImg = imageWallpapers[0];
+        const screenI = document.getElementById('phonePreviewImage');
+        const imgPreview = document.getElementById('wallpaperImgPreview');
+        if (screenI && imgPreview) {
+          preloadAndSwapImage(imgPreview, screenI, `/data/images/${firstImg.filename}`);
+        }
+      }
 
       if (quotes.length > 0) {
         startPreviewInterval();
