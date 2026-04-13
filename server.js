@@ -76,6 +76,15 @@ app.use('/api', (req, res, next) => {
   next();
 });
 
+// Redirect all non-canonical requests to kjofy.com
+app.use((req, res, next) => {
+  const host = req.headers.host || '';
+  if (host && host !== 'kjofy.com' && host !== 'www.kjofy.com' && !host.startsWith('localhost')) {
+    return res.redirect(301, 'https://kjofy.com' + req.originalUrl);
+  }
+  next();
+});
+
 // Security headers
 app.use((req, res, next) => {
   res.set('X-Content-Type-Options', 'nosniff');
