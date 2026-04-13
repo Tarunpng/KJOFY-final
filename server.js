@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const SECRET_KEY = process.env.JWT_SECRET;
 if (!SECRET_KEY) throw new Error('JWT_SECRET environment variable is required');
 
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://kjofy-fin.vercel.app';
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || 'https://kjofy.com';
 const VALID_MODELS = new Set(Object.keys(resolutions));
 
 app.set('trust proxy', 1);
