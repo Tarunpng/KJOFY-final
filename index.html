@@ -2518,6 +2518,9 @@
     } else {
       nextBtn.textContent = 'Next';
     }
+
+    // Refresh URL whenever "Your Link" step (step 3) is shown
+    if (onbStep === 2) popupUpdateUrl();
   }
 
   document.addEventListener('keydown', function(e) {
