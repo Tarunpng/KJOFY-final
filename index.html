@@ -12,26 +12,14 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KJo-fy — Bollywood on your Lock Screen">
 <meta name="twitter:description" content="Iconic Bollywood dialogues on your lock screen, updated every morning.">
-<!-- Security headers -->
-<meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'self' 'unsafe-inline';
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  font-src https://fonts.gstatic.com;
-  img-src 'self' data:;
-  connect-src 'self';
-  frame-ancestors 'none';
-  object-src 'none';
-  base-uri 'self';
-">
-<meta name="referrer" content="no-referrer">
-<meta http-equiv="X-Frame-Options" content="DENY">
+<!-- Security headers are set server-side as HTTP response headers (X-Frame-Options, CSP, Referrer-Policy) -->
 <title>KJo-fy — Bollywood on your Lock Screen</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
 <style>
   html { scroll-behavior: smooth; }
   :root {
@@ -615,6 +603,9 @@
     gap: 16px;
     width: max-content;
     animation: marquee 40s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   .preview-scroll:hover {
     animation-play-state: paused;
@@ -635,8 +626,9 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     padding: 10px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
+    contain: layout style;
   }
   .preview-mini:hover {
     border-color: var(--border-hover);
@@ -1119,6 +1111,9 @@
     width: max-content;
     animation: popupMarquee 35s linear infinite;
     padding: 8px 0;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   .popup-preview-grid:hover {
     animation-play-state: paused;
@@ -1148,7 +1143,8 @@
     align-items: center;
     justify-content: center;
     padding: 10px 8px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    contain: layout style;
   }
   .popup-preview-card:hover {
     border-color: var(--border-hover);
@@ -1334,6 +1330,111 @@
   .popup-url-copy:hover { background: #f0c656; }
   .popup-url-copy.copied { background: var(--green); }
 
+  /* Subscription payment wall */
+  .sub-price-card {
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+  .sub-price-amount {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .sub-price-label {
+    font-size: 0.72rem;
+    color: var(--text-sub);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .sub-features {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .sub-features li {
+    font-size: 0.82rem;
+    color: var(--text-sub);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sub-pay-btn {
+    width: 100%;
+    background: var(--accent);
+    color: #0c0c0c;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+    letter-spacing: -0.01em;
+  }
+  .sub-pay-btn:hover:not(:disabled) { background: #a87848; }
+  .sub-pay-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .sub-note {
+    font-size: 0.68rem;
+    color: var(--text-sub);
+    text-align: center;
+    margin-top: 10px;
+    opacity: 0.7;
+  }
+  .sub-restore-toggle {
+    background: none;
+    border: none;
+    color: var(--text-sub);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    padding: 4px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .sub-restore-toggle:hover { opacity: 1; }
+  .restore-input-row { margin-bottom: 14px; }
+  .restore-input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .restore-input:focus { border-color: var(--accent); }
+  .restore-input::placeholder { color: #444; }
+  .restore-error {
+    font-size: 0.78rem;
+    color: var(--red, #e05252);
+    background: rgba(224,82,82,0.08);
+    border: 1px solid rgba(224,82,82,0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
   /* Popup install steps */
   .popup-install-steps {
     display: grid;
@@ -1454,7 +1555,7 @@
             </div>
           </div>
         </div>
-        <button class="install-cta" onclick="openOnboarding('quote')">Install <span class="install-arrow">&rsaquo;</span></button>
+        <button class="install-cta" onclick="openOnboarding('quote')">Install <span class="install-arrow">›</span></button>
       </div>
     </div>
 
@@ -1474,7 +1575,7 @@
             </div>
           </div>
         </div>
-        <button class="install-cta" onclick="openOnboarding('image')">Install <span class="install-arrow">&rsaquo;</span></button>
+        <button class="install-cta" onclick="openOnboarding('image')">Install <span class="install-arrow">›</span></button>
       </div>
     </div>
 
@@ -1555,7 +1656,7 @@
 <!-- ONBOARDING POPUP -->
 <div class="onboarding-overlay" id="onboardingOverlay" onclick="if(event.target===this)closeOnboarding()">
   <div class="onboarding-popup">
-    <button class="onboarding-close" onclick="closeOnboarding()">&times;</button>
+    <button class="onboarding-close" onclick="closeOnboarding()">×</button>
     <div class="onboarding-dots" id="onboardingDots">
       <div class="onboarding-dot active"></div>
       <div class="onboarding-dot"></div>
@@ -1576,35 +1677,68 @@
           </div>
         </div>
 
-        <!-- STEP 2: Config + Payment -->
+        <!-- STEP 2: Subscribe (Classic Dialogues only) / Config (Iconic Scenes) -->
         <div class="onboarding-step" id="popupStep2">
-          <div class="onboarding-step-title">Set up <span style="font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;font-style:normal;">KJo<span style="color:var(--accent);">-fy</span></span></div>
-          <div class="onboarding-step-sub">Pick your device to get your personal wallpaper link.</div>
-          <div class="popup-device-picker">
-            <button class="popup-device-btn active" id="popupBtnIphone" onclick="popupSwitchDevice('iphone')">iPhone</button>
-            <button class="popup-device-btn" id="popupBtnAndroid" onclick="popupSwitchDevice('android')">Android</button>
+
+          <!-- Subscription wall (shown for Classic Dialogues, hidden for Iconic Scenes) -->
+          <div id="subWall">
+            <div class="onboarding-step-title" style="margin-bottom:6px;">Unlock <em>Classic Dialogues</em></div>
+            <div class="onboarding-step-sub" style="margin-bottom:20px;">One-time unlock — yours forever.</div>
+            <div class="sub-price-card">
+              <div class="sub-price-amount">₹19</div>
+              <div class="sub-price-label">one-time · lifetime access</div>
+            </div>
+            <ul class="sub-features">
+              <li>✦ 500+ iconic Bollywood dialogues</li>
+              <li>✦ Your own personal daily shuffle</li>
+              <li>✦ Auto-updates lock screen every morning</li>
+              <li>✦ Works on iPhone &amp; Android</li>
+            </ul>
+            <button class="sub-pay-btn" id="subPayBtn" onclick="startPayment()">Pay ₹19 &amp; Unlock →</button>
+            <div class="sub-note">Powered by Razorpay · UPI, Cards, Net Banking</div>
+            <div class="sub-note" style="margin-top:6px; color: var(--text-sub);">⚠ Complete setup in this browser — switching browsers will lose your access.</div>
+            <button class="sub-restore-toggle" onclick="toggleRestoreForm()">Already paid? Restore access →</button>
           </div>
-          <div class="popup-field" id="popupIphoneField">
-            <label>iPhone Model</label>
-            <select id="popupIphoneModel"></select>
+
+          <!-- Restore access form -->
+          <div id="restoreForm" style="display:none;">
+            <div class="onboarding-step-title" style="margin-bottom:6px;">Restore <em>Access</em></div>
+            <div class="onboarding-step-sub" style="margin-bottom:16px;">Enter the Razorpay payment ID from your confirmation email.</div>
+            <div class="restore-input-row">
+              <input type="text" id="restorePaymentId" class="restore-input" placeholder="pay_XXXXXXXXXXXXXXXXXX" autocomplete="off" spellcheck="false" />
+            </div>
+            <button class="sub-pay-btn" id="restoreBtn" onclick="restoreAccess()">Restore Access →</button>
+            <div id="restoreError" class="restore-error" style="display:none;"></div>
+            <button class="sub-restore-toggle" style="margin-top:12px;" onclick="toggleRestoreForm()">← Back to payment</button>
           </div>
-          <div class="popup-field" id="popupAndroidField" style="display:none;">
-            <label>Android Model</label>
-            <select id="popupAndroidModel"></select>
+
+          <!-- Shown after successful payment -->
+          <div id="subSuccess" style="display:none; text-align:center; padding: 16px 0;">
+            <div style="font-size:2rem; margin-bottom:8px;">🎉</div>
+            <div style="font-size:1.1rem; font-weight:700; color:var(--green); margin-bottom:6px;">You're subscribed!</div>
+            <div style="font-size:0.8rem; color:var(--text-sub); margin-bottom:10px;">Classic Dialogues unlocked. Tap Next to get your link.</div>
+            <div style="font-size:0.72rem; color:var(--text-sub); background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px 12px; text-align:left;">⚠ <strong>Don't switch browsers.</strong> Your access is tied to this browser. Copy your link now and save it in your Shortcut or MacroDroid.</div>
           </div>
-          <div class="popup-payment" id="popupPayment" style="background:transparent;border:none;padding:8px 0 0;">
-            <div class="popup-features">
-              <div>Bollywood dialogues</div>
-              <div>Your personal shuffle — no two users alike</div>
-              <div>Auto-updates your lock screen daily</div>
-              <div>Works on iPhone &amp; Android</div>
+
+          <!-- Config form (shown always, but blocked by payment wall for quotes) -->
+          <div id="popupConfigForm" style="display:none;">
+            <div class="onboarding-step-title">Set up <span style="font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:-0.03em;font-style:normal;">KJo<span style="color:var(--accent);">-fy</span></span></div>
+            <div class="onboarding-step-sub">Pick your device to get your personal wallpaper link.</div>
+            <div class="popup-device-picker">
+              <button class="popup-device-btn active" id="popupBtnIphone" onclick="popupSwitchDevice('iphone')">iPhone</button>
+              <button class="popup-device-btn" id="popupBtnAndroid" onclick="popupSwitchDevice('android')">Android</button>
+            </div>
+            <div class="popup-field" id="popupIphoneField">
+              <label>iPhone Model</label>
+              <select id="popupIphoneModel"></select>
+            </div>
+            <div class="popup-field" id="popupAndroidField" style="display:none;">
+              <label>Android Model</label>
+              <select id="popupAndroidModel"></select>
             </div>
           </div>
-          <div id="popupPaidMsg" style="display:none;text-align:center;padding:16px 0;">
-            <div style="font-size:1.2rem;margin-bottom:4px;">&#10003;</div>
-            <div style="font-size:0.85rem;font-weight:600;color:var(--green);">You're all set!</div>
-            <div style="font-size:0.72rem;color:var(--text-tertiary);margin-top:4px;">Tap Next to get your personal link.</div>
-          </div>
+          <div id="popupPayment" style="display:none;"></div>
+          <div id="popupPaidMsg" style="display:none;"></div>
         </div>
 
         <!-- STEP 3: Your Link -->
@@ -1655,7 +1789,7 @@
 <footer>
   <div class="footer-logo"><span class="logo-kjo">KJo</span><span class="logo-fy">-fy</span></div>
   <p class="footer-tagline">Bollywood on your lock screen. Every single morning.</p>
-  <p class="footer-copy">&copy; 2026 KJo-fy. All rights reserved.</p>
+  <p class="footer-copy">© 2026 KJo-fy. All rights reserved.</p>
 
   <div style="margin-top:14px;max-width:560px;margin-left:auto;margin-right:auto;">
     <button
@@ -1689,7 +1823,7 @@
 </footer>
 
 <!-- Back to Top -->
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0});">&uarr;</button>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0});">↑</button>
 
 <script>
   // ─── Safe Storage Helper ───
@@ -2001,8 +2135,6 @@
   let dialogueWallpapers = [];
 
   // ─── SECURITY: Safe HTML helpers — only <br> tags are allowed ───
-  // Prevents XSS if quote data ever comes from an external source (API, database, user input).
-  // Never use .innerHTML with untrusted content; these helpers reconstruct DOM safely.
   function safeSetQuoteHTML(el, rawText) {
     el.textContent = '';
     const parts = String(rawText).split('<br>');
@@ -2019,7 +2151,6 @@
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
   }
-  // Allows only <br>; escapes everything else — safe for .innerHTML string-building contexts
   function safeQuoteCardHTML(rawText) {
     return String(rawText).split('<br>').map(escapeHTML).join('<br>');
   }
@@ -2033,9 +2164,9 @@
       quotes = data.quotes;
       palettes = data.palettes;
       imageWallpapers = data.images || [];
+      imageWallpapers.slice(0, 5).forEach(w => preloadImage(`/data/images/${w.filename}`));
 
       if (quotes.length > 0) {
-        // initPopupPreview(currentType); // Removed - called by openOnboarding
         startPreviewInterval();
       }
     } catch (e) {
@@ -2045,15 +2176,12 @@
 
   loadPreviews();
 
-  // ─── Seeded preview shuffle (uses user's own seed so preview matches their actual wallpaper order) ───
-  
   let previewPerm = [];
   let qi = 0;
   function startPreviewInterval() {
     if (quotes.length === 0) return;
     previewPerm = seededPermutation(quotes.length, USER_SEED);
     
-    // Initial content
     updateAllPreviews();
     
     setInterval(() => {
@@ -2068,7 +2196,6 @@
     const q = quotes[shuffledIdx];
     const p = palettes[shuffledIdx % palettes.length];
     
-    // 1. Update Quote Preview
     const screenQ = document.getElementById('phonePreviewQuote');
     if (screenQ) {
       screenQ.style.opacity = 0;
@@ -2082,36 +2209,85 @@
       }, 350);
     }
 
-    // 2. Update Image Preview
     const screenI = document.getElementById('phonePreviewImage');
     const imgPreview = document.getElementById('wallpaperImgPreview');
-    // const titleI = document.getElementById('imagePreviewTitle'); // Removed
     if (screenI && imgPreview && imageWallpapers.length > 0) {
       screenI.style.opacity = 0;
-      setTimeout(() => {
-        const img = imageWallpapers[qi % imageWallpapers.length];
-        imgPreview.style.backgroundImage = `url('/data/images/${img.filename}')`;
-        // if (titleI) titleI.textContent = img.title || ''; // Removed
-        screenI.style.opacity = 1;
-      }, 350);
+      const img = imageWallpapers[qi % imageWallpapers.length];
+      const url = `/data/images/${img.filename}`;
+      preloadAndSwapImage(imgPreview, screenI, url);
+      for (let ahead = 1; ahead <= 3; ahead++) {
+        const next = imageWallpapers[(qi + ahead) % imageWallpapers.length];
+        preloadImage(`/data/images/${next.filename}`);
+      }
     }
   }
 
-  // Mockups are updated via updateAllPreviews
+  const imageLazyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const bg = card.dataset.bg;
+        if (bg && !card.style.backgroundImage) {
+          const img = new Image();
+          img.decoding = 'async';
+          img.onload = () => { card.style.backgroundImage = `url('${bg}')`; };
+          img.src = bg;
+        }
+        imageLazyObserver.unobserve(card);
+      }
+    });
+  }, { rootMargin: '80px' });
+
+  function observeLazyImageCards(container) {
+    container.querySelectorAll('[data-bg]').forEach(card => {
+      imageLazyObserver.observe(card);
+    });
+  }
+
+  const marqueeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      entry.target.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+    });
+  }, { threshold: 0 });
+
+  function observeMarquees() {
+    document.querySelectorAll('.preview-scroll, .popup-preview-grid').forEach(el => {
+      marqueeObserver.observe(el);
+    });
+  }
+  observeMarquees();
+
+  function preloadImage(url) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.src = url;
+  }
+
+  function preloadAndSwapImage(el, container, url) {
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = () => {
+      el.style.backgroundImage = `url('${url}')`;
+      container.style.opacity = 1;
+    };
+    img.onerror = () => {
+      el.style.backgroundImage = `url('${url}')`;
+      container.style.opacity = 1;
+    };
+    img.src = url;
+  }
 
   // ─── Onboarding Popup System ───
   let onbStep = 0;
   const onbTotalSteps = 4;
   let popupDevice = 'iphone';
 
-  // Populate popup model selects from the main selects
   (function initPopupSelects() {
     const srcIphone = document.getElementById('iphoneModel');
     const srcAndroid = document.getElementById('androidRes');
     const dstIphone = document.getElementById('popupIphoneModel');
     const dstAndroid = document.getElementById('popupAndroidModel');
-    // cloneNode(true) copies the subtree without re-parsing it as HTML, so no injected
-    // markup in option values can be promoted into executable DOM nodes.
     if (srcIphone && dstIphone) {
       while (dstIphone.firstChild) dstIphone.removeChild(dstIphone.firstChild);
       Array.from(srcIphone.options).forEach(opt => dstIphone.appendChild(opt.cloneNode(true)));
@@ -2120,28 +2296,22 @@
       while (dstAndroid.firstChild) dstAndroid.removeChild(dstAndroid.firstChild);
       Array.from(srcAndroid.options).forEach(opt => dstAndroid.appendChild(opt.cloneNode(true)));
     }
-    // Sync selections
     if (dstIphone) dstIphone.value = srcIphone.value;
     if (dstAndroid) dstAndroid.value = srcAndroid.value;
-    // Listen for changes to update URL
     if (dstIphone) dstIphone.addEventListener('change', popupUpdateUrl);
     if (dstAndroid) dstAndroid.addEventListener('change', popupUpdateUrl);
   })();
 
-  // Populate preview grids in popup (two horizontal marquee rows)
   function initPopupPreview(type) {
     const grid1 = document.getElementById('popupPreviewGrid');
     const grid2 = document.getElementById('popupPreviewGrid2');
     if (!grid1) return;
 
-    // Clear existing
     grid1.innerHTML = '';
     if (grid2) grid2.innerHTML = '';
 
-    // 12 palettes — all must be used, guaranteed round-robin, no card left colourless
     const palettes = ['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12'];
 
-    // Function to build cards for horizontal marquee rows
     function buildCards(items, startPaletteOffset, isImage) {
       const frag = document.createDocumentFragment();
       items.forEach((item, i) => {
@@ -2150,13 +2320,11 @@
         card.className = 'popup-preview-card ' + (isImage ? '' : pClass);
         
         if (isImage) {
-          card.style.backgroundImage = `url('/data/images/${item.filename}')`;
+          card.dataset.bg = `/data/images/${item.filename}`;
           card.style.backgroundSize = 'cover';
           card.style.backgroundPosition = 'center';
           card.style.padding = '0';
           card.style.border = 'none';
-          
-          // Title overlay removed per user request
         } else {
           const inner = document.createElement('div');
           inner.className = 'ppq';
@@ -2183,8 +2351,9 @@
         grid2.appendChild(buildCards(row2, 3, true));
         grid2.appendChild(buildCards(row2, 3, true));
       }
+      observeLazyImageCards(grid1);
+      if (grid2) observeLazyImageCards(grid2);
     } else {
-      // Row 1: dialogues 0–14, Row 2: dialogues 15–29 from the fetched quotes
       const row1 = quotes.slice(0, 15);
       const row2 = quotes.slice(15, 30);
 
@@ -2196,6 +2365,7 @@
         grid2.appendChild(buildCards(row2, 3, false));
       }
     }
+    observeMarquees();
   }
 
   function popupSwitchDevice(device) {
@@ -2204,7 +2374,6 @@
     document.getElementById('popupBtnAndroid').classList.toggle('active', device === 'android');
     document.getElementById('popupIphoneField').style.display = device === 'iphone' ? '' : 'none';
     document.getElementById('popupAndroidField').style.display = device === 'android' ? '' : 'none';
-    // Also update install step (step 4)
     document.getElementById('popupInstallIphone').style.display = device === 'iphone' ? '' : 'none';
     document.getElementById('popupInstallAndroid').style.display = device === 'android' ? '' : 'none';
     const titleEm = document.getElementById('popupInstallTitle');
@@ -2216,26 +2385,10 @@
       titleEm.appendChild(em);
     }
     popupUpdateUrl();
-    // Sync with main page selects
     switchDevice(device);
   }
 
-  function popupUpdateUrl() {
-    const model = popupDevice === 'iphone'
-      ? document.getElementById('popupIphoneModel').value
-      : document.getElementById('popupAndroidModel').value;
-    const urlEl = document.getElementById('popupUrlText');
-    const typeParam = currentType === 'image' ? '&type=image' : '';
-    // FIX 1: seed + token now sent via POST body, not URL params
-    if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}`;
-    // Sync main page
-    if (popupDevice === 'iphone') {
-      document.getElementById('iphoneModel').value = model;
-    } else {
-      document.getElementById('androidRes').value = model;
-    }
-    updateUrl();
-  }
+  function popupUpdateUrl() { /* overridden below by subscription-aware version */ }
 
   function popupCopyUrl() {
     const btn = document.getElementById('popupCopyBtn');
@@ -2251,8 +2404,6 @@
       btn.classList.add('copied');
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     }).catch(() => {
-      // SECURITY: execCommand('copy') is deprecated and removed in some browsers.
-      // Fall back to selecting the text so the user can copy it manually.
       btn.textContent = 'Select & copy ↑';
       const urlEl = document.getElementById('popupUrlText');
       const range = document.createRange();
@@ -2263,25 +2414,12 @@
     });
   }
 
-  // openOnboarding moved to top scope
-
   function closeOnboarding() {
     document.getElementById('onboardingOverlay').classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  function onbNext() {
-    if (!RateLimiter.check('onb_nav', 30, 60 * 1000)) {
-      return;
-    }
-    if (onbStep < onbTotalSteps - 1) {
-      onbStep++;
-      updateOnbUI();
-    } else {
-      // Last step — close
-      closeOnboarding();
-    }
-  }
+  function onbNext() { /* overridden below by subscription logic */ }
 
   function onbPrev() {
     if (!RateLimiter.check('onb_nav', 30, 60 * 1000)) {
@@ -2294,11 +2432,9 @@
   }
 
   function updateOnbUI() {
-    // Move track
     const track = document.getElementById('onboardingTrack');
     track.style.transform = 'translateX(-' + (onbStep * 100) + '%)';
 
-    // Update dots
     const dots = document.querySelectorAll('#onboardingDots .onboarding-dot');
     dots.forEach((dot, i) => {
       dot.classList.remove('active', 'done');
@@ -2306,7 +2442,6 @@
       else if (i < onbStep) dot.classList.add('done');
     });
 
-    // Update buttons
     const backBtn = document.getElementById('onbBtnBack');
     const nextBtn = document.getElementById('onbBtnNext');
     backBtn.style.display = onbStep === 0 ? 'none' : '';
@@ -2318,10 +2453,206 @@
     }
   }
 
-  // Close on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeOnboarding();
   });
+
+  // ─── Subscription / Payment ───
+  let SUB_TOKEN = store.get('kjofy_sub_token') || null;
+  let rzpKeyId = null;
+
+  (async function loadRzpConfig() {
+    try {
+      const res = await fetch('/api/subscription/config');
+      if (res.ok) {
+        const cfg = await res.json();
+        rzpKeyId = cfg.keyId;
+      }
+    } catch(e) {}
+  })();
+
+  function isSubscribed() {
+    return !!SUB_TOKEN;
+  }
+
+  function showStep2(type) {
+    const subWall = document.getElementById('subWall');
+    const subSuccess = document.getElementById('subSuccess');
+    const configForm = document.getElementById('popupConfigForm');
+
+    if (type === 'image') {
+      subWall.style.display = 'none';
+      subSuccess.style.display = 'none';
+      configForm.style.display = '';
+    } else {
+      if (isSubscribed()) {
+        subWall.style.display = 'none';
+        subSuccess.style.display = '';
+        configForm.style.display = '';
+      } else {
+        subWall.style.display = '';
+        subSuccess.style.display = 'none';
+        configForm.style.display = 'none';
+      }
+    }
+  }
+
+  function onbNext() {
+    if (!RateLimiter.check('onb_nav', 30, 60 * 1000)) return;
+    if (onbStep === 0) {
+      onbStep++;
+      updateOnbUI();
+      showStep2(currentType);
+      return;
+    }
+    if (onbStep === 1 && currentType === 'quote' && !isSubscribed()) {
+      const btn = document.getElementById('subPayBtn');
+      if (btn) { btn.style.outline = '2px solid var(--accent)'; setTimeout(() => btn.style.outline = '', 800); }
+      return;
+    }
+    if (onbStep < onbTotalSteps - 1) {
+      onbStep++;
+      updateOnbUI();
+    } else {
+      closeOnboarding();
+    }
+  }
+
+  async function startPayment() {
+    if (!rzpKeyId) {
+      alert('Payment system is loading, please try again in a moment.');
+      return;
+    }
+    const btn = document.getElementById('subPayBtn');
+    btn.disabled = true;
+    btn.textContent = 'Opening checkout…';
+    try {
+      const res = await fetch('/api/subscription/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ seed: USER_SEED }),
+      });
+      if (!res.ok) throw new Error('Order failed');
+      const order = await res.json();
+
+      const options = {
+        key: rzpKeyId,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'KJo-fy',
+        description: 'Classic Dialogues — Lifetime Access',
+        order_id: order.orderId,
+        theme: { color: '#C8965A' },
+        modal: { ondismiss: () => { btn.disabled = false; btn.textContent = 'Pay ₹19 & Unlock →'; } },
+        handler: async function(response) {
+          btn.textContent = 'Verifying…';
+          try {
+            const vRes = await fetch('/api/subscription/verify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+                seed: USER_SEED,
+              }),
+            });
+            const vData = await vRes.json();
+            if (!vRes.ok || !vData.subToken) throw new Error(vData.error || 'Verification failed');
+            SUB_TOKEN = vData.subToken;
+            store.set('kjofy_sub_token', SUB_TOKEN);
+            document.getElementById('subWall').style.display = 'none';
+            document.getElementById('subSuccess').style.display = '';
+            document.getElementById('popupConfigForm').style.display = '';
+            popupUpdateUrl();
+          } catch(e) {
+            btn.disabled = false;
+            btn.textContent = 'Pay ₹19 & Unlock →';
+            alert('Payment verification failed. Please contact support.');
+          }
+        },
+      };
+      const rzp = new Razorpay(options);
+      rzp.open();
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = 'Pay ₹19 & Unlock →';
+      alert('Could not start payment. Please try again.');
+    }
+  }
+
+  function toggleRestoreForm() {
+    const wall = document.getElementById('subWall');
+    const form = document.getElementById('restoreForm');
+    const wallVisible = wall.style.display !== 'none';
+    wall.style.display = wallVisible ? 'none' : '';
+    form.style.display = wallVisible ? '' : 'none';
+    if (!wallVisible) {
+      document.getElementById('restorePaymentId').value = '';
+      document.getElementById('restoreError').style.display = 'none';
+    }
+  }
+
+  async function restoreAccess() {
+    const input = document.getElementById('restorePaymentId');
+    const btn = document.getElementById('restoreBtn');
+    const errEl = document.getElementById('restoreError');
+    const payId = input.value.trim();
+
+    errEl.style.display = 'none';
+    if (!payId || !/^pay_[A-Za-z0-9]+$/.test(payId)) {
+      errEl.textContent = 'Please enter a valid payment ID (starts with pay_).';
+      errEl.style.display = '';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Verifying…';
+
+    try {
+      const res = await fetch('/api/subscription/restore', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ payment_id: payId, seed: USER_SEED }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.subToken) {
+        errEl.textContent = data.error || 'Verification failed. Please try again.';
+        errEl.style.display = '';
+        btn.disabled = false;
+        btn.textContent = 'Restore Access →';
+        return;
+      }
+      SUB_TOKEN = data.subToken;
+      store.set('kjofy_sub_token', SUB_TOKEN);
+      document.getElementById('restoreForm').style.display = 'none';
+      document.getElementById('subSuccess').style.display = '';
+      document.getElementById('popupConfigForm').style.display = '';
+      popupUpdateUrl();
+    } catch(e) {
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.style.display = '';
+      btn.disabled = false;
+      btn.textContent = 'Restore Access →';
+    }
+  }
+
+  // Subscription-aware popupUpdateUrl (overrides stub above)
+  function popupUpdateUrl() {
+    const model = popupDevice === 'iphone'
+      ? document.getElementById('popupIphoneModel').value
+      : document.getElementById('popupAndroidModel').value;
+    const urlEl = document.getElementById('popupUrlText');
+    const typeParam = currentType === 'image' ? '&type=image' : '';
+    const subParam = (currentType === 'quote' && SUB_TOKEN) ? '&subToken=' + encodeURIComponent(SUB_TOKEN) : '';
+    if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}${subParam}`;
+    if (popupDevice === 'iphone') {
+      document.getElementById('iphoneModel').value = model;
+    } else {
+      document.getElementById('androidRes').value = model;
+    }
+    updateUrl();
+  }
 </script>
 </body>
 </html>
