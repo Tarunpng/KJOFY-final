@@ -1574,8 +1574,7 @@
       <div class="wallpaper-card" id="wallpaperCardImage">
         <div class="card-phone">
           <div class="phone-mockup">
-            <div class="phone-screen" id="phonePreviewImage" style="background: #000;">
-              <div class="wallpaper-img" id="wallpaperImgPreview" style="width:100%; height:100%; background-size:cover; background-position:center; position:absolute; top:0; left:0; z-index:0;"></div>
+            <div class="phone-screen" id="phonePreviewImage" style="background: #111; background-size:cover; background-position:center;">
               <div class="lock-screen-info" style="position:relative; z-index:2;">
                 <div class="lock-time">3:32</div>
                 <div class="lock-daydate">Thursday, Mar 26</div>
@@ -2177,13 +2176,16 @@
       // Preload first 10 images immediately
       imageWallpapers.slice(0, 10).forEach(w => preloadImage(`/data/images/${w.filename}`));
 
-      // Show first image in mockup right away — don't wait for the 4s interval
+      // Show first image in mockup right away — same fade as Classic Dialogues
       if (imageWallpapers.length > 0) {
         const firstImg = imageWallpapers[0];
         const screenI = document.getElementById('phonePreviewImage');
-        const imgPreview = document.getElementById('wallpaperImgPreview');
-        if (screenI && imgPreview) {
-          preloadAndSwapImage(imgPreview, screenI, `/data/images/${firstImg.filename}`);
+        if (screenI) {
+          screenI.style.opacity = 0;
+          setTimeout(() => {
+            screenI.style.backgroundImage = `url('/data/images/${firstImg.filename}')`;
+            screenI.style.opacity = 1;
+          }, 350);
         }
       }
 
@@ -2231,13 +2233,12 @@
     }
 
     const screenI = document.getElementById('phonePreviewImage');
-    const imgPreview = document.getElementById('wallpaperImgPreview');
-    if (screenI && imgPreview && imageWallpapers.length > 0) {
+    if (screenI && imageWallpapers.length > 0) {
       screenI.style.opacity = 0;
       const img = imageWallpapers[qi % imageWallpapers.length];
       const url = `/data/images/${img.filename}`;
       setTimeout(() => {
-        imgPreview.style.backgroundImage = `url('${url}')`;
+        screenI.style.backgroundImage = `url('${url}')`;
         screenI.style.opacity = 1;
       }, 350);
       for (let ahead = 1; ahead <= 3; ahead++) {
