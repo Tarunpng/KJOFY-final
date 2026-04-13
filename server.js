@@ -68,7 +68,17 @@ app.use('/api', (req, res, next) => {
   next();
 });
 
-// Global No-Cache for development
+// Security headers
+app.use((req, res, next) => {
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.set('X-Frame-Options', 'DENY');
+  res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  res.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' https://checkout.razorpay.com; connect-src 'self' https://api.razorpay.com; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline'; frame-src https://api.razorpay.com;");
+  next();
+});
+
+// Global No-Cache for API routes
 app.use((req, res, next) => {
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
   next();
