@@ -2044,8 +2044,9 @@
   const USER_SEED = getUserSeed();
 
 
-  // Token is issued by the server, stored in localStorage, refreshed every ~1 year
+  // Token valid for 365 days, refresh after 300 days (65 day buffer)
   const TOKEN_TTL_MS = 365 * 24 * 60 * 60 * 1000;
+  const TOKEN_REFRESH_MS = 300 * 24 * 60 * 60 * 1000;
 
   async function issueServerToken(seed) {
     try {
@@ -2070,8 +2071,8 @@
     const token = store.get('kjofy_link_token');
     const issued = parseInt(store.get('kjofy_link_token_issued') || '0', 10);
     const age = Date.now() - issued;
-    // Reuse if token exists and is less than 80 days old (refresh 10 days before expiry)
-    if (token && age < TOKEN_TTL_MS * (80 / 90)) return token;
+    // Reuse if token exists and is less than 300 days old (refresh 65 days before expiry)
+    if (token && age < TOKEN_REFRESH_MS) return token;
     // Issue a fresh server-signed token
     return await issueServerToken(USER_SEED);
   }

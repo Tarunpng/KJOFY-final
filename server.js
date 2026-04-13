@@ -135,8 +135,7 @@ app.post('/api/issue-token', (req, res) => {
     return res.status(400).json({ error: 'Invalid seed' });
   }
 
-  // 10y expiry — token is permanent, seed is permanent identity
-  const token = jwt.sign({ seed }, SECRET_KEY, { expiresIn: '10y' });
+  const token = jwt.sign({ seed }, SECRET_KEY, { expiresIn: '365d' });
   res.json({ token });
 });
 
