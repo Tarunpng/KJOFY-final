@@ -22,6 +22,7 @@ async function upload() {
         access: 'public',
         contentType: 'image/jpeg',
         addRandomSuffix: false,
+        allowOverwrite: true,
       });
       console.log(`[${i + 1}/${total}] quote_${i}.jpg → ${blob.url}`);
       results.push({ index: i, url: blob.url });
