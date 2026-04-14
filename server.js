@@ -154,20 +154,16 @@ app.all('/api/wallpaper', async (req, res) => {
     // Get parameters from query or body
     let { seed, model, token } = { ...req.query, ...req.body };
 
-    // If token is provided, verify it
+    // If token is provided, verify it — always fall back to decoded seed so
+    // old tokens (issued before a JWT_SECRET rotation) never break the Shortcut
     if (token) {
       try {
         const decoded = jwt.verify(token, SECRET_KEY);
         seed = decoded.seed;
       } catch (e) {
-        // If token is merely expired (not tampered), allow with seed from payload
-        if (e.name === 'TokenExpiredError') {
-          const decoded = jwt.decode(token);
-          if (decoded && decoded.seed) {
-            seed = decoded.seed;
-          } else {
-            return res.status(401).json({ error: 'Invalid token' });
-          }
+        const decoded = jwt.decode(token);
+        if (decoded && decoded.seed && typeof decoded.seed === 'string' && decoded.seed.length <= 64) {
+          seed = decoded.seed;
         } else {
           return res.status(401).json({ error: 'Invalid token' });
         }
