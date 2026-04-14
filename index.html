@@ -2224,7 +2224,7 @@
       imageWallpapers = data.images || [];
 
       // Preload first 10 images immediately
-      imageWallpapers.slice(0, 10).forEach(w => preloadImage(`/data/images/${w.filename}`));
+      imageWallpapers.slice(0, 10).forEach(w => w.url && preloadImage(w.url));
 
       if (quotes.length > 0) {
         startPreviewInterval();
@@ -2278,7 +2278,7 @@
       screenI.style.opacity = 0;
       const imgIdx = imagePerm.length > 0 ? imagePerm[qi % imagePerm.length] : qi % imageWallpapers.length;
       const img = imageWallpapers[imgIdx];
-      const url = `/data/images/${img.filename}`;
+      const url = img.url;
       setTimeout(() => {
         screenI.style.backgroundImage = `url('${url}')`;
         screenI.style.opacity = 1;
@@ -2286,7 +2286,7 @@
       for (let ahead = 1; ahead <= 3; ahead++) {
         const nextIdx = imagePerm.length > 0 ? imagePerm[(qi + ahead) % imagePerm.length] : (qi + ahead) % imageWallpapers.length;
         const next = imageWallpapers[nextIdx];
-        preloadImage(`/data/images/${next.filename}`);
+        if (next.url) preloadImage(next.url);
       }
     }
   }
@@ -2388,7 +2388,7 @@
         card.className = 'popup-preview-card ' + (isImage ? '' : pClass);
         
         if (isImage) {
-          card.dataset.bg = `/data/images/${item.filename}`;
+          card.dataset.bg = item.url || '';
           card.style.backgroundSize = 'cover';
           card.style.backgroundPosition = 'center';
           card.style.padding = '0';

@@ -108,10 +108,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Only serve these specific directories as static
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/favicon.svg', (req, res) => res.sendFile(path.join(__dirname, 'favicon.svg')));
-app.use('/data/images', express.static(path.join(__dirname, 'data/images')));
 
 // Load data
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/quotes.json'), 'utf8'));
@@ -206,21 +204,11 @@ app.all('/api/wallpaper', async (req, res) => {
     if (type === 'image') {
       const wallpaper = getDailyItem(imageData.wallpapers, seed);
 
-      // If Blob URL is available, redirect to it
-      if (wallpaper.url) {
-        res.set('Cache-Control', 'public, max-age=3600');
-        return res.redirect(302, wallpaper.url);
+      if (!wallpaper.url) {
+        return res.status(404).json({ error: 'Wallpaper not found' });
       }
-
-      // Fallback: serve from local filesystem
-      const imagePath = path.join(__dirname, 'data/images', wallpaper.filename);
-      if (fs.existsSync(imagePath)) {
-        res.set('Content-Type', 'image/jpeg');
-        res.set('Cache-Control', 'public, max-age=3600');
-        return res.sendFile(imagePath);
-      } else {
-        return res.status(404).json({ error: 'Wallpaper image not found' });
-      }
+      res.set('Cache-Control', 'public, max-age=3600');
+      return res.redirect(302, wallpaper.url);
     }
 
     // Select daily quote and palette
