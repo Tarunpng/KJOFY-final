@@ -1,4 +1,12 @@
-const { Canvas } = require('skia-canvas');
+const { Canvas, FontLibrary } = require('skia-canvas');
+const path = require('path');
+
+// Register bundled font so text renders on serverless environments
+try {
+  FontLibrary.use('Poppins', [path.join(__dirname, '../fonts/Poppins-Bold.ttf')]);
+} catch(e) {
+  console.error('Font registration failed:', e.message);
+}
 
 const resolutions = {
   // iPhone 16 Series
@@ -199,7 +207,7 @@ async function generateWallpaper(quote, palette, modelKey) {
   // 2. Draw Quote
   const fontSize = Math.floor(res.width * 0.08); // Responsive font size
   ctx.fillStyle = palette.text;
-  const fontStyle = `bold ${fontSize}px sans-serif`;
+  const fontStyle = `bold ${fontSize}px Poppins`;
   
   // Center is roughly vertically centered but slightly higher to avoid overlapping with bottom gestures
   const centerX = res.width / 2;
@@ -209,11 +217,11 @@ async function generateWallpaper(quote, palette, modelKey) {
 
   // 4. Branding
   const brandSize = Math.floor(res.width * 0.03);
-  ctx.font = `${brandSize}px sans-serif`;
+  ctx.font = `${brandSize}px Poppins`;
   ctx.fillStyle = palette.text;
   ctx.globalAlpha = 0.2;
   ctx.textAlign = 'center';
-  ctx.fillText('kjo-fy.in', centerX, res.height - brandSize * 4);
+  ctx.fillText('kjofy.com', centerX, res.height - brandSize * 4);
 
   return await canvas.toBuffer('jpg', { quality: 0.9 });
 }
