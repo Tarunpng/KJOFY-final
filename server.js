@@ -148,6 +148,18 @@ app.post('/api/issue-token', (req, res) => {
   res.json({ token });
 });
 
+// Short URL: /w?s=seed&m=model&t=image
+app.all('/w', (req, res) => {
+  const s = req.query.s || req.body?.s;
+  const m = req.query.m || req.body?.m;
+  const t = req.query.t || req.body?.t;
+  if (!s) return res.status(400).json({ error: 'Missing seed' });
+  const params = new URLSearchParams({ seed: s });
+  if (m) params.set('model', m);
+  if (t) params.set('type', t);
+  res.redirect(302, '/api/wallpaper?' + params.toString());
+});
+
 // 2. Wallpaper Endpoint (POST for Shortcut, GET for testing)
 app.all('/api/wallpaper', async (req, res) => {
   try {

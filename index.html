@@ -2122,8 +2122,8 @@
 
   function updateUrl() {
     const model = currentDevice === 'iphone' ? modelSelect.value : androidRes.value;
-    const typeParam = currentType === 'image' ? '&type=image' : '';
-    urlText.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}`;
+    const typeParam = currentType === 'image' ? '&t=image' : '';
+    urlText.textContent = `${window.location.origin}/w?s=${USER_SEED}&m=${model}${typeParam}`;
   }
 
   function openOnboarding(type) {
@@ -2725,9 +2725,8 @@
     }
 
     if (copyBtn) copyBtn.disabled = false;
-    const typeParam = currentType === 'image' ? '&type=image' : '';
-    const subParam = (currentType === 'quote' && SUB_TOKEN) ? '&subToken=' + encodeURIComponent(SUB_TOKEN) : '';
-    if (urlEl) urlEl.textContent = `${window.location.origin}/api/wallpaper?token=${LINK_TOKEN}&model=${model}${typeParam}${subParam}`;
+    const typeParam = currentType === 'image' ? '&t=image' : '';
+    if (urlEl) urlEl.textContent = `${window.location.origin}/w?s=${USER_SEED}&m=${model}${typeParam}`;
     if (popupDevice === 'iphone') {
       document.getElementById('iphoneModel').value = model;
     } else {
