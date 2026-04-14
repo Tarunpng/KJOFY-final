@@ -6,8 +6,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const Razorpay = require('razorpay');
-const { put, head } = require('@vercel/blob');
-const { generateWallpaper, resolutions } = require('./utils/wallpaperGenerator');
+const { resolutions } = require('./utils/wallpaperGenerator');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -114,26 +113,26 @@ app.get('/favicon.svg', (req, res) => res.sendFile(path.join(__dirname, 'favicon
 // Load data
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/quotes.json'), 'utf8'));
 const imageData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/imageWallpapers.json'), 'utf8'));
+const dialogueUrls = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/dialogueWallpapers.json'), 'utf8'));
 
 /**
  * Seeded shuffle selection
  */
-function getDailyItem(items, seed, dateOffset = 0) {
-  // Use IST (UTC+5:30) so wallpaper changes at midnight India time, not 5:30 AM
+function getDailyIndex(items, seed, dateOffset = 0) {
   const d = new Date(Date.now() + 5.5 * 60 * 60 * 1000);
   d.setUTCDate(d.getUTCDate() + dateOffset);
-  const dateStr = d.toISOString().split('T')[0]; // YYYY-MM-DD in IST
-  
-  // Create a combined seed from user seed and date
+  const dateStr = d.toISOString().split('T')[0];
   const combined = seed + dateStr;
   let hash = 0;
   for (let i = 0; i < combined.length; i++) {
     hash = ((hash << 5) - hash) + combined.charCodeAt(i);
     hash |= 0;
   }
-  
-  const index = Math.abs(hash) % items.length;
-  return items[index];
+  return Math.abs(hash) % items.length;
+}
+
+function getDailyItem(items, seed, dateOffset = 0) {
+  return items[getDailyIndex(items, seed, dateOffset)];
 }
 
 // 1. Issue Token
@@ -193,12 +192,10 @@ app.all('/api/wallpaper', async (req, res) => {
       if (isNaN(idx) || idx < 0 || idx >= data.quotes.length) {
         return res.status(400).json({ error: 'Invalid quote index' });
       }
-      const quote = data.quotes[idx];
-      const palette = data.palettes[idx % data.palettes.length];
-      const imageBuffer = await generateWallpaper(quote, palette, safeModel);
-      res.set('Content-Type', 'image/jpeg');
-      res.set('Cache-Control', 'public, max-age=86400'); // Cache for 24 hours as these are static definitions
-      return res.send(imageBuffer);
+      const blobUrl = dialogueUrls[idx];
+      if (!blobUrl) return res.status(404).json({ error: 'Wallpaper not found' });
+      res.set('Cache-Control', 'public, max-age=86400');
+      return res.redirect(302, blobUrl);
     }
 
     if (type === 'image') {
@@ -211,40 +208,17 @@ app.all('/api/wallpaper', async (req, res) => {
       return res.redirect(302, wallpaper.url);
     }
 
-    // Select daily quote and palette
-    const quote = getDailyItem(data.quotes, seed);
-    const palette = getDailyItem(data.palettes, seed);
-
-    // Check blob cache for this seed+model+date combo
-    const istDate = new Date(Date.now() + 5.5 * 60 * 60 * 1000).toISOString().split('T')[0];
-    const blobKey = `dialogues/${istDate}/${seed.slice(0,8)}_${safeModel}.jpg`;
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
-      try {
-        const existing = await head(blobKey);
-        if (existing && existing.url) {
-          res.set('Cache-Control', 'public, max-age=3600');
-          return res.redirect(302, existing.url);
-        }
-      } catch (_) { /* not cached yet */ }
+    // Classic Dialogues — served directly from Vercel Blob (pre-generated)
+    const quoteIndex = getDailyIndex(data.quotes, seed);
+    const blobUrl = dialogueUrls[quoteIndex];
+    if (!blobUrl) {
+      return res.status(404).json({ error: 'Wallpaper not found' });
     }
-
-    const imageBuffer = await Promise.race([
-      generateWallpaper(quote, palette, safeModel),
-      new Promise((_, reject) => setTimeout(() => reject(new Error('Wallpaper generation timeout')), 15000))
-    ]);
-
-    // Upload to blob cache (fire-and-forget)
-    if (process.env.BLOB_READ_WRITE_TOKEN) {
-      put(blobKey, imageBuffer, { access: 'public', contentType: 'image/jpeg', addRandomSuffix: false })
-        .catch(e => console.error('Blob cache upload failed:', e.message));
-    }
-
-    res.set('Content-Type', 'image/jpeg');
-    res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
-    res.send(imageBuffer);
+    res.set('Cache-Control', 'public, max-age=86400');
+    return res.redirect(302, blobUrl);
   } catch (error) {
-    console.error('Wallpaper generation error:', error);
-    res.status(500).json({ error: 'Failed to generate wallpaper' });
+    console.error('Wallpaper error:', error);
+    res.status(500).json({ error: 'Failed to serve wallpaper' });
   }
 });
 
