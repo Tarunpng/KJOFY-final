@@ -183,7 +183,6 @@ app.all('/api/wallpaper', async (req, res) => {
       return res.status(400).json({ error: 'Invalid seed' });
     }
 
-    const safeModel = VALID_MODELS.has(model) ? model : 'default';
     const { type, index } = { ...req.query, ...req.body };
 
     // New: Request a specific quote by index (for previews/static-like usage)
