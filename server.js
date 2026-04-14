@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const Razorpay = require('razorpay');
+const { put, head } = require('@vercel/blob');
 const { generateWallpaper, resolutions } = require('./utils/wallpaperGenerator');
 
 const app = express();
@@ -226,10 +227,29 @@ app.all('/api/wallpaper', async (req, res) => {
     const quote = getDailyItem(data.quotes, seed);
     const palette = getDailyItem(data.palettes, seed);
 
+    // Check blob cache for this seed+model+date combo
+    const istDate = new Date(Date.now() + 5.5 * 60 * 60 * 1000).toISOString().split('T')[0];
+    const blobKey = `dialogues/${istDate}/${seed.slice(0,8)}_${safeModel}.jpg`;
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      try {
+        const existing = await head(blobKey);
+        if (existing && existing.url) {
+          res.set('Cache-Control', 'public, max-age=3600');
+          return res.redirect(302, existing.url);
+        }
+      } catch (_) { /* not cached yet */ }
+    }
+
     const imageBuffer = await Promise.race([
       generateWallpaper(quote, palette, safeModel),
       new Promise((_, reject) => setTimeout(() => reject(new Error('Wallpaper generation timeout')), 15000))
     ]);
+
+    // Upload to blob cache (fire-and-forget)
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      put(blobKey, imageBuffer, { access: 'public', contentType: 'image/jpeg', addRandomSuffix: false })
+        .catch(e => console.error('Blob cache upload failed:', e.message));
+    }
 
     res.set('Content-Type', 'image/jpeg');
     res.set('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
